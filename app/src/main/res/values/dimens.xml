@@ -1,0 +1,47 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="divider_size">1px</dimen>
+
+    <dimen name="spacing_micro">4dp</dimen>
+    <dimen name="spacing_minor">3dp</dimen>
+    <dimen name="spacing_major">9dp</dimen>
+    <dimen name="spacing_massive">15dp</dimen>
+
+    <dimen name="font_larger">22sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_normal">15sp</dimen>
+    <dimen name="font_small">13sp</dimen>
+    <dimen name="font_smaller">12sp</dimen>
+
+    <dimen name="cell_larger">80dp</dimen>
+    <dimen name="cell_large">60dp</dimen>
+    <dimen name="cell_normal">45dp</dimen>
+    <dimen name="cell_small">30dp</dimen>
+
+    <dimen name="corner_radius">4.0px</dimen>
+    <dimen name="corner_large">8.0px</dimen>
+    <dimen name="corner_larger">12.0px</dimen>
+
+    <dimen name="common_loading_progress_size">45dp</dimen>
+
+    <dimen name="list_normal">14sp</dimen>
+    <dimen name="list_small">12sp</dimen>
+
+    <dimen name="movieitem_image_width">80dp</dimen>
+    <dimen name="movieitem_image_height">60dp</dimen>
+
+    <dimen name="dp_14">14dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_14">14sp</dimen>
+</resources>

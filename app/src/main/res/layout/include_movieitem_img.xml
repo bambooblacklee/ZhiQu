@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.bamboolmc.zhiqu.widget.PicassoImageView
+        android:id="@+id/img_photo_useless"
+        android:layout_width="@dimen/movieitem_image_width"
+        android:layout_height="@dimen/movieitem_image_height"
+        tools:src="@mipmap/ic_launcher"
+        android:background="@drawable/shape_photo_bg"
+        />
+
+</merge>
