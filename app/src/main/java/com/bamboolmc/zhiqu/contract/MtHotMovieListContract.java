@@ -14,17 +14,23 @@ public interface MtHotMovieListContract {
 
         void showMtHotMovieList(List<MtHotMovieListBean.DataBean.HotBean> hot);
 
-        void showMoreMtHotMovieList(List<MtHotMovieListBean.DataBean.MoviesBean> movies);
+        void showMoreMtHotMovieList(List<MtHotMovieListBean.DataBean.HotBean> movies);
 
         void showMovieIds(List<Integer> movieIds);
+
+        void loadMoreError();
+
+        void loadMoreComplete();
+
+        void showContent();
 
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {
 
-        void getMtHotMovieList(int ci,int limit);
+        void getMtHotMovieList(int ci, int limit);
 
-        void getMtMoreHotMovieList(int ci,int headline,String movieIds);
+        void getMtMoreHotMovieList(int ci, int headline, String movieIds);
     }
 
 }

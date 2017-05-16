@@ -22,6 +22,7 @@ public class RxPresenter <T extends BaseContract.BaseView> implements BaseContra
     @Override
     public void detachView() {
         this.mView = null;
+        unSubScribe();
     }
 
     protected void addSubScribe(Subscription subscription){

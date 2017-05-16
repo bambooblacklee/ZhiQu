@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bamboolmc.zhiqu.R;
-import com.bamboolmc.zhiqu.base.BaseFragment;
+import com.bamboolmc.zhiqu.base.MtBaseFragment;
 import com.bamboolmc.zhiqu.widget.CustomViewPager;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
@@ -21,7 +21,7 @@ import butterknife.BindView;
  * SmartTabLayout 三种设置属性方式:xml 两种setCustomTabView
  * 参考自:https://github.com/ogaclejapan/SmartTabLayout
  */
-public class MTMovieFragment extends BaseFragment {
+public class MtMovieFragment extends MtBaseFragment {
 
     @BindView(R.id.drive_viewpager)
     CustomViewPager mDriveViewPager;
@@ -47,12 +47,12 @@ public class MTMovieFragment extends BaseFragment {
     @Override
     public void initView() {
         final LayoutInflater inflater = LayoutInflater.from(getActivity());
-        final int[] tabTitles = {R.string.tab_movie_top, R.string.tab_movie_soon, R.string.tab_movie_ongo};
+        final int[] tabTitles = {R.string.tab_movie_hot, R.string.tab_movie_hot, R.string.tab_movie_hot};
 
         FragmentPagerItems pages = FragmentPagerItems.with(getActivity())
-                .add(R.string.tab_movie_top, MovieTopFragment.class)
-                .add(R.string.tab_movie_soon, MovieTopFragment.class)
-                .add(R.string.tab_movie_ongo, MovieTopFragment.class)
+                .add(R.string.tab_movie_hot, MtHotMovieFragment.class)
+                .add(R.string.tab_movie_hot, MtHotMovieFragment.class)
+                .add(R.string.tab_movie_hot, MtHotMovieFragment.class)
                 .create();
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getChildFragmentManager(),
@@ -76,8 +76,7 @@ public class MTMovieFragment extends BaseFragment {
     }
 
     @Override
-    public void initData() {
+    protected void loadData() {
 
     }
-
 }

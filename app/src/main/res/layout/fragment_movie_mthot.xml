@@ -11,18 +11,17 @@
         android:layout_height="match_parent">
 
         <com.bamboolmc.zhiqu.widget.refresh.RefreshLayout
-            android:id="@+id/refresh_layout"
+            android:id="@+id/refresh_layout_mthot"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view"
+                android:id="@+id/rv_movie_mthot"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
         </com.bamboolmc.zhiqu.widget.refresh.RefreshLayout>
 
     </com.bamboolmc.zhiqu.widget.MultiStateView>
-
 
 </LinearLayout>

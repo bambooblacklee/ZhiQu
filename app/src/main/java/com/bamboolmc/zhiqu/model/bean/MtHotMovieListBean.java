@@ -36,7 +36,7 @@ public class MtHotMovieListBean {
         @SerializedName("stids")
         List<StidsBean> stids;
         @SerializedName("movies")
-        List<MoviesBean> movies;
+        List<HotBean> movies;
 
         public String getStid() {
             return stid;
@@ -62,7 +62,7 @@ public class MtHotMovieListBean {
             return stids;
         }
 
-        public List<MoviesBean> getMovies() {
+        public List<HotBean> getMovies() {
             return movies;
         }
 
@@ -90,7 +90,7 @@ public class MtHotMovieListBean {
             this.stids = stids;
         }
 
-        public void setMovies(List<MoviesBean> movies) {
+        public void setMovies(List<HotBean> movies) {
             this.movies = movies;
         }
 

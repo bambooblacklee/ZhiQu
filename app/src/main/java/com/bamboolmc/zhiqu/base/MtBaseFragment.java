@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +20,9 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Created by limc on 17/4/15.
+ * Created by limc on 17/5/13.
  */
-public abstract class  BaseFragment extends Fragment {
+public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> extends Fragment {
 
     @Nullable
     @BindView(R.id.toolbar)
@@ -31,79 +30,63 @@ public abstract class  BaseFragment extends Fragment {
 
     protected View mParentView;
     protected Unbinder mUnbinder;
+    protected T mPresenter;
+    //是否正在加载
+    protected boolean isLoad;
+    //是否初始化完毕
+    protected boolean isInit;
+
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        Log.d("TAG","onAttach() is begin");
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("TAG","onCreate() is begin");
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        lazyLoadData();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mParentView = inflater.inflate(getLayoutResId(), container, false);
-        Log.d("TAG","onCreateView() is begin");
+        isInit = true;
         return mParentView;
-
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.d("TAG","onViewCreated() is begin");
         mUnbinder = ButterKnife.bind(this, view);
         initToolbar();
         //Dagger inject
         setComponentInject();
-        //presenter与view attach
+        //presenter与view attach,子类直接调用Rxpresenter中的attachView即可
         attachView();
-        //初始化数据
-        initData();
         //各种控件进行设置适配填充
         initView();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d("TAG","onStart() is begin");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("TAG","onResume() is begin");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("TAG","onPause() is begin");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.d("TAG","onStop() is begin");
+        //懒加载添加数据
+        lazyLoadData();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("TAG","onDestroyView() is begin");
         mUnbinder.unbind();
+        isInit = false;
+        isLoad = false;
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("TAG","onDestroy() is begin");
         RefWatcher refWatcher = ZhiQuApplication.getRefWatcher(getActivity());
         refWatcher.watch(this);
     }
@@ -111,7 +94,6 @@ public abstract class  BaseFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d("TAG","onDetach() is begin");
     }
 
     protected void initToolbar() {
@@ -141,6 +123,31 @@ public abstract class  BaseFragment extends Fragment {
         return ((BaseActivity) getActivity()).getSupportActionBar();
     }
 
+    protected void lazyLoadData() {
+        if (!isInit) {
+            return;
+        }
+        if (getUserVisibleHint()) {
+            loadData();
+            isLoad = true;
+        } else {
+            if (isLoad) {
+                stopLoad();
+                isLoad = false;
+            }
+        }
+
+    }
+
+    /**
+     * 取消加载
+     *
+     * @return
+     */
+    protected void stopLoad() {
+
+    }
+
     @LayoutRes
     public abstract int getLayoutResId();
 
@@ -148,7 +155,11 @@ public abstract class  BaseFragment extends Fragment {
 
     public abstract void attachView();
 
-    public abstract void initData();
-
     public abstract void initView();
+
+    /**
+     * 加载数据,懒加载模式已经在LazyLoaddata里面实现
+     */
+    protected abstract void loadData();
+
 }

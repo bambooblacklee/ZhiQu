@@ -5,13 +5,16 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseItemType;
 import com.bamboolmc.zhiqu.model.bean.MtHotMovieListBean;
+import com.bamboolmc.zhiqu.util.ImgResetUtil;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by limc on 17/5/11.
@@ -41,6 +44,16 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
         if (item.getSc() == 0 && item.getPreSale() == 0) {
             helper.setText(R.id.tv_hot_audience, "暂无评分");
         }
+
+        //显示图片
+        String img = ImgResetUtil.resetPicUrl(item.getImg(),".webp@171w_240h_1e_1c_1l");
+        Picasso.with(mContext)
+                .load(img)
+                .error(R.mipmap.ic_launcher)
+                .placeholder(R.mipmap.ic_launcher)
+                .resizeDimen(R.dimen.movieitem_image_width, R.dimen.movieitem_image_height)
+                .centerCrop()
+                .into((ImageView) helper.getView(R.id.iv_hot_img));
 
         //一个TextView里显示不同的字体
         TextView tv = helper.getView(R.id.tv_hot_audience);
@@ -83,7 +96,15 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
         });
 
 
-
     }
 
+//    @Override
+//    public void loadMoreEnd() {
+//        if (.)
+//        if (getFooterLayoutCount() == 0){
+//            addFooterView()
+//        }
+//
+//
+//    }
 }

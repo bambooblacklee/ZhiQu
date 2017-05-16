@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseActivity;
-import com.bamboolmc.zhiqu.ui.fragment.MTMovieFragment;
+import com.bamboolmc.zhiqu.ui.fragment.MtMovieFragment;
 import com.bamboolmc.zhiqu.ui.fragment.MovieFragment;
 import com.bamboolmc.zhiqu.ui.fragment.NewsFragment;
 import com.bamboolmc.zhiqu.ui.fragment.UserFragment;
@@ -72,7 +72,8 @@ public class MainActivity extends BaseActivity {
         FragmentPagerItems pages = FragmentPagerItems.with(this)
                 .add(R.string.tab_movie, MovieFragment.class)
                 .add(R.string.tab_news, NewsFragment.class)
-                .add(R.string.tab_drive, MTMovieFragment.class)
+                .add(R.string.tab_drive, MtMovieFragment.class)
+//                .add(R.string.tab_drive, MtMovieFragment.class)
                 .add(R.string.tab_me, UserFragment.class)
                 .create();
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(

@@ -122,6 +122,7 @@ public class LoadMoreWrapperAdapter<T> extends BaseWrapperAdapter<T> {
     }
 
     public interface OnLoadMoreListener {
+
         void onLoadMore();
     }
 
