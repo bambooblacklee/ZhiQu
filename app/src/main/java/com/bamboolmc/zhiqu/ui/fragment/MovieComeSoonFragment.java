@@ -54,7 +54,7 @@ public class MovieComeSoonFragment extends BaseRvFragment<MovieComeSoonPresenter
 
     @Override
     public void onItemClick(int position) {
-        MovieDetailActivity.startActivity(getActivity(),mAdapter.getItem(position).getId());
+        MovieDetailActivity.start(getActivity(),mAdapter.getItem(position).getId());
 
     }
 }

@@ -9,4 +9,8 @@ public interface BaseItemType {
     int TYPE_HOT_HEADLINE = 0;
     int TYPE_HOT_NORMAL = 1;
 
+    //视频/图片
+    int TYPE_MOVIE_DETAIL_VIDEO = 0;
+    int TYPE_MOVIE_DETAIL_PHOTO = 1;
+
 }

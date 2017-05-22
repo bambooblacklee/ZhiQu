@@ -1,6 +1,17 @@
 package com.bamboolmc.zhiqu.network.api;
 
 import com.bamboolmc.zhiqu.model.bean.MtHotMovieListBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieAwardsBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieBasicBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieLongCommentBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieMoneyBoxBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieProCommentBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieRelInformationBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieRelMovieBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieRelTopicBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieResourceBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieStarBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieTipsBean;
 import com.bamboolmc.zhiqu.network.HttpConfig;
 import com.bamboolmc.zhiqu.network.service.MtMovieApiService;
 
@@ -47,4 +58,49 @@ public class MtMovieApi {
     public Observable<MtHotMovieListBean> getMoreMtHotMovieList(int ci, int headline, String movieIds) {
         return mMtMovieApiService.getMoreMtHotMovieList(ci, headline, movieIds);
     }
+
+    public Observable<MtMovieBasicBean> getMtMovieBasic (int movieId){
+        return mMtMovieApiService.getMtMovieBasic(movieId);
+    }
+
+    public Observable<MtMovieTipsBean> getMtMovieTips (int movieId){
+        return mMtMovieApiService.getMtMovieTips(movieId);
+    }
+
+    public Observable<MtMovieMoneyBoxBean> getMtMovieBox (int movieId){
+        return mMtMovieApiService.getMtMovieBox(movieId);
+    }
+
+    public Observable<MtMovieStarBean> getMtMovieStarList (int movieId){
+        return mMtMovieApiService.getMtMovieStarList(movieId);
+    }
+
+    public Observable<MtMovieAwardsBean> getMtMovieAwards (int movieId){
+        return mMtMovieApiService.getMtMovieAwards(movieId);
+    }
+
+    public Observable<MtMovieResourceBean> getMtMovieResource (int movieId){
+        return mMtMovieApiService.getMtMovieResource(movieId);
+    }
+
+    public Observable<MtMovieLongCommentBean> getMtMovieLongComment (int movieId){
+        return mMtMovieApiService.getMtMovieLongComment(movieId);
+    }
+
+    public Observable<MtMovieProCommentBean> getMtMovieProComment (int movieId){
+        return mMtMovieApiService.getMtMovieProComment(movieId,0,3);
+    }
+
+    public Observable<MtMovieRelInformationBean> getMtMovieRelInformation (int movieId){
+        return mMtMovieApiService.getMtMovieRelInformation(movieId);
+    }
+
+    public Observable<MtMovieRelMovieBean> getMtMovieRelMovie (int movieId){
+        return mMtMovieApiService.getMtMovieRelMovie(movieId);
+    }
+
+    public Observable<MtMovieRelTopicBean> getMtMovieRelTopic (int movieId){
+        return mMtMovieApiService.getMtMovieRelTopic(movieId);
+    }
+
 }

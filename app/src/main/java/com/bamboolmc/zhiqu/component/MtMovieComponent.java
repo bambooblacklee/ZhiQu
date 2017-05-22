@@ -1,6 +1,7 @@
 package com.bamboolmc.zhiqu.component;
 
 import com.bamboolmc.zhiqu.module.ApiModule;
+import com.bamboolmc.zhiqu.ui.activity.MtMovieDetailActivity;
 import com.bamboolmc.zhiqu.ui.fragment.MtHotMovieFragment;
 
 import dagger.Component;
@@ -12,4 +13,5 @@ import dagger.Component;
 public interface MtMovieComponent {
 //    void inject(MovieFragment fragment);
     void inject(MtHotMovieFragment fragment);
+    void inject(MtMovieDetailActivity activity);
 }

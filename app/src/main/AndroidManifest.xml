@@ -29,7 +29,9 @@
             android:name=".ui.activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ui.activity.MovieDetailActivity" />
-        <activity android:name=".ui.activity.TestActivity"></activity>
+        <activity android:name=".ui.activity.TestActivity" />
+        <activity android:name=".ui.activity.MtMovieDetailActivity" />
+        <activity android:name=".ui.activity.MtMovieStarActivity"></activity>
     </application>
 
 </manifest>

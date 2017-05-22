@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+
 import butterknife.BindView;
 
 /**
@@ -146,7 +147,7 @@ public class MtHotMovieFragment extends MtBaseFragment<MtHotMovieListPresenter>
             mRefreshLayout.setRefreshing(false);
         }
 
-        if (isDisplayError()) {
+        if (mMultiStateView.getState() != MultiStateView.STATE_CONTENT) {
             mMultiStateView.setState(MultiStateView.STATE_ERROR)
                     .setIcon(R.mipmap.ic_exception)
                     .setTitle(R.string.label_error_network_is_bad)
@@ -169,7 +170,7 @@ public class MtHotMovieFragment extends MtBaseFragment<MtHotMovieListPresenter>
         if (mCurrentPage < mPages) {
             mMtHotMovieListAdapter.loadMoreComplete();
             mCurrentPage += 1;
-        } else if(mCurrentPage == mPages){
+        } else if (mCurrentPage == mPages) {
             mMtHotMovieListAdapter.loadMoreComplete();
             mMtHotMovieListAdapter.loadMoreEnd();
         }
@@ -213,11 +214,4 @@ public class MtHotMovieFragment extends MtBaseFragment<MtHotMovieListPresenter>
         return mMultiStateView.getState() == MultiStateView.STATE_CONTENT
                 || mMultiStateView.getState() == MultiStateView.STATE_EMPTY;
     }
-
-    //判断与设置错误状态
-    protected boolean isDisplayError() {
-        return mMultiStateView.getState() != MultiStateView.STATE_CONTENT;
-    }
-
-
 }

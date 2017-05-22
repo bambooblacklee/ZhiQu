@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseItemType;
 import com.bamboolmc.zhiqu.model.bean.MtHotMovieListBean;
+import com.bamboolmc.zhiqu.ui.activity.MtMovieDetailActivity;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -28,7 +29,7 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, MtHotMovieListBean.DataBean.HotBean item) {
+    protected void convert(BaseViewHolder helper, final MtHotMovieListBean.DataBean.HotBean item) {
         helper.setText(R.id.tv_hot_movie_name, String.format("%s", item.getNm()))
                 .setText(R.id.tv_hot_desc, String.format("%s", item.getScm()))
                 .setText(R.id.tv_hot_showInfo, String.format("%s", item.getShowInfo()));
@@ -46,7 +47,7 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
         }
 
         //显示图片
-        String img = ImgResetUtil.resetPicUrl(item.getImg(),".webp@171w_240h_1e_1c_1l");
+        String img = ImgResetUtil.resetPicUrl(item.getImg(), ".webp@171w_240h_1e_1c_1l");
         Picasso.with(mContext)
                 .load(img)
                 .error(R.mipmap.ic_launcher)
@@ -69,11 +70,16 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
 
         switch (helper.getItemViewType()) {
             case BaseItemType.TYPE_HOT_HEADLINE:
-                helper.setText(R.id.tv_hot_type1, String.format("%s", item.getHeadLinesVO().get(0).getType()))
-                        .setText(R.id.tv_hot_type2, String.format("%s", item.getHeadLinesVO().get(1).getType()))
-                        .setText(R.id.tv_hot_headline_title1, String.format("%s", item.getHeadLinesVO().get(0).getTitle()))
-                        .setText(R.id.tv_hot_headline_title2, String.format("%s", item.getHeadLinesVO().get(1).getTitle()));
-
+                if (item.getHeadLinesVO().size() > 1) {
+                    helper.setText(R.id.tv_hot_type1, String.format("%s", item.getHeadLinesVO().get(0).getType()))
+                            .setText(R.id.tv_hot_type2, String.format("%s", item.getHeadLinesVO().get(1).getType()))
+                            .setText(R.id.tv_hot_headline_title1, String.format("%s", item.getHeadLinesVO().get(0).getTitle()))
+                            .setText(R.id.tv_hot_headline_title2, String.format("%s", item.getHeadLinesVO().get(1).getTitle()));
+                } else if (item.getHeadLinesVO().size() == 1) {
+                    helper.getView(R.id.ll_hot_head2).setVisibility(View.GONE);
+                    helper.setText(R.id.tv_hot_type1, String.format("%s", item.getHeadLinesVO().get(0).getType()))
+                            .setText(R.id.tv_hot_headline_title1, String.format("%s", item.getHeadLinesVO().get(0).getTitle()));
+                }
                 helper.getView(R.id.tv_hot_headline_title1).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -91,7 +97,8 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
         helper.convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                MovieDetailActivity.start(mContext, item.getId());
+//                MtMovieDetailActivity.startActivity(mContext, item.getId());
+                MtMovieDetailActivity.startActivity(mContext, item.getId());
             }
         });
 

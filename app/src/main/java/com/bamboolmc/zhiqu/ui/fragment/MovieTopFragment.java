@@ -55,7 +55,7 @@ public class MovieTopFragment extends BaseRvFragment<MovieTopPresenter, Movie> i
     @Override
     public void onItemClick(int position) {
         //获取item内容,并且取有用的值传递到下一个界面
-        MovieDetailActivity.startActivity(getActivity(),mAdapter.getItem(position).getId());
+        MovieDetailActivity.start(getActivity(),mAdapter.getItem(position).getId());
 
     }
 
