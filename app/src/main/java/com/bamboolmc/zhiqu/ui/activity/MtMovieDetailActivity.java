@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -19,6 +18,7 @@ import android.widget.TextView;
 
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseActivity;
+import com.bamboolmc.zhiqu.base.BaseWebViewActivity;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtMovieDetailContract;
 import com.bamboolmc.zhiqu.model.bean.MtMovieAwardsBean;
@@ -45,6 +45,7 @@ import com.bamboolmc.zhiqu.ui.adapter.MtMovieStarAdapter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieTipAdapter;
 import com.bamboolmc.zhiqu.util.FastBlurUtil;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
+import com.bamboolmc.zhiqu.util.StringUtil;
 import com.bamboolmc.zhiqu.util.ToastUtil;
 import com.bamboolmc.zhiqu.widget.ExpandTextView;
 import com.bamboolmc.zhiqu.widget.MultiStateView;
@@ -206,8 +207,6 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
     @BindView(R.id.rv_movie_photos)
     RecyclerView mRvMoviePhotos;
 
-
-
     @Inject
     MtMovieDetailPresenter mPresenter;
 
@@ -224,12 +223,11 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-
+        mMultiStateView.setState(MultiStateView.STATE_CONTENT);
     }
 
     @Override
     protected void initData() {
-        mMultiStateView.setState(MultiStateView.STATE_CONTENT);
         movieId = getIntent().getIntExtra(MOVIE_ID, 0);
         mPresenter.getMovieBasicTipStarPhoto(movieId);
         mPresenter.getMovieMusicMoneyAwardResource(movieId);
@@ -342,11 +340,12 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
     }
 
     @Override
-    public void showMovieMoneyBox(MtMovieMoneyBoxBean movieMoneyBoxBean) {
+    public void showMovieMoneyBox(final MtMovieMoneyBoxBean movieMoneyBoxBean) {
         mRlMoneyBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                BaseWebViewActivity.start(mContext, moneyBoxBean.getUrl(), mMovieName);
+                //不含名称的
+                BaseWebViewActivity.startActivity(getBaseContext(), movieMoneyBoxBean.getUrl());
             }
         });
         if (movieMoneyBoxBean.getMbox().
@@ -426,19 +425,19 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
             public void onClick(String type) {
                 switch (type) {
                     case "highlights":
-//                        MovieResourceActivity.start(mContext, movieId, "highlights");
+                        MtMovieResourceActivity.startActivity(getBaseContext(), movieId, "highlights");
                         break;
                     case "technicals":
-//                        MovieResourceActivity.start(mContext, movieId, "technicals");
+                        MtMovieResourceActivity.startActivity(getBaseContext(), movieId, "technicals");
                         break;
                     case "dialogues":
-//                        MovieResourceActivity.start(mContext, movieId, "dialogues");
+                        MtMovieResourceActivity.startActivity(getBaseContext(), movieId, "dialogues");
                         break;
                     case "relatedCompanies":
-//                        MovieResourceActivity.start(mContext, movieId, "relatedCompanies");
+                        MtMovieResourceActivity.startActivity(getBaseContext(), movieId, "relatedCompanies");
                         break;
                     case "parentguidances":
-//                        MovieResourceActivity.start(mContext, movieId, "parentguidances");
+                        MtMovieResourceActivity.startActivity(getBaseContext(), movieId, "parentguidances");
                         break;
                 }
             }
@@ -454,7 +453,6 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
     public void showMovieProComment(MtMovieProCommentBean movieProCommentBean) {
         if (movieProCommentBean.getData().size() == 0) {
             mLlProComment.setVisibility(View.GONE);
-            return;
         }
         mRvMovieProComment.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         mRvMovieProComment.setNestedScrollingEnabled(false);
@@ -466,7 +464,7 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
         footer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                MovieProCommentActivity.start(mContext,movieId,mTitle);
+                MtMovieProCommentActivity.startActivity(getBaseContext(),movieId,"专业评论");
             }
         });
         movieProCommentAdapter.addFooterView(footer);
@@ -502,7 +500,7 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
                         footer.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-//                                MovieLongCommentActivity.start(mContext,movieId,mTitle);
+                                MtMovieLongCommentActivity.startActivity(getBaseContext(),movieId,"长评论");
                             }
                         });
                         mMtMovieLongCommentAdapter.addFooterView(footer);
@@ -552,13 +550,13 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
                         mLlRelatedInformationContent.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-//                                BaseWebViewActivity.start(mContext, StringUtil.getRealUrl(newsListBean.getUrl()));
+                                BaseWebViewActivity.startActivity(getBaseContext(), StringUtil.getRealUrl(newsListBean.getUrl()));
                             }
                         });
                         mLlAllRelatedInformation.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-//                                MovieInformationActivity.start(mContext, movieId, mTitle);
+                                MtMovieInformationActivity.startActivity(getBaseContext(), movieId);
                             }
                         });
 
@@ -604,7 +602,7 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
                     }
 
                     @Override
-                    public void onNext(MtMovieRelTopicBean.DataBean.TopicsBean topicsBean) {
+                    public void onNext(final MtMovieRelTopicBean.DataBean.TopicsBean topicsBean) {
 
                         mTvRelatedTopicTitle.setText(topicsBean.getTitle());
                         mTvRelatedTopicAuthor.setText(topicsBean.getAuthor().getNickName());
@@ -613,7 +611,7 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
                         mLlALlRelatedTopic.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-//                                MovieTopicActivity.start(mContext, topicsBean.getGroupId());
+                                MtMovieTopicActivity.startActivity(getBaseContext(), topicsBean.getGroupId());
                             }
                         });
                         String img = topicsBean.getPreviews().get(0).getUrl();
@@ -628,7 +626,6 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
                         } else {
                             mIvRelatedTopic.setVisibility(View.GONE);
                         }
-
                     }
                 });
 
@@ -668,7 +665,6 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
     }
 
     private void setMovieBasic(MtMovieBasicBean.DataBean.MovieBean movieBasic) {
-        Log.d("xxxx-->电影基本信息","");
         mTvMovieName.setText(movieBasic.getNm());//电影名
         mTvMovieEnglishName.setText(movieBasic.getEnm());//电影英文名
         mTvMovieScore.setText(String.format("%s", movieBasic.getSc()));//评分
@@ -777,7 +773,7 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
 
     }
 
-    private void setMovieMusic(MtMovieBasicBean.DataBean.MovieBean movieBasic) {
+    private void setMovieMusic(final MtMovieBasicBean.DataBean.MovieBean movieBasic) {
         if (movieBasic.getMusicNum() != 0) {
             mLlMovieMusic.setVisibility(View.VISIBLE);
             mTvMusicName.setText(movieBasic.getMusicName());
@@ -793,7 +789,7 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
             mLlMovieMusic.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    MovieSoundTrackActivity.start(mContext, movieBasic.getId());
+                    MtMovieSoundActivity.startActivity(getBaseContext(), movieBasic.getId());
                 }
             });
         }

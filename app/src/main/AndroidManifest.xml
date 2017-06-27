@@ -31,7 +31,15 @@
         <activity android:name=".ui.activity.MovieDetailActivity" />
         <activity android:name=".ui.activity.TestActivity" />
         <activity android:name=".ui.activity.MtMovieDetailActivity" />
-        <activity android:name=".ui.activity.MtMovieStarActivity"></activity>
+        <activity android:name=".ui.activity.MtMovieStarActivity" />
+        <activity android:name=".ui.activity.MtMovieInformationActivity" />
+        <activity android:name=".ui.activity.MtMovieTopicActivity" />
+        <activity android:name=".ui.activity.MtMovieLongCommentActivity" />
+        <activity android:name=".ui.activity.MtMovieProCommentActivity" />
+        <activity android:name=".ui.activity.MtMovieResourceActivity" />
+        <activity android:name=".base.BaseWebViewActivity" />
+        <activity android:name=".ui.activity.MtMovieSoundActivity" />
+        <activity android:name=".ui.activity.MtMovieVideoActivity"></activity>
     </application>
 
 </manifest>

@@ -52,20 +52,15 @@ public class MtMovieDetailPresenter extends RxPresenter<MtMovieDetailContract.Vi
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("xxxx-->","getMovieBasicTipStarPhoto  error");
                     }
 
                     @Override
                     public void onNext(Object object) {
-                        Log.d("xxxx-->","getMovieBasicTipStarPhoto  onNext");
                         if (object instanceof MtMovieBasicBean){
-                            Log.d("xxxx-->","MtMovieBasicBean");
                             mView.showMovieBasic((((MtMovieBasicBean) object).getData().getMovie()));
                         }else if (object instanceof MtMovieTipsBean){
-                            Log.d("xxxx-->","MtMovieTipsBean");
                             mView.showMovieTip(((MtMovieTipsBean) object).getData());
                         }else if (object instanceof MtMovieStarBean){
-                            Log.d("xxxx-->","MtMovieStarBean");
                             mView.showMoVieStar((MtMovieStarBean)object);
                         }
                     }
@@ -88,19 +83,15 @@ public class MtMovieDetailPresenter extends RxPresenter<MtMovieDetailContract.Vi
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("xxxx-->","getMovieMusicMoneyAwardResource  error");
                     }
 
                     @Override
                     public void onNext(Object object) {
                         if (object instanceof MtMovieMoneyBoxBean){
-                            Log.d("xxxx-->","MtMovieMoneyBoxBean");
                             mView.showMovieMoneyBox((MtMovieMoneyBoxBean)object);
                         }else if (object instanceof MtMovieAwardsBean){
-                            Log.d("xxxx-->","MtMovieAwardsBean");
                             mView.showMovieAward(((MtMovieAwardsBean) object).getData());
                         }else if (object instanceof MtMovieResourceBean){
-                            Log.d("xxxx-->","MtMovieResourceBean");
                             mView.showMovieResource(((MtMovieResourceBean) object).getData());
                         }
                     }
@@ -131,19 +122,14 @@ public class MtMovieDetailPresenter extends RxPresenter<MtMovieDetailContract.Vi
                     @Override
                     public void onNext(Object object) {
                         if (object instanceof MtMovieLongCommentBean){
-                            Log.d("xxxx-->","MtMovieLongCommentBean");
                             mView.showMovieLongComment(((MtMovieLongCommentBean) object).getData());
                         }else if (object instanceof MtMovieProCommentBean){
-                            Log.d("xxxx-->","MtMovieProCommentBean");
                             mView.showMovieProComment(((MtMovieProCommentBean) object));
                         }else if (object instanceof MtMovieRelInformationBean){
-                            Log.d("xxxx-->","MtMovieRelInformationBean");
                             mView.showMovieRelInformation(((MtMovieRelInformationBean) object).getData().getNewsList());
                         }else if (object instanceof MtMovieRelMovieBean){
-                            Log.d("xxxx-->","MtMovieRelMovieBean");
                             mView.showMovieRelMovie(((MtMovieRelMovieBean) object).getData());
                         }else if (object instanceof MtMovieRelTopicBean){
-                            Log.d("xxxx-->","MtMovieRelTopicBean");
                             mView.showMovieRelTopic(((MtMovieRelTopicBean) object).getData());
                         }
 

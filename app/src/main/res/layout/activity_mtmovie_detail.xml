@@ -32,7 +32,7 @@
 
                     <include layout="@layout/movdet_basic_info" />
 
-                    <include layout="@layout/movdet_expandtext"/>
+                    <include layout="@layout/movdet_expandtext" />
 
                     <include layout="@layout/movdet_tip" />
 
@@ -52,8 +52,6 @@
                     <include layout="@layout/movdet_award" />
 
                     <include layout="@layout/movdet_resource" />
-
-                    <include layout="@layout/movdet_pro_comment" />
 
                     <include layout="@layout/movdet_pro_comment" />
 

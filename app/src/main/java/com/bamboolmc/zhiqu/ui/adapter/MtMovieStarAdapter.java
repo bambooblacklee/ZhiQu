@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.model.bean.MtMovieStarBean;
+import com.bamboolmc.zhiqu.ui.activity.MtMovieStarActivity;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -42,7 +43,7 @@ public class MtMovieStarAdapter extends BaseQuickAdapter<MtMovieStarBean.DataBea
         helper.convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                MovieStarActivity.start(mContext,item.getId());
+                MtMovieStarActivity.startActivity(mContext,item.getId());
             }
         });
     }

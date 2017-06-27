@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.bamboolmc.zhiqu"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -64,6 +64,11 @@ dependencies {
 
     //Adapter
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.15'
+
+    //jCPlayer
+    compile 'fm.jiecao:jiecaovideoplayer:5.4'
+    //RxBus
+    compile 'com.hwangjr.rxbus:rxbus:1.0.5'
 
 
 

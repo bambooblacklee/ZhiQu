@@ -13,4 +13,19 @@ public interface BaseItemType {
     int TYPE_MOVIE_DETAIL_VIDEO = 0;
     int TYPE_MOVIE_DETAIL_PHOTO = 1;
 
+
+    //资讯
+    int TYPE_MOVIE_INFORMATION_ONE_IMG = 0;
+    int TYPE_MOVIE_INFORMATION_MULTI_IMG = 1;
+
+    //电影话题
+    int TYPE_MOVIE_TOPIC_ONE_IMG= 0;
+    int TYPE_MOVIE_TOPIC_MULTI_IMG= 1;
+    int TYPE_MOVIE_TOPIC_NO_IMG =2;
+
+    //视频评论
+    int TYPE_VIDEO_COMMENT_REPLY = 0;//有回复
+    int TYPE_VIDEO_COMMENT_NO_REPLY = 1;//没有回复
+
+
 }

@@ -1,8 +1,10 @@
 package com.bamboolmc.zhiqu.ui.adapter;
 
+import android.util.Log;
 import android.view.View;
 
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.base.BaseWebViewActivity;
 import com.bamboolmc.zhiqu.model.bean.MtMovieResourceBean;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -32,9 +34,16 @@ public class MtMovieResourceAdapter extends BaseQuickAdapter<MtMovieResourceBean
                         movieResourceClickListener.onClick(item.getName());
                     } else {
                         String url = item.getUrl();
-                        String id = url.substring(url.indexOf("id=") + 3, url.indexOf("&"));
+                        int index;
+                        if (url.indexOf("&") > 0){
+                            index = url.indexOf("&");
+                        }else {
+                            index = url.length();
+                        }
+                        String id = url.substring(url.indexOf("id=") + 3, index);
                         String realUrl = "http://m.maoyan.com/information/" + id + "?_v_=yes";
-//                        BaseWebViewActivity.start(mContext, realUrl);
+                        Log.d("xxxx---->", realUrl);
+                        BaseWebViewActivity.startActivity(mContext, realUrl);
                     }
                 }
             }

@@ -37,5 +37,8 @@
     <string name="tab_movie_hot">热映</string>
     <string name="tab_movie_wait">待映</string>
     <string name="tab_movie_find">找片</string>
+    
+    <string name="tab_video_list">视频信息</string>
+    <string name="tab_video_comment">评论</string>
 
 </resources>
