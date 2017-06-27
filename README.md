@@ -57,6 +57,13 @@
 2、subscribeOn()   创建的线程io   observeOn() 消费的线程ui
 https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Create.html  RX字典
 
+
+
+
+问题:
+ Calling startActivity() from outside of an Activity  context requires the FLAG_ACTIVITY_NEW_TASK flag. Is this really what you want?
+
+
          
         
 
