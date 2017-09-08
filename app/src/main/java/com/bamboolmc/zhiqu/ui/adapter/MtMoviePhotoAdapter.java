@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseItemType;
 import com.bamboolmc.zhiqu.model.bean.MtMoviePhotoBean;
+import com.bamboolmc.zhiqu.ui.activity.MtMovieVideoActivity;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -48,7 +49,7 @@ public class MtMoviePhotoAdapter extends BaseMultiItemQuickAdapter<MtMoviePhotoB
                         .setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-//                                MovieVideoActivity.start(mContext, item.getMovieId(), 0, item .getMovieTitle(), item.getUrl());
+                                MtMovieVideoActivity.startActivity(mContext, item.getMovieId(), 0, item .getMovieTitle(), item.getUrl());
                             }
                         });
                 break;

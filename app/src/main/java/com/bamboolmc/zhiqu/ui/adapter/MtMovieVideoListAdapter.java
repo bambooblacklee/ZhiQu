@@ -1,6 +1,7 @@
 package com.bamboolmc.zhiqu.ui.adapter;
 
 import android.view.View;
+import android.widget.ImageView;
 
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.model.bean.MtCommentPostBean;
@@ -12,15 +13,25 @@ import com.bamboolmc.zhiqu.util.TimeUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.hwangjr.rxbus.RxBus;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by limc on 17/6/11.
  */
 public class MtMovieVideoListAdapter extends BaseQuickAdapter<MtMovieVideoListBean.DataBean, BaseViewHolder> {
 
-    private int selectedPos = 0;
+    private int selectedPos ;
+
     public MtMovieVideoListAdapter() {
         super(R.layout.item_video_list, null);
+    }
+
+    public void setSelectedPos(int selectedPos) {
+        this.selectedPos = selectedPos;
+    }
+
+    public int getSelectedPos() {
+        return selectedPos;
     }
 
     @Override
@@ -32,6 +43,7 @@ public class MtMovieVideoListAdapter extends BaseQuickAdapter<MtMovieVideoListBe
 
         if (mData.get(helper.getAdapterPosition()).isSelect) {
             RxBus.get().post(new MtCommentPostBean(item.getId()));
+
             helper.setText(R.id.tv_video_play_status, "播放中")
                     .setTextColor(R.id.tv_video_title, mContext.getResources().getColor(R.color.colorPrimary))
                     .setBackgroundColor(R.id.fl_video_iv, mContext.getResources().getColor(R.color.colorPrimary));
@@ -50,14 +62,18 @@ public class MtMovieVideoListAdapter extends BaseQuickAdapter<MtMovieVideoListBe
                     selectedPos = helper.getAdapterPosition();
                     mData.get(selectedPos).isSelect = true;
                     notifyItemChanged(selectedPos);
-                    RxBus.get().post(new MtVideoPostBean(item.getMovieName()+item.getTl(),item.getUrl()));
-
+                    RxBus.get().post(new MtVideoPostBean(item.getMovieName() + item.getTl(), item.getUrl()));
                 }
             }
         });
         String imgUrl = ImgResetUtil.resetPicUrl(item.getImg(), ".webp@375w_210h_1e_1c_1l");
-//        GlideManager.loadImage(mContext, imgUrl, (ImageView) helper.getView(R.id.iv_video_img));
-
+        Picasso.with(mContext)
+                .load(imgUrl)
+                .error(R.mipmap.ic_launcher)
+                .placeholder(R.mipmap.ic_launcher)
+                .resizeDimen(R.dimen.movieitem_image_width, R.dimen.movieitem_image_height)
+                .centerCrop()
+                .into((ImageView) helper.getView(R.id.iv_video_img));
     }
 }
 

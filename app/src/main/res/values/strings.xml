@@ -34,10 +34,10 @@
     <string name="btn_reload">重新加载</string>
 
     <!--美团豆瓣电影分类Fragment-->
-    <string name="tab_movie_hot">热映</string>
-    <string name="tab_movie_wait">待映</string>
-    <string name="tab_movie_find">找片</string>
-    
+    <string name="tab_movie_hot">正在热映</string>
+    <string name="tab_movie_wait">即将上映</string>
+    <string name="tab_movie_info">快讯信息</string>
+
     <string name="tab_video_list">视频信息</string>
     <string name="tab_video_comment">评论</string>
 

@@ -16,9 +16,10 @@ import com.bamboolmc.zhiqu.model.bean.MtVideoPostBean;
 import com.bamboolmc.zhiqu.ui.fragment.MtMovieVideoCommentFragment;
 import com.bamboolmc.zhiqu.ui.fragment.MtMovieVideoListFragment;
 import com.bamboolmc.zhiqu.widget.CustomViewPager;
-import com.google.common.eventbus.Subscribe;
 import com.hwangjr.rxbus.RxBus;
+import com.hwangjr.rxbus.annotation.Subscribe;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.ogaclejapan.smarttablayout.utils.v4.Bundler;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
@@ -26,6 +27,9 @@ import butterknife.BindView;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
+/**
+ * Created by BambooLmc on 17/7/7 下午2:49.
+ */
 public class MtMovieVideoActivity extends BaseActivity {
 
     private static final String MOVIE_ID = "movie_id";
@@ -51,10 +55,11 @@ public class MtMovieVideoActivity extends BaseActivity {
         starter.putExtra(VIDEO_ID, videoId);
         starter.putExtra(VIDEO_NAME, videoName);
         starter.putExtra(VIDEO_URL, url);
+        starter.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(starter);
     }
 
-    public static void start(Context context, int movieId, int videoId, String videoName, String url, boolean isMV, MtMovieMusicBean.DataBean.ItemsBean.VideoTagVOBean dataBean) {
+    public static void startAcitivity(Context context, int movieId, int videoId, String videoName, String url, boolean isMV, MtMovieMusicBean.DataBean.ItemsBean.VideoTagVOBean dataBean) {
         Intent starter = new Intent(context, MtMovieVideoActivity.class);
         starter.putExtra(MOVIE_ID, movieId);
         starter.putExtra(VIDEO_ID, videoId);
@@ -64,6 +69,7 @@ public class MtMovieVideoActivity extends BaseActivity {
         Bundle bundle = new Bundle();
         bundle.putParcelable(MV_DATA, dataBean);
         starter.putExtra("bundle", bundle);
+        starter.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(starter);
     }
 
@@ -74,21 +80,44 @@ public class MtMovieVideoActivity extends BaseActivity {
 
     @Override
     protected void setComponentInject() {
-
     }
 
     @Override
     protected void attachView() {
-
     }
+
+    /**
+     * Update by BambooLmc on 17/9/7 下午3:48.
+     * 修改video打开方式, 全都在RxBus里面进行播放
+     */
+    @Override
+    protected void initData() {
+        String videoUrl = getIntent().getStringExtra(VIDEO_URL);
+        String videoName = getIntent().getStringExtra(VIDEO_NAME);
+        videoId = getIntent().getIntExtra(VIDEO_ID, 0);
+        movieId = getIntent().getIntExtra(MOVIE_ID, 0);
+        mIsMv = getIntent().getBooleanExtra(IS_MV, false);
+        if (getIntent().getBundleExtra("bundle") != null) {
+            videoBean = getIntent().getBundleExtra("bundle").getParcelable(MV_DATA);
+        }
+        RxBus.get().register(this);
+    }
+
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
         final LayoutInflater inflater = LayoutInflater.from(this);
         final int[] tabTitles = {R.string.tab_video_list, R.string.tab_video_comment};
+
         FragmentPagerItems pages = FragmentPagerItems.with(this)
-                .add(R.string.tab_video_list, MtMovieVideoListFragment.class)
-                .add(R.string.tab_video_comment, MtMovieVideoCommentFragment.class)
+                .add(R.string.tab_video_list, MtMovieVideoListFragment.class, new Bundler()
+                        .putInt(MOVIE_ID, movieId)
+                        .putBoolean(IS_MV, mIsMv)
+                        .putParcelable(MV_DATA, videoBean)
+                        .get())
+                .add(R.string.tab_video_comment, MtMovieVideoCommentFragment.class, new Bundler()
+                        .putInt(VIDEO_ID, videoId)
+                        .get())
                 .create();
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
@@ -107,32 +136,17 @@ public class MtMovieVideoActivity extends BaseActivity {
             }
         });
         mVideoViewpagerTab.setViewPager(mVpVideoComment);
-
-    }
-
-    @Override
-    protected void initData() {
-        String videoUrl = getIntent().getStringExtra(VIDEO_URL);
-        String videoName = getIntent().getStringExtra(VIDEO_NAME);
-        videoId = getIntent().getIntExtra(VIDEO_ID, 0);
-        movieId = getIntent().getIntExtra(MOVIE_ID, 0);
-        mIsMv = getIntent().getBooleanExtra(IS_MV, false);
-        if (getIntent().getBundleExtra("bundle") != null) {
-            videoBean = getIntent().getBundleExtra("bundle").getParcelable(MV_DATA);
-        }
-        mVideoPlayer.setUp(videoUrl, JCVideoPlayer.SCREEN_LAYOUT_NORMAL, videoName);
-        RxBus.get().register(this);
     }
 
     @Subscribe
-    public void changeVideo(MtVideoPostBean mtVideoPostBean){
-        mVideoPlayer.setUp(mtVideoPostBean.getVideoUrl(),JCVideoPlayer.SCREEN_LAYOUT_NORMAL,mtVideoPostBean.getVideoName());
+    public void ExchangeVideo(MtVideoPostBean mtVideoPostBean) {
+        mVideoPlayer.setUp(mtVideoPostBean.getVideoUrl(), JCVideoPlayer.SCREEN_LAYOUT_NORMAL, mtVideoPostBean.getVideoName());
         mVideoPlayer.startVideo();
     }
 
     @Override
     public void onBackPressed() {
-        if (JCVideoPlayer.backPress()){
+        if (JCVideoPlayer.backPress()) {
             return;
         }
         super.onBackPressed();

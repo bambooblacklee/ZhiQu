@@ -1,6 +1,5 @@
 package com.bamboolmc.zhiqu.ui.fragment;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -49,15 +48,6 @@ public class MtMovieVideoCommentFragment extends MtBaseFragment<MtMovieVideoComm
     @Inject
     MtMovieVideoCommentPresenter mPresenter;
 
-    public static MtMovieVideoCommentFragment newInstance(int videoId) {
-
-        Bundle args = new Bundle();
-        args.putInt(VIDEO_ID, videoId);
-        MtMovieVideoCommentFragment fragment = new MtMovieVideoCommentFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public int getLayoutResId() {
         return R.layout.fragment_movie_video_comment;
@@ -79,11 +69,15 @@ public class MtMovieVideoCommentFragment extends MtBaseFragment<MtMovieVideoComm
 
     @Override
     public void initView() {
+        mVideoId = getArguments().getInt(VIDEO_ID);
+        RxBus.get().register(this);
+
         //下拉刷新
         mRefreshLayoutVideoComment.setEnabled(getEnableRefresh());
         mRefreshLayoutVideoComment.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
+                offset = 0;
                 mPresenter.getVideoCommentList(mVideoId, offset);
 
             }
@@ -96,6 +90,7 @@ public class MtMovieVideoCommentFragment extends MtBaseFragment<MtMovieVideoComm
         mMtMovieVideoCommentAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
+                offset += 10;
                 mPresenter.getMoreVideoComment(mVideoId, offset);
             }
         });
@@ -104,11 +99,7 @@ public class MtMovieVideoCommentFragment extends MtBaseFragment<MtMovieVideoComm
 
     @Override
     protected void loadData() {
-
-        mVideoId = getArguments().getInt(VIDEO_ID, 0);
-        RxBus.get().register(this);
         mPresenter.getVideoCommentList(mVideoId, offset);
-
     }
 
     @Subscribe
@@ -116,14 +107,19 @@ public class MtMovieVideoCommentFragment extends MtBaseFragment<MtMovieVideoComm
         mVideoId = postBean.getVideoId();
         offset = 0;
         mPresenter.getVideoCommentList(mVideoId, offset);
-
     }
 
     @Override
     public void showVideoCommentList(List<MtMovieVideoCommentListBean.DataBean.CommentsBean> commentsBeen) {
 
-        offset += 10;
-        mMtMovieVideoCommentAdapter.setNewData(commentsBeen);
+        if (commentsBeen != null && !commentsBeen.isEmpty()) {
+            mMtMovieVideoCommentAdapter.setNewData(commentsBeen);
+            mMultiStateView.setState(MultiStateView.STATE_CONTENT);
+        } else {
+            mMultiStateView.setState(MultiStateView.STATE_EMPTY)
+                    .setIcon(R.mipmap.ic_empty)
+                    .setTitle(R.string.label_empty_data);
+        }
     }
 
     @Override

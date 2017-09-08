@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             tools:text="回复xxx:" />
 
-        <com.cicinnus.cateye.view.ExpandTextView
+        <com.bamboolmc.zhiqu.widget.ExpandTextView
 
             android:id="@+id/tv_reply_content"
             android:layout_width="match_parent"

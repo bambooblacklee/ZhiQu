@@ -21,6 +21,7 @@ import butterknife.Unbinder;
 
 /**
  * Created by limc on 17/5/13.
+ * 非懒加载
  */
 public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> extends Fragment {
 
@@ -31,10 +32,7 @@ public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> exten
     protected View mParentView;
     protected Unbinder mUnbinder;
     protected T mPresenter;
-    //是否正在加载
-    protected boolean isLoad;
-    //是否初始化完毕
-    protected boolean isInit;
+
 
 
     @Override
@@ -47,17 +45,10 @@ public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> exten
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        lazyLoadData();
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mParentView = inflater.inflate(getLayoutResId(), container, false);
-        isInit = true;
         return mParentView;
     }
 
@@ -72,16 +63,13 @@ public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> exten
         attachView();
         //各种控件进行设置适配填充
         initView();
-        //懒加载添加数据
-        lazyLoadData();
+        loadData();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
-        isInit = false;
-        isLoad = false;
     }
 
     @Override
@@ -123,21 +111,6 @@ public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> exten
         return ((BaseActivity) getActivity()).getSupportActionBar();
     }
 
-    protected void lazyLoadData() {
-        if (!isInit) {
-            return;
-        }
-        if (getUserVisibleHint()) {
-            loadData();
-            isLoad = true;
-        } else {
-            if (isLoad) {
-                stopLoad();
-                isLoad = false;
-            }
-        }
-
-    }
 
     /**
      * 取消加载

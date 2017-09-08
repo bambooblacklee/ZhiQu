@@ -1,7 +1,6 @@
 package com.bamboolmc.zhiqu.ui.fragment;
 
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,6 +12,7 @@ import com.bamboolmc.zhiqu.contract.MtMovieVideoListContract;
 import com.bamboolmc.zhiqu.model.bean.MtMovieMusicBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoInfoBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoListBean;
+import com.bamboolmc.zhiqu.model.bean.MtVideoPostBean;
 import com.bamboolmc.zhiqu.presenter.MtMovieVIdeoListPresenter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieVideoListAdapter;
 import com.bamboolmc.zhiqu.util.ToastUtil;
@@ -22,6 +22,7 @@ import com.bamboolmc.zhiqu.widget.refresh.RefreshLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hwangjr.rxbus.RxBus;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -30,7 +31,7 @@ import butterknife.BindView;
 
 /**
  * Created by limc on 17/6/8.
- * 需加header
+ * 缺少recycleviewHeader,添加影片基本信息 20170725
  */
 public class MtMovieVideoListFragment extends MtBaseFragment<MtMovieVIdeoListPresenter>
         implements MtMovieVideoListContract.View {
@@ -56,17 +57,6 @@ public class MtMovieVideoListFragment extends MtBaseFragment<MtMovieVIdeoListPre
     @Inject
     MtMovieVIdeoListPresenter mPresenter;
 
-    public static MtMovieVideoListFragment newInstance(int movieId, boolean isMv, MtMovieMusicBean.DataBean.ItemsBean.VideoTagVOBean dataBean) {
-
-        Bundle args = new Bundle();
-        args.putInt(MOVIE_ID, movieId);
-        args.putBoolean(IS_MV, isMv);
-        args.putParcelable(MV_DATA, dataBean);
-        MtMovieVideoListFragment fragment = new MtMovieVideoListFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public int getLayoutResId() {
         return R.layout.fragment_movie_video;
@@ -88,35 +78,41 @@ public class MtMovieVideoListFragment extends MtBaseFragment<MtMovieVIdeoListPre
 
     @Override
     public void initView() {
-        //下拉刷新
-        mRefreshLayoutVideo.setEnabled(getEnableRefresh());
-        mRefreshLayoutVideo.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                mPresenter.getVideoList(movieId, offset);
-                mPresenter.getVideoInfo(movieId);
-            }
-        });
+        movieId = getArguments().getInt(MOVIE_ID);
+        mIsMv = getArguments().getBoolean(IS_MV);
+        mvData = getArguments().getParcelable(MV_DATA);
+        RxBus.get().register(this);
+
         //适配adapter
         mMtMovieVideoListAdapter = new MtMovieVideoListAdapter();
+        mMtMovieVideoListAdapter.setSelectedPos(0);
         mRvMovieVideo.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvMovieVideo.setAdapter(mMtMovieVideoListAdapter);
         //加载更多
         mMtMovieVideoListAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
+                offset += 10;
                 mPresenter.getVideoMoreList(movieId, offset);
             }
         });
 
+        mRefreshLayoutVideo.setEnabled(getEnableRefresh());
+        mRefreshLayoutVideo.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                offset = 0;
+                mMtMovieVideoListAdapter.setSelectedPos(0);
+                mPresenter.getVideoList(movieId, offset);
+                mPresenter.getVideoInfo(movieId);
+            }
+        });
+
+        videoListBeen = new ArrayList<>();
     }
 
     @Override
     protected void loadData() {
-        movieId = getArguments().getInt(MOVIE_ID, 0);
-        mIsMv = getArguments().getBoolean(IS_MV, false);
-        mvData = getArguments().getParcelable(MV_DATA);
-        RxBus.get().register(this);
         mPresenter.getVideoList(movieId, offset);
         mPresenter.getVideoInfo(movieId);
     }
@@ -157,7 +153,6 @@ public class MtMovieVideoListFragment extends MtBaseFragment<MtMovieVIdeoListPre
         if (mRefreshLayoutVideo.isRefreshing()) {
             mRefreshLayoutVideo.setRefreshing(false);
         }
-
     }
 
     @Override
@@ -186,13 +181,13 @@ public class MtMovieVideoListFragment extends MtBaseFragment<MtMovieVIdeoListPre
 
     @Override
     public void showVideoList(List<MtMovieVideoListBean.DataBean> videoList) {
-        offset += 10;
+        videoListBeen.clear();
         videoListBeen.addAll(videoList);
         //将第一个数据设为选中状态,因为默认播放第一个视频
         if (!mIsMv) {
             videoListBeen.get(0).isSelect = true;
             videoListBeen.set(0, videoListBeen.get(0));
-        }else {
+        } else {
             MtMovieVideoListBean.DataBean newData = new MtMovieVideoListBean.DataBean();
             newData.isSelect = true;
             newData.setCount(mvData.getCount());
@@ -202,15 +197,30 @@ public class MtMovieVideoListFragment extends MtBaseFragment<MtMovieVIdeoListPre
             newData.setUrl(mvData.getUrl());
             newData.setTl(mvData.getTitle());
             newData.setTm(mvData.getTime());
-            videoListBeen.add(0,newData);
+            videoListBeen.add(0, newData);
         }
-        mMtMovieVideoListAdapter.setNewData(videoListBeen);
 
+        RxBus.get().post(new MtVideoPostBean(videoListBeen.get(0).getMovieName() + videoListBeen.get(0).getTl(),
+                videoListBeen.get(0).getUrl()));
+
+        if (videoListBeen != null && !videoListBeen.isEmpty()) {
+            mMtMovieVideoListAdapter.setNewData(videoListBeen);
+            mMultiStateView.setState(MultiStateView.STATE_CONTENT);
+        } else {
+            mMultiStateView.setState(MultiStateView.STATE_EMPTY)
+                    .setIcon(R.mipmap.ic_empty)
+                    .setTitle(R.string.label_empty_data);
+        }
     }
 
     protected boolean getEnableRefresh() {
         return mMultiStateView.getState() == MultiStateView.STATE_CONTENT
                 || mMultiStateView.getState() == MultiStateView.STATE_EMPTY;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
     }
 
     @Override

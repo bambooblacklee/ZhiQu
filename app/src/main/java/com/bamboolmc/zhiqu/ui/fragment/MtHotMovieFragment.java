@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.bamboolmc.zhiqu.R;
-import com.bamboolmc.zhiqu.base.MtBaseFragment;
+import com.bamboolmc.zhiqu.base.MtLazyBaseFragment;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtHotMovieListContract;
 import com.bamboolmc.zhiqu.model.bean.MtHotMovieListBean;
@@ -27,7 +27,7 @@ import butterknife.BindView;
 /**
  * Created by limc on 17/5/11.
  */
-public class MtHotMovieFragment extends MtBaseFragment<MtHotMovieListPresenter>
+public class MtHotMovieFragment extends MtLazyBaseFragment<MtHotMovieListPresenter>
         implements MtHotMovieListContract.View {
 
     @BindView(R.id.multi_state_view)
