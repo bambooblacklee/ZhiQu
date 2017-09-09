@@ -5,8 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by limc on 17/5/17.
- * 相关电影
+ * Created by limc on 17/9/8.
  */
 public class MtMovieRelMovieBean {
 
