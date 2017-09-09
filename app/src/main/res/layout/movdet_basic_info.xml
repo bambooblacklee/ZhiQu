@@ -22,7 +22,7 @@
         android:background="@color/white"
         android:padding="1dp">
 
-        <com.bamboolmc.zhiqu.widget.PicassoImageView
+        <ImageView
             android:id="@+id/ImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

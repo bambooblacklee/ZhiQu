@@ -55,7 +55,7 @@ public class MovieInTheatersFragment extends BaseRvFragment<MovieInTheatersPrese
     @Override
     public void onItemClick(int position) {
 //        MovieDetailActivity.startActivity(getActivity(),mAdapter.getItem(position).getId());
-        MovieDetailActivity.startActivity(getActivity(),"25937854");
+        MovieDetailActivity.start(getActivity(),"25937854");
 
     }
 }

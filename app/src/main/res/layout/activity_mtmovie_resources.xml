@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical">
+
+    <com.bamboolmc.zhiqu.widget.MultiStateView
+        android:id="@+id/multi_state_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.bamboolmc.zhiqu.widget.refresh.RefreshLayout
+            android:id="@+id/rl_mt_movie_resource"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_mt_movie_resource"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.bamboolmc.zhiqu.widget.refresh.RefreshLayout>
+
+    </com.bamboolmc.zhiqu.widget.MultiStateView>
+
+</LinearLayout>

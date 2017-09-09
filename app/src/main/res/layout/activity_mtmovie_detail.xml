@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true">
+
+    <include layout="@layout/movdet_title" />
+
+    <com.bamboolmc.zhiqu.widget.MultiStateView
+        android:id="@+id/mv_movie_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <com.bamboolmc.zhiqu.widget.refresh.RefreshLayout
+            android:id="@+id/rl_movie_det"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/sc_movie_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/movdet_basic_info" />
+
+                    <include layout="@layout/movdet_expandtext" />
+
+                    <include layout="@layout/movdet_tip" />
+
+                    <include layout="@layout/movdet_star" />
+
+                    <include layout="@layout/movdet_photo" />
+
+                    <include layout="@layout/movdet_music" />
+
+                    <include layout="@layout/movdet_money_box" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/divider_normal" />
+
+                    <include layout="@layout/movdet_award" />
+
+                    <include layout="@layout/movdet_resource" />
+
+                    <include layout="@layout/movdet_pro_comment" />
+
+                    <include layout="@layout/movdet_long_comment" />
+
+                    <include layout="@layout/movdet_related_information" />
+
+                    <include layout="@layout/movdet_related_topic" />
+
+                    <include layout="@layout/movdet_related_movie" />
+
+
+                </LinearLayout>
+
+            </android.support.v4.widget.NestedScrollView>
+
+
+        </com.bamboolmc.zhiqu.widget.refresh.RefreshLayout>
+    </com.bamboolmc.zhiqu.widget.MultiStateView>
+
+
+</FrameLayout>
+
+
+
+

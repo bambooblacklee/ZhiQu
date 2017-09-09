@@ -55,7 +55,6 @@
 
                     <include layout="@layout/movdet_pro_comment" />
 
-                    <include layout="@layout/movdet_pro_comment" />
 
                     <include layout="@layout/movdet_long_comment" />
 

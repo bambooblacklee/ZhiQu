@@ -19,6 +19,9 @@
     <!--通用分割线细-->
     <color name="common_divider_narrow">#E3E3E3</color>
 
+    <color name="text_gray">#999999</color>
+    <color name="text_gray_deep">#666666</color>
+
     <color name="divider">#DCDCDC</color>
     <color name="dark_gray_bg">#F5F5F5</color>
     <color name="transparent">#00000000</color>

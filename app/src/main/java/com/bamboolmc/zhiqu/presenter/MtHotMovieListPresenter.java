@@ -3,14 +3,13 @@ package com.bamboolmc.zhiqu.presenter;
 import com.bamboolmc.zhiqu.base.RxPresenter;
 import com.bamboolmc.zhiqu.contract.MtHotMovieListContract;
 import com.bamboolmc.zhiqu.model.bean.MtHotMovieListBean;
-import com.bamboolmc.zhiqu.network.RequestCallback;
 import com.bamboolmc.zhiqu.network.api.MtMovieApi;
 
 import javax.inject.Inject;
 
+import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -30,32 +29,27 @@ public class MtHotMovieListPresenter extends RxPresenter<MtHotMovieListContract.
     @Override
     public void getMtHotMovieList(int ci, int limit) {
         Subscription mSubscription = mMtMovieApi.getMtHotMovieList(ci, limit)
-                .map(new Func1<MtHotMovieListBean, MtHotMovieListBean.DataBean>() {
-
-                    @Override
-                    public MtHotMovieListBean.DataBean call(MtHotMovieListBean mtHotMovieListBean) {
-                        return mtHotMovieListBean.getData();
-                    }
-                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new RequestCallback<MtHotMovieListBean.DataBean>() {
+                .subscribe(new Subscriber<MtHotMovieListBean>() {
                     @Override
-                    public void onResponse(MtHotMovieListBean.DataBean response) {
-                        mView.showMtHotMovieList(response.getHot());
-                        //这个暂时不知其具体何用
-                        mView.showMovieIds(response.getMovieIds());
+                    public void onCompleted() {
+                        mView.showContent();
                     }
 
                     @Override
-                    public void onFailure(Throwable throwable) {
+                    public void onError(Throwable e) {
                         mView.showError();
+                    }
+
+                    @Override
+                    public void onNext(MtHotMovieListBean mtHotMovieListBean) {
+                        mView.showMtHotMovieList(mtHotMovieListBean.getData().getHot());
+                        mView.showMovieIds(mtHotMovieListBean.getData().getMovieIds());
 
                     }
                 });
-
         addSubScribe(mSubscription);
-
 
     }
 
@@ -64,17 +58,24 @@ public class MtHotMovieListPresenter extends RxPresenter<MtHotMovieListContract.
         Subscription mSubscription = mMtMovieApi.getMoreMtHotMovieList(ci,headline,movieIds)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new RequestCallback<MtHotMovieListBean>() {
+                .subscribe(new Subscriber<MtHotMovieListBean>() {
                     @Override
-                    public void onResponse(MtHotMovieListBean response) {
-
+                    public void onCompleted() {
+                        mView.loadMoreComplete();
                     }
 
                     @Override
-                    public void onFailure(Throwable throwable) {
+                    public void onError(Throwable e) {
+                        mView.loadMoreError();
+                    }
+
+                    @Override
+                    public void onNext(MtHotMovieListBean mtHotMovieListBean) {
+                        mView.showMoreMtHotMovieList(mtHotMovieListBean.getData().getMovies());
 
                     }
                 });
+
         addSubScribe(mSubscription);
 
     }

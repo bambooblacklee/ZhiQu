@@ -35,7 +35,7 @@ public class ExpandTextView extends LinearLayout {
     //默认属性
     public int defaultTextColor = Color.BLACK;
     public int defaultTextSize = 14;
-    public int defaultLine = 5;
+    public int defaultLine = 3;
 
 
     public ExpandTextView(Context context) {

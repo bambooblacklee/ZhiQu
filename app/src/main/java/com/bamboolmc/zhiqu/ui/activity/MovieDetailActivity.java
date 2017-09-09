@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -58,7 +57,7 @@ public class MovieDetailActivity extends BaseActivity<MovieDetailPresenter> impl
     MovieDetailPresenter mPresenter;
 
 
-    public static void startActivity(Context context, String movieId) {
+    public static void start(Context context, String movieId) {
         Intent starter = new Intent(context, MovieDetailActivity.class);
         starter.putExtra(MOVIE_ID, movieId);
         context.startActivity(starter);
@@ -92,7 +91,6 @@ public class MovieDetailActivity extends BaseActivity<MovieDetailPresenter> impl
     @Override
     protected void initData() {
         movieId = getIntent().getStringExtra(MOVIE_ID);
-        Log.d("xxxx movieid-->", movieId);
         mPresenter.getMovieDetail(movieId);
 
     }
