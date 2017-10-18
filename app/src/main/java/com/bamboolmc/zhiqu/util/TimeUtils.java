@@ -37,4 +37,35 @@ public class TimeUtils {
         }
     }
 
+
+    /**
+     * 距现在多久之前
+     * @param timeStr
+     * @return
+     */
+    public static String getStandardDate(long timeStr) {
+
+        long t = timeStr;
+        long time = System.currentTimeMillis()-t;
+        //均向下取整
+        long minute = (long) Math.floor(time / 60 / 1000.0f);// 分钟前
+        long hour = (long) Math.floor(time / 60 / 60 / 1000.0f);// 小时
+        long day = (long) Math.floor(time / 24 / 60 / 60 / 1000.0f);// 天前
+        long month = (long) Math.floor(time / 31 / 24 / 60 / 60 / 1000.0f); // 个月前
+        long year = (long) Math.floor(time / 12 / 31 / 24 / 60 / 60 / 1000.0f); // 年前
+
+        if (year > 0) {
+            return year + "年前";
+        }else if (month > 0) {
+            return month + "个月前";
+        }else if (day > 0) {
+            return day + "天前";
+        } else if (hour  > 0) {
+            return hour + "小时前";
+        }else if (minute > 0) {
+            return minute + "分钟前";
+        }else {
+            return "刚刚";
+        }
+    }
 }

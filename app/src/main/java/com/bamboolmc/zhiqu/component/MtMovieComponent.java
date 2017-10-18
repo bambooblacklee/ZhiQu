@@ -12,6 +12,8 @@ import com.bamboolmc.zhiqu.ui.activity.MtMovieTopicActivity;
 import com.bamboolmc.zhiqu.ui.fragment.MtHotMovieFragment;
 import com.bamboolmc.zhiqu.ui.fragment.MtMovieVideoCommentFragment;
 import com.bamboolmc.zhiqu.ui.fragment.MtMovieVideoListFragment;
+import com.bamboolmc.zhiqu.ui.fragment.MtNewsFlashMovieFragment;
+import com.bamboolmc.zhiqu.ui.fragment.MtSoonMovieFragment;
 
 import dagger.Component;
 
@@ -42,4 +44,8 @@ public interface MtMovieComponent {
     void inject(MtMovieVideoListFragment fragment);
 
     void inject(MtMovieVideoCommentFragment fragment);
+
+    void inject(MtNewsFlashMovieFragment fragment);
+
+    void inject(MtSoonMovieFragment fragment);
 }

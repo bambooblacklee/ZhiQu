@@ -37,4 +37,7 @@
 
     <color name="text_primary">#333333</color>
     <color name="divider_normal">#f0f0f0</color>
+
+    <!--透明色-->
+    <color name="alpha_gray">#ee222222</color>
 </resources>

@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
  * Created by Administrator on 2017/2/10.
  */
 
-public class StringUtil {
+public class StringIntUtil {
 
     /**
      * 将数字转为带单位(万)
@@ -38,18 +38,18 @@ public class StringUtil {
 
     public static String getRealUrl(String url) {
         if (url.contains("id=")) {
-            if(url.contains("&")) {
+            if (url.contains("&")) {
                 String id = url.substring(url.indexOf("id=") + 3, url.indexOf("&"));
                 return "http://m.maoyan.com/information/" + id + "?_v_=yes";
-            }else {
+            } else {
                 String id = url.substring(url.indexOf("id=") + 3);
                 return "http://m.maoyan.com/information/" + id + "?_v_=yes";
             }
-        }else if(url.contains("ID=")){
-            if(url.contains("&")) {
+        } else if (url.contains("ID=")) {
+            if (url.contains("&")) {
                 String id = url.substring(url.indexOf("ID=") + 3, url.indexOf("&"));
                 return "http://m.maoyan.com/topic/" + id + "?_v_=yes";
-            }else {
+            } else {
                 String id = url.substring(url.indexOf("ID=") + 3);
                 return "http://m.maoyan.com/topic/" + id + "?_v_=yes";
             }
@@ -57,4 +57,27 @@ public class StringUtil {
         return new Exception("Error Url").toString();
 
     }
+
+    public static int getRealId(String url) {
+        if (url.contains("id=")) {
+            if (url.contains("&")) {
+                String id = url.substring(url.indexOf("id=") + 3, url.indexOf("&"));
+                return Integer.parseInt(id);
+            } else {
+                String id = url.substring(url.indexOf("id=") + 3);
+                return Integer.parseInt(id);
+            }
+        } else if (url.contains("ID=")) {
+            if (url.contains("&")) {
+                String id = url.substring(url.indexOf("ID=") + 3, url.indexOf("&"));
+                return Integer.parseInt(id);
+            } else {
+                String id = url.substring(url.indexOf("ID=") + 3);
+                return Integer.parseInt(id);
+            }
+        }
+        return 0;
+
+    }
+
 }

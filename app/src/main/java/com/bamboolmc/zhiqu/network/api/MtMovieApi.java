@@ -11,13 +11,16 @@ import com.bamboolmc.zhiqu.model.bean.MtMovieLongCommentBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieLongCommentListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieMoneyBoxBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieMusicBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieNewsFlashListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieParentGuidancesBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieProCommentBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieRecentExpectBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRelInformationBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRelMovieBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRelTopicBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRelatedCompaniesBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieResourceBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieSoonListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieStarBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieStarHonorBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieStarInfoBean;
@@ -27,6 +30,7 @@ import com.bamboolmc.zhiqu.model.bean.MtMovieStarRelPeopleBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieTechnicalsBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieTipsBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieTopicBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieTrailerRecommendBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoCommentListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoInfoBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoListBean;
@@ -211,6 +215,31 @@ public class MtMovieApi {
     //视频评论
     public Observable<MtMovieVideoCommentListBean> getVideoCommentList(int movieId, int offset) {
         return mMtMovieApiService.getVideoCommentList(movieId, "video", 10, offset);
+    }
+
+    //电影快讯
+    public Observable<MtMovieNewsFlashListBean> getMtMovieNewsFlashList(int offset, int limit) {
+        return mMtMovieApiService.getMtMovieNewsFlashList(offset, limit);
+    }
+
+    //预告片推荐
+    public Observable<MtMovieTrailerRecommendBean> getMtMovieTrailerRecommendList() {
+        return mMtMovieApiService.getMtMovieTrailerRecommendList();
+    }
+
+    //最受期待
+    public Observable<MtMovieRecentExpectBean> getMtMovieRecentExpectList(int offset, int limit) {
+        return mMtMovieApiService.getMtMovieRecentExpectList(offset, limit);
+    }
+
+    //待映列表
+    public Observable<MtMovieSoonListBean> geMtMovieSoonList(int ci, int limit) {
+        return mMtMovieApiService.geMtMovieSoonList(ci, limit);
+    }
+
+    //待映列表--更多
+    public Observable<MtMovieSoonListBean> getMoreMtMovieSoonList(int ci,  String movieIds) {
+        return mMtMovieApiService.getMoreMtMovieSoonList(ci, 1, movieIds);
     }
 
 }

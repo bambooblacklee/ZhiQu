@@ -47,12 +47,12 @@ public class MtMovieFragment extends MtLazyBaseFragment {
     @Override
     public void initView() {
         final LayoutInflater inflater = LayoutInflater.from(getActivity());
-        final int[] tabTitles = {R.string.tab_movie_hot, R.string.tab_movie_wait, R.string.tab_movie_info};
+        final int[] tabTitles = {R.string.tab_movie_hot, R.string.tab_movie_soon, R.string.tab_movie_newsflash};
 
         FragmentPagerItems pages = FragmentPagerItems.with(getActivity())
                 .add(R.string.tab_movie_hot, MtHotMovieFragment.class)
-                .add(R.string.tab_movie_wait, MtHotMovieFragment.class)
-                .add(R.string.tab_movie_info, MtHotMovieFragment.class)
+                .add(R.string.tab_movie_soon, MtSoonMovieFragment.class)
+                .add(R.string.tab_movie_newsflash, MtNewsFlashMovieFragment.class)
                 .create();
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getChildFragmentManager(),

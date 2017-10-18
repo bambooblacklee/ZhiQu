@@ -2,12 +2,11 @@ package com.bamboolmc.zhiqu.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -43,17 +42,14 @@ import com.bamboolmc.zhiqu.ui.adapter.MtMovieRelMovieAdapter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieResourceAdapter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieStarAdapter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieTipAdapter;
-import com.bamboolmc.zhiqu.util.FastBlurUtil;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
-import com.bamboolmc.zhiqu.util.StringUtil;
+import com.bamboolmc.zhiqu.util.StringIntUtil;
 import com.bamboolmc.zhiqu.util.ToastUtil;
 import com.bamboolmc.zhiqu.widget.ExpandTextView;
 import com.bamboolmc.zhiqu.widget.MultiStateView;
 import com.bamboolmc.zhiqu.widget.refresh.RefreshLayout;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -464,7 +460,7 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
         footer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MtMovieProCommentActivity.startActivity(getBaseContext(),movieId,"专业评论");
+                MtMovieProCommentActivity.startActivity(getBaseContext(), movieId, "专业评论");
             }
         });
         movieProCommentAdapter.addFooterView(footer);
@@ -500,7 +496,7 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
                         footer.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                MtMovieLongCommentActivity.startActivity(getBaseContext(),movieId,"长评论");
+                                MtMovieLongCommentActivity.startActivity(getBaseContext(), movieId, "长评论");
                             }
                         });
                         mMtMovieLongCommentAdapter.addFooterView(footer);
@@ -550,7 +546,9 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
                         mLlRelatedInformationContent.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                BaseWebViewActivity.startActivity(getBaseContext(), StringUtil.getRealUrl(newsListBean.getUrl()));
+                                Log.d("xxxx-->original-->",newsListBean.getUrl());
+                                Log.d("xxxx-->after-->", StringIntUtil.getRealUrl(newsListBean.getUrl()));
+                                BaseWebViewActivity.startActivity(getBaseContext(), StringIntUtil.getRealUrl(newsListBean.getUrl()));
                             }
                         });
                         mLlAllRelatedInformation.setOnClickListener(new View.OnClickListener() {
@@ -683,48 +681,13 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
                 .load(img)
                 .error(R.mipmap.ic_launcher)
                 .placeholder(R.mipmap.ic_launcher)
-                .resizeDimen(R.dimen.movieitem_image_width, R.dimen.movieitem_image_height)
-                .centerCrop()
                 .into(mImageView);
 
-        //背景图需要模糊
+        //背景图设置foreground
         String originalImg = ImgResetUtil.resetPicUrl(movieBasic.getImg(), "");
-        Observable
-                .just(originalImg)
-                .map(new Func1<String, Bitmap>() {
-                    @Override
-                    public Bitmap call(String s) {
-                        try {
-                            URL url = new URL(s);
-                            return BitmapFactory.decodeStream(url.openStream());
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        return null;
-                    }
-                })
-                .map(new Func1<Bitmap, Bitmap>() {
-                    @Override
-                    public Bitmap call(Bitmap bitmap) {
-                        return FastBlurUtil.doBlur(bitmap, 130, false);
-                    }
-                })
-                .compose(SchedulersCompat.<Bitmap>applyIoSchedulers())
-                .subscribe(new Subscriber<Bitmap>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onNext(Bitmap bitmap) {
-                        mIvBlurBg.setImageBitmap(bitmap);
-                    }
-                });
+        Picasso.with(this)
+                .load(originalImg)
+                .into(mIvBlurBg);
 
         mFlMovieImg.setOnClickListener(new View.OnClickListener() {
             @Override

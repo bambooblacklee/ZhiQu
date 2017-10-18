@@ -11,13 +11,16 @@ import com.bamboolmc.zhiqu.model.bean.MtMovieLongCommentBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieLongCommentListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieMoneyBoxBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieMusicBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieNewsFlashListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieParentGuidancesBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieProCommentBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieRecentExpectBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRelInformationBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRelMovieBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRelTopicBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRelatedCompaniesBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieResourceBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieSoonListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieStarBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieStarHonorBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieStarInfoBean;
@@ -27,6 +30,7 @@ import com.bamboolmc.zhiqu.model.bean.MtMovieStarRelPeopleBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieTechnicalsBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieTipsBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieTopicBean;
+import com.bamboolmc.zhiqu.model.bean.MtMovieTrailerRecommendBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoCommentListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoInfoBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoListBean;
@@ -248,6 +252,43 @@ public interface MtMovieApiService {
                                                                 @Query("feature") String feature,
                                                                 @Query("limit") int limit,
                                                                 @Query("offset") int offset);
+
+    /**
+     * Created by BambooLmc on 17/9/11 上午10:13.
+     * 电影快讯
+     */
+    @GET("/sns/v5/feed.json")
+    Observable<MtMovieNewsFlashListBean> getMtMovieNewsFlashList(@Query("offset") int offset,
+                                                                 @Query("limit") int limit);
+
+    /**
+     * Created by BambooLmc on 17/9/13 下午10:43.
+     * 即将上映-预告片推荐
+     */
+    @GET("/mmdb/movie/lp/list.json")
+    Observable<MtMovieTrailerRecommendBean> getMtMovieTrailerRecommendList();
+
+    /**
+     * 最受期待
+     */
+    @GET("mmdb/movie/v1/list/wish/order/coming.json")
+    Observable<MtMovieRecentExpectBean> getMtMovieRecentExpectList(@Query("offset") int offset,
+                                                                   @Query("limit") int limit);
+
+    /**
+     * 待映列表
+     */
+    @GET("mmdb/movie/v2/list/rt/order/coming.json")
+    Observable<MtMovieSoonListBean> geMtMovieSoonList(@Query("ci") int ci,
+                                                      @Query("limit") int limit);
+
+    /**
+     *待映列表--更多
+     */
+    @GET("/mmdb/movie/list/info.json")
+    Observable<MtMovieSoonListBean> getMoreMtMovieSoonList(@Query("ci") int ci,
+                                                          @Query("limit") int limit,
+                                                          @Query("movieIds") String movieIds);
 
 
 }

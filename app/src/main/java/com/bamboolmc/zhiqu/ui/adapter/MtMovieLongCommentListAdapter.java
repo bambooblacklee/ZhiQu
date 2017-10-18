@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseWebViewActivity;
 import com.bamboolmc.zhiqu.model.bean.MtMovieLongCommentListBean;
-import com.bamboolmc.zhiqu.util.StringUtil;
+import com.bamboolmc.zhiqu.util.StringIntUtil;
 import com.bamboolmc.zhiqu.util.TimeUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -64,7 +64,7 @@ public class MtMovieLongCommentListAdapter extends BaseQuickAdapter<MtMovieLongC
         helper.convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseWebViewActivity.startActivity(mContext, StringUtil.getRealUrl(item.getUrl()));
+                BaseWebViewActivity.startActivity(mContext, StringIntUtil.getRealUrl(item.getUrl()));
             }
         });
     }

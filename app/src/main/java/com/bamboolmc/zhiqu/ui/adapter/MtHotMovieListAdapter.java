@@ -12,6 +12,7 @@ import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseItemType;
 import com.bamboolmc.zhiqu.model.bean.MtHotMovieListBean;
 import com.bamboolmc.zhiqu.ui.activity.MtMovieDetailActivity;
+import com.bamboolmc.zhiqu.ui.activity.MtMovieVideoActivity;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -31,12 +32,12 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
     @Override
     protected void convert(BaseViewHolder helper, final MtHotMovieListBean.DataBean.HotBean item) {
         helper.setText(R.id.tv_hot_movie_name, String.format("%s", item.getNm()))
-                .setText(R.id.tv_hot_desc, String.format("%s", item.getScm()))
+                .setText(R.id.tv_hot_desc, String.format("%s", item.getDesc()))
                 .setText(R.id.tv_hot_showInfo, String.format("%s", item.getShowInfo()));
 
         //预售 显示为（xxx人想看）在售显示评分
         if (item.getPreSale() == 0) {
-            helper.setText(R.id.tv_hot_audience, String.format("观众%s", item.getSc()));
+            helper.setText(R.id.tv_hot_audience, String.format("观众评 %s", item.getSc()));
         } else if (item.getPreSale() == 1) {
 
             helper.setText(R.id.tv_hot_audience, String.format("%s人想看", item.getWish()));
@@ -52,8 +53,6 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
                 .load(img)
                 .error(R.mipmap.ic_launcher)
                 .placeholder(R.mipmap.ic_launcher)
-                .resizeDimen(R.dimen.movieitem_image_width, R.dimen.movieitem_image_height)
-                .centerCrop()
                 .into((ImageView) helper.getView(R.id.iv_hot_img));
 
         //一个TextView里显示不同的字体
@@ -63,8 +62,8 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
         if (content.contains("人想看")) {
             span.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(R.color.text_yellow)), 0, content.indexOf("人"), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             tv.setText(span);
-        } else if (content.contains("观众")) {
-            span.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(R.color.text_yellow)), 2, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        } else if (content.contains("观众评 ")) {
+            span.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(R.color.text_yellow)), 3, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             tv.setText(span);
         }
 
@@ -97,21 +96,19 @@ public class MtHotMovieListAdapter extends BaseMultiItemQuickAdapter<MtHotMovieL
         helper.convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                MtMovieDetailActivity.startActivity(mContext, item.getId());
                 MtMovieDetailActivity.startActivity(mContext, item.getId());
+            }
+        });
+
+        helper.getView(R.id.fl_hot_movie).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MtMovieVideoActivity.startActivity(mContext,item.getId(),item.getVideoId(),item.getNm()+" "
+                        +item.getVideoName(),item.getVideourl());
             }
         });
 
 
     }
 
-//    @Override
-//    public void loadMoreEnd() {
-//        if (.)
-//        if (getFooterLayoutCount() == 0){
-//            addFooterView()
-//        }
-//
-//
-//    }
 }

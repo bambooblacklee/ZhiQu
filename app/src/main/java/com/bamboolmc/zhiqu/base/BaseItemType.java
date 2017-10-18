@@ -27,5 +27,11 @@ public interface BaseItemType {
     int TYPE_VIDEO_COMMENT_REPLY = 0;//有回复
     int TYPE_VIDEO_COMMENT_NO_REPLY = 1;//没有回复
 
+    //电影快讯
+    int TYPE_NEWSFLASH_ONE_IMG = 0;
+    int TYPE_NEWSFLASH_MULTI_IMG = 1;
+    int TYPE_NEWSFLASH_BIG_IMG = 2;
+    int TYPE_NEWSFLASH_ONE_BIG_IMG = 3;
+
 
 }

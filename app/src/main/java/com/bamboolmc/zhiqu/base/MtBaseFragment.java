@@ -1,5 +1,6 @@
 package com.bamboolmc.zhiqu.base;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -32,11 +33,13 @@ public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> exten
     protected View mParentView;
     protected Unbinder mUnbinder;
     protected T mPresenter;
+    protected Activity mContext;
 
 
 
     @Override
     public void onAttach(Context context) {
+        mContext = (Activity) context;
         super.onAttach(context);
     }
 

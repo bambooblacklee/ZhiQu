@@ -46,11 +46,11 @@ public class MovieFragment extends BaseFragment {
     @Override
     public void initView() {
         final LayoutInflater inflater = LayoutInflater.from(getContext());
-        final int[] tabTitles = {R.string.tab_movie_top, R.string.tab_movie_soon, R.string.tab_movie_ongo};
+        final int[] tabTitles = {R.string.tab_movie_top, R.string.tab_movie_wait, R.string.tab_movie_ongo};
 
         FragmentPagerItems pages = FragmentPagerItems.with(getContext())
                 .add(R.string.tab_movie_top, MovieTopFragment.class)
-                .add(R.string.tab_movie_soon, MovieComeSoonFragment.class)
+                .add(R.string.tab_movie_wait, MovieComeSoonFragment.class)
                 .add(R.string.tab_movie_ongo, MovieInTheatersFragment.class)
                 .create();
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(

@@ -5,7 +5,9 @@ import android.widget.ImageView;
 
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseItemType;
+import com.bamboolmc.zhiqu.base.BaseWebViewActivity;
 import com.bamboolmc.zhiqu.model.bean.MtMovieInformationBean;
+import com.bamboolmc.zhiqu.util.StringIntUtil;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.squareup.picasso.Picasso;
@@ -23,7 +25,7 @@ public class MtMovieInformationAdapter extends BaseMultiItemQuickAdapter<MtMovie
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, MtMovieInformationBean.DataBean.NewsListBean item) {
+    protected void convert(BaseViewHolder helper, final MtMovieInformationBean.DataBean.NewsListBean item) {
 
         helper.setText(R.id.tv_movie_information_author, item.getSource())
                 .setText(R.id.tv_movie_information_title, item.getTitle())
@@ -58,7 +60,7 @@ public class MtMovieInformationAdapter extends BaseMultiItemQuickAdapter<MtMovie
         helper.convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                BaseWebViewActivity.start(mContext, StringUtil.getRealUrl(item.getUrl()));
+                BaseWebViewActivity.startActivity(mContext, StringIntUtil.getRealUrl(item.getUrl()));
             }
         });
     }

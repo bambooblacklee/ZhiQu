@@ -24,7 +24,7 @@
 
     <!--豆瓣电影分类Fragment-->
     <string name="tab_movie_top">Top250</string>
-    <string name="tab_movie_soon">即将上映</string>
+    <string name="tab_movie_wait">即将上映</string>
     <string name="tab_movie_ongo">正在热映</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -35,8 +35,8 @@
 
     <!--美团豆瓣电影分类Fragment-->
     <string name="tab_movie_hot">正在热映</string>
-    <string name="tab_movie_wait">即将上映</string>
-    <string name="tab_movie_info">快讯信息</string>
+    <string name="tab_movie_soon">即将上映</string>
+    <string name="tab_movie_newsflash">快讯信息</string>
 
     <string name="tab_video_list">视频信息</string>
     <string name="tab_video_comment">评论</string>

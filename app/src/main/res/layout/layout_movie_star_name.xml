@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="230dp"
     android:orientation="vertical">
 
-    <ImageView
+    <com.cesards.cropimageview.CropImageView
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/iv_star_bg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        tools:background="@android:color/black" />
+        android:layout_height="match_parent"/>
 
     <ImageView
         android:id="@+id/iv_star_avatar"
@@ -18,7 +18,7 @@
         android:layout_height="160dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/dp_10"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"/>
 
     <LinearLayout
         android:id="@+id/ll_star_name2"
@@ -37,7 +37,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:text="名字" />
+            tools:text="名字"/>
 
         <TextView
             android:id="@+id/tv_star_english_name2"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
             android:textColor="@color/white"
-            tools:text="英文名" />
+            tools:text="英文名"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,7 +56,7 @@
             android:gravity="center"
             android:paddingRight="@dimen/dp_6"
             android:text="关注"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -84,7 +84,7 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                tools:text="名字" />
+                tools:text="名字"/>
 
             <TextView
                 android:id="@+id/tv_star_english_name"
@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_6"
                 android:textColor="@color/white"
-                tools:text="英文名" />
+                tools:text="英文名"/>
 
         </LinearLayout>
 
@@ -104,7 +104,7 @@
             android:gravity="center"
             android:paddingRight="@dimen/dp_6"
             android:text="关注"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 

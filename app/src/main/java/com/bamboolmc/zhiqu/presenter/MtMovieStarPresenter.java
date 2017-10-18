@@ -45,33 +45,25 @@ public class MtMovieStarPresenter extends RxPresenter<MtMovieStarContract.View>
                 .subscribe(new Subscriber<Object>() {
                     @Override
                     public void onCompleted() {
-                        Log.d("XXXX-->","onCompleted");
                         mView.showContent();
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("XXXX-->","onError");
                         mView.showError();
                     }
 
                     @Override
                     public void onNext(Object object) {
-                        Log.d("XXXX-->","onNext");
                         if (object instanceof MtMovieStarInfoBean) {
-                            Log.d("XXXX-->","MtMovieStarInfoBean");
                             mView.showMovieStarInfo(((MtMovieStarInfoBean) object).getData());
                         } else if (object instanceof MtMovieStarHonorBean) {
-                            Log.d("XXXX-->","MtMovieStarHonorBean");
                             mView.showMovieStarHonor((MtMovieStarHonorBean) object);
                         } else if (object instanceof MtMovieStarMoviesBean) {
-                            Log.d("XXXX-->","MtMovieStarMoviesBean");
                             mView.showMovieStarMovie(((MtMovieStarMoviesBean) object).getData());
                         } else if (object instanceof MtMovieStarRelInformationBean) {
-                            Log.d("XXXX-->","MtMovieStarRelInformationBean");
                             mView.showMovieStarRelInformation((MtMovieStarRelInformationBean) object);
                         } else if (object instanceof MtMovieStarRelPeopleBean) {
-                            Log.d("XXXX-->","MtMovieStarRelPeopleBean");
                             mView.showMovieStarRelPeople((MtMovieStarRelPeopleBean) object);
                         }
                     }

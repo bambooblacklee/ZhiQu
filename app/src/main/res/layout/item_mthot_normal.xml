@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="114dp"
-        android:paddingLeft="@dimen/dp_10"
+        android:paddingLeft="@dimen/dp_16"
         android:paddingRight="@dimen/dp_10"
         android:paddingTop="@dimen/dp_10">
 
         <FrameLayout
             android:id="@+id/fl_hot_movie"
-            android:layout_width="68dp"
+            android:layout_width="64dp"
             android:layout_height="90dp"
+            android:layout_marginRight="@dimen/dp_6"
             android:layout_alignParentLeft="true">
 
             <ImageView
                 android:id="@+id/iv_hot_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:src="@mipmap/ic_launcher" />
+                tools:src="@mipmap/ic_launcher"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_video_play"/>
 
         </FrameLayout>
 
@@ -40,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/sp_16"
-                tools:text="太空旅客" />
+                tools:text="太空旅客"/>
 
 
         </LinearLayout>
@@ -58,7 +65,7 @@
                 android:id="@+id/tv_hot_audience"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="观众" />
+                tools:text="观众"/>
 
 
         </LinearLayout>
@@ -71,7 +78,10 @@
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_6"
             android:layout_toRightOf="@id/fl_hot_movie"
-            tools:text="外星来访客，目的难预测" />
+            android:ellipsize="end"
+            android:maxEms="14"
+            android:maxLines="1"
+            tools:text="主演 me"/>
 
         <TextView
             android:id="@+id/tv_hot_showInfo"
@@ -81,13 +91,14 @@
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_4"
             android:layout_toRightOf="@id/fl_hot_movie"
-            tools:text="今天138家影院放映1152场" />
+            tools:text="今天138家影院放映1152场"/>
         />
 
     </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider_size"
-        android:background="@color/divider" />
+        android:background="@color/divider"/>
 
 </LinearLayout>

@@ -26,11 +26,12 @@ import com.bamboolmc.zhiqu.presenter.MtMovieStarPresenter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieStarMovieAdapter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieStarPhotoAdapter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieStarRelPeopleAdapter;
-import com.bamboolmc.zhiqu.util.FastBlurUtil;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
-import com.bamboolmc.zhiqu.util.StringUtil;
+import com.bamboolmc.zhiqu.util.StackBlurManager;
+import com.bamboolmc.zhiqu.util.StringIntUtil;
 import com.bamboolmc.zhiqu.util.ToastUtil;
 import com.bamboolmc.zhiqu.widget.MultiStateView;
+import com.cesards.cropimageview.CropImageView;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -60,7 +61,7 @@ public class MtMovieStarActivity extends BaseActivity<MtMovieStarPresenter> impl
     @BindView(R.id.tv_star_english_name)
     TextView mTvStarEName;
     @BindView(R.id.iv_star_bg)
-    ImageView mIvStarBg;
+    CropImageView mIvStarBg;
     @BindView(R.id.ll_star_name2)
     LinearLayout mLlStarName2;
     @BindView(R.id.tv_star_name2)
@@ -254,7 +255,7 @@ public class MtMovieStarActivity extends BaseActivity<MtMovieStarPresenter> impl
                         mLlRelatedInformation.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-//                                BaseWebViewActivity.start(mContext,StringUtil.getRealUrl(newsListBean.getUrl()));
+//                                BaseWebViewActivity.start(mContext,StringIntUtil.getRealUrl(newsListBean.getUrl()));
                             }
                         });
                     }
@@ -298,6 +299,9 @@ public class MtMovieStarActivity extends BaseActivity<MtMovieStarPresenter> impl
             mLlStarName.setVisibility(View.VISIBLE);
             mLlStarName2.setVisibility(View.INVISIBLE);
             String img = ImgResetUtil.resetPicUrl(info.getBgImg(), "@2250w_1380h_1e_1l");
+            //不同的裁剪方式,下中为原点剪切
+            mIvStarBg.setCropType(CropImageView.CropType.CENTER_BOTTOM);
+
             Picasso.with(this)
                     .load(img)
                     .error(R.mipmap.ic_launcher)
@@ -309,6 +313,8 @@ public class MtMovieStarActivity extends BaseActivity<MtMovieStarPresenter> impl
             mLlStarName2.setVisibility(View.VISIBLE);
             mLlStarName.setVisibility(View.INVISIBLE);
             String avatarUrl = ImgResetUtil.resetPicUrl(info.getAvatar(), "");
+            //不同的裁剪方式,中间为原点剪切
+            mIvStarBg.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
             Picasso.with(this)
                     .load(avatarUrl)
@@ -316,7 +322,8 @@ public class MtMovieStarActivity extends BaseActivity<MtMovieStarPresenter> impl
                     .placeholder(R.mipmap.ic_launcher)
                     .into(mIvStarAvatar);
 
-            Observable.just(avatarUrl)
+            Observable
+                    .just(avatarUrl)
                     .map(new Func1<String, Bitmap>() {
                         @Override
                         public Bitmap call(String s) {
@@ -329,43 +336,31 @@ public class MtMovieStarActivity extends BaseActivity<MtMovieStarPresenter> impl
                             return null;
                         }
                     })
-                    .filter(new Func1<Bitmap, Boolean>() {
-                        @Override
-                        public Boolean call(Bitmap bitmap) {
-                            return bitmap != null;
-                        }
-                    })
                     .map(new Func1<Bitmap, Bitmap>() {
                         @Override
                         public Bitmap call(Bitmap bitmap) {
-                            return FastBlurUtil.doBlur(bitmap, 130, false);
+                            return new StackBlurManager(bitmap).process(130);
                         }
                     })
                     .compose(SchedulersCompat.<Bitmap>applyIoSchedulers())
-//                    .subscribe(new Subscriber<Bitmap>() {
-//                        @Override
-//                        public void onCompleted() {
-//                            Log.d("xxxx","---->onCompleted");
-//                        }
-//
-//                        @Override
-//                        public void onError(Throwable e) {
-//                            Log.d("xxxx","---->cuowu--onError");
-//                            Log.d("xxxx---->",e.getMessage());
-//                        }
-//
-//                        @Override
-//                        public void onNext(Bitmap bitmap) {
-//                            Log.d("xxxx","---->onNext");
-//                            mIvStarBg.setImageBitmap(bitmap);
-//                        }
-//                    });
-                    .subscribe(new Action1<Bitmap>() {
+                    .subscribe(new Subscriber<Bitmap>() {
                         @Override
-                        public void call(Bitmap bitmap) {
+                        public void onCompleted() {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                        }
+
+                        @Override
+                        public void onNext(Bitmap bitmap) {
                             mIvStarBg.setImageBitmap(bitmap);
+
                         }
                     });
+
+
         }
 
     }
@@ -375,7 +370,7 @@ public class MtMovieStarActivity extends BaseActivity<MtMovieStarPresenter> impl
             mTvStarMajorMovieBox.setTextColor(getBaseContext().getResources().getColor(R.color.text_gray));
             mTvStarMajorMovieBox.setText("暂无");
         } else {
-            mTvStarMajorMovieBox.setText(StringUtil.changeMillionIntoBillion(info.getSumBox()));
+            mTvStarMajorMovieBox.setText(StringIntUtil.changeMillionIntoBillion(info.getSumBox()));
 
         }
         mTvStarRank.setText(String.format("%s", info.getRank() == -1 ? "1000+" : info.getFollowCount()));

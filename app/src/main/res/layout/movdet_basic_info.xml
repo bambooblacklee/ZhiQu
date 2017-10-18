@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl_basic_info"
     android:layout_width="match_parent"
     android:layout_height="284dp">
 
-    <ImageView
-        android:id="@+id/iv_blur_bg"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ic_blur_bg"
-        android:foreground="@drawable/ic_movie_detail_fg"
-        android:scaleType="centerCrop" />
+        android:foreground="@color/alpha_gray">
+
+        <ImageView
+            android:id="@+id/iv_blur_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+    </FrameLayout>
+
 
     <FrameLayout
         android:id="@+id/fl_movie_img"
@@ -26,15 +32,15 @@
             android:id="@+id/ImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:src="@mipmap/ic_launcher"
             android:background="@drawable/shape_photo_bg"
+            tools:src="@mipmap/ic_launcher"
             />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_video_play_big" />
+            android:src="@drawable/ic_video_play_big"/>
 
 
     </FrameLayout>
@@ -61,14 +67,14 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_16"
-                tools:text="电影名" />
+                tools:text="电影名"/>
 
             <ImageView
                 android:id="@+id/iv_win_awards"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_6"
-                android:src="@drawable/ic_movie_win_awards" />
+                android:src="@drawable/ic_movie_win_awards"/>
 
         </LinearLayout>
 
@@ -80,7 +86,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/white"
-            tools:text="english name" />
+            tools:text="english name"/>
 
 
         <TextView
@@ -93,7 +99,7 @@
             android:gravity="center_vertical"
             android:text="观众评分"
             android:textColor="@color/text_gray_light"
-            android:textSize="@dimen/sp_12" />
+            android:textSize="@dimen/sp_12"/>
 
         <LinearLayout
             android:id="@+id/ll_score"
@@ -107,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_yellow"
                 android:textSize="@dimen/sp_16"
-                tools:text="8.5" />
+                tools:text="8.5"/>
 
             <TextView
                 android:id="@+id/tv_snum"
@@ -116,7 +122,7 @@
                 android:layout_marginLeft="@dimen/dp_4"
                 android:textColor="@color/text_gray_light"
                 android:textSize="11sp"
-                tools:text="(16.2万人评)" />
+                tools:text="(16.2万人评)"/>
         </LinearLayout>
 
         <TextView
@@ -126,7 +132,7 @@
             android:layout_weight="1"
             android:textColor="@color/text_gray_light"
             android:textSize="@dimen/sp_12"
-            tools:text="电影类型" />
+            tools:text="电影类型"/>
 
         <TextView
             android:id="@+id/tv_src_dur"
@@ -135,7 +141,7 @@
             android:layout_weight="1"
             android:textColor="@color/text_gray_light"
             android:textSize="@dimen/sp_12"
-            tools:text="中国大陆/110分钟" />
+            tools:text="中国大陆/110分钟"/>
 
         <TextView
             android:id="@+id/tv_pubDesc"
@@ -144,7 +150,7 @@
             android:layout_weight="1"
             android:textColor="@color/text_gray_light"
             android:textSize="@dimen/sp_12"
-            tools:text="上映时间" />
+            tools:text="上映时间"/>
 
 
     </LinearLayout>
@@ -169,7 +175,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_favorite_solid" />
+                android:src="@drawable/ic_favorite_solid"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -178,7 +184,7 @@
                 android:drawablePadding="@dimen/dp_14"
                 android:gravity="center"
                 android:text="想看"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"/>
         </LinearLayout>
 
 
@@ -193,7 +199,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_score_solid" />
+                android:src="@drawable/ic_score_solid"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -201,7 +207,7 @@
                 android:layout_marginLeft="@dimen/dp_14"
                 android:drawablePadding="@dimen/dp_14"
                 android:text="评分"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"/>
         </LinearLayout>
 
 

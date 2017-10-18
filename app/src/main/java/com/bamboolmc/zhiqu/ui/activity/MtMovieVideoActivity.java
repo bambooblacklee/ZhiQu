@@ -29,6 +29,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 /**
  * Created by BambooLmc on 17/7/7 下午2:49.
+ * 只有movieid有用,其他参数暂无用处
  */
 public class MtMovieVideoActivity extends BaseActivity {
 
