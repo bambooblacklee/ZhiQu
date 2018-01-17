@@ -7,6 +7,7 @@ import android.support.annotation.DrawableRes;
 import android.view.View;
 import android.widget.TextView;
 
+import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.component.DaggerMovieComponent;
@@ -14,7 +15,6 @@ import com.bamboolmc.zhiqu.contract.MovieDetailContract;
 import com.bamboolmc.zhiqu.model.bean.MovieDetBean;
 import com.bamboolmc.zhiqu.presenter.MovieDetailPresenter;
 import com.bamboolmc.zhiqu.widget.ExpandTextView;
-import com.bamboolmc.zhiqu.widget.MultiStateView;
 
 import javax.inject.Inject;
 

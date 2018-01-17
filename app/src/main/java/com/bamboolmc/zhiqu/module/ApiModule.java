@@ -2,11 +2,11 @@ package com.bamboolmc.zhiqu.module;
 
 import android.util.Log;
 
-import com.bamboolmc.zhiqu.network.HttpConfig;
+import com.bamboolmc.library.network.HeaderInterceptor;
+import com.bamboolmc.library.network.HttpConfig;
+import com.bamboolmc.library.network.RequestSignInterceptor;
 import com.bamboolmc.zhiqu.network.api.MovieApi;
 import com.bamboolmc.zhiqu.network.api.MtMovieApi;
-import com.bamboolmc.zhiqu.network.support.HeaderInterceptor;
-import com.bamboolmc.zhiqu.network.support.RequestSignInterceptor;
 
 import java.util.concurrent.TimeUnit;
 

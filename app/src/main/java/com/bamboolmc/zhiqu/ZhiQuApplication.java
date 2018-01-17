@@ -3,7 +3,7 @@ package com.bamboolmc.zhiqu;
 import android.app.Application;
 import android.content.Context;
 
-import com.bamboolmc.zhiqu.util.ToastUtil;
+import com.bamboolmc.library.utils.ToastUtil;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 

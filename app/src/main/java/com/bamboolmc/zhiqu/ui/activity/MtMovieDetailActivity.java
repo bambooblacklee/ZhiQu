@@ -15,6 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bamboolmc.library.utils.ToastUtil;
+import com.bamboolmc.library.widget.MultiStateView;
+import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.base.BaseWebViewActivity;
@@ -44,10 +47,7 @@ import com.bamboolmc.zhiqu.ui.adapter.MtMovieStarAdapter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieTipAdapter;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
 import com.bamboolmc.zhiqu.util.StringIntUtil;
-import com.bamboolmc.zhiqu.util.ToastUtil;
 import com.bamboolmc.zhiqu.widget.ExpandTextView;
-import com.bamboolmc.zhiqu.widget.MultiStateView;
-import com.bamboolmc.zhiqu.widget.refresh.RefreshLayout;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

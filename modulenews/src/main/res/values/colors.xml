@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="text_primary">#333333</color>
+    <color name="text_white">#ffffff</color>
+    <color name="divider_normal">#f0f0f0</color>
+    <color name="divider">#DCDCDC</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="common_bg">@color/white</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="tab_normal">#FF4000</color>
+
+    <color name="alpha_05_black">#0D000000</color>
+
+
+
+</resources>

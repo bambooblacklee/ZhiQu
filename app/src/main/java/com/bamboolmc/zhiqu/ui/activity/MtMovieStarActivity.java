@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bamboolmc.library.utils.ToastUtil;
+import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
@@ -29,8 +31,6 @@ import com.bamboolmc.zhiqu.ui.adapter.MtMovieStarRelPeopleAdapter;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
 import com.bamboolmc.zhiqu.util.StackBlurManager;
 import com.bamboolmc.zhiqu.util.StringIntUtil;
-import com.bamboolmc.zhiqu.util.ToastUtil;
-import com.bamboolmc.zhiqu.widget.MultiStateView;
 import com.cesards.cropimageview.CropImageView;
 import com.squareup.picasso.Picasso;
 

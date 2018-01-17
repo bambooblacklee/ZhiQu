@@ -4,11 +4,11 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bamboolmc.library.utils.TimeUtils;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseWebViewActivity;
 import com.bamboolmc.zhiqu.model.bean.MtMovieLongCommentListBean;
 import com.bamboolmc.zhiqu.util.StringIntUtil;
-import com.bamboolmc.zhiqu.util.TimeUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.squareup.picasso.Picasso;

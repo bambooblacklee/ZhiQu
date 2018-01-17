@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="158dp"
@@ -16,14 +17,14 @@
         <ImageView
             android:id="@+id/civ_author"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"/>
 
         <ImageView
             android:id="@+id/iv_user_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
-            tools:src="@drawable/ic_lv1" />
+            tools:src="@drawable/ic_lv1"/>
 
 
     </FrameLayout>
@@ -39,12 +40,12 @@
         <TextView
             android:id="@+id/tv_author_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:src="@drawable/ic_vip" />
+            tools:src="@drawable/ic_vip"/>
 
     </LinearLayout>
 
@@ -55,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ll_author_name"
         android:layout_marginLeft="@dimen/dp_10"
-        android:layout_toRightOf="@id/fl_author_iv" />
+        android:layout_toRightOf="@id/fl_author_iv"/>
 
     <TextView
         android:id="@+id/tv_comment_title"
@@ -68,7 +69,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/sp_16" />
+        android:textSize="@dimen/sp_16"/>
 
     <TextView
         android:id="@+id/tv_comment_content"
@@ -81,28 +82,28 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/text_gray"
-        android:textSize="@dimen/sp_12" />
+        android:textSize="@dimen/sp_12"/>
 
     <LinearLayout
-        android:layout_toRightOf="@id/fl_author_iv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_comment_content"
         android:layout_marginLeft="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_6">
+        android:layout_marginTop="@dimen/dp_6"
+        android:layout_toRightOf="@id/fl_author_iv">
 
         <TextView
             android:id="@+id/tv_pub_time"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/tv_view_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_view"
-            android:drawablePadding="@dimen/dp_6" />
+            android:drawablePadding="@dimen/dp_6"/>
 
 
         <TextView
@@ -111,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
             android:drawableLeft="@drawable/ic_comment"
-            android:drawablePadding="@dimen/dp_6" />
+            android:drawablePadding="@dimen/dp_6"/>
 
     </LinearLayout>
 
@@ -120,13 +121,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/dp_14"
-        android:src="@drawable/ic_more_small" />
+        android:src="@drawable/ic_more_small"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/fl_author_iv"
-        android:background="@color/divider_normal" />
+        android:background="@color/divider_normal"/>
 
 </RelativeLayout>

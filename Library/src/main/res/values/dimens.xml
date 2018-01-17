@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_minor">3dp</dimen>
+    <dimen name="cell_small">30dp</dimen>
+    <dimen name="spacing_major">9dp</dimen>
+
+    <dimen name="font_normal">15sp</dimen>
+    <dimen name="font_smaller">12sp</dimen>
+
+    <dimen name="common_loading_progress_size">45dp</dimen>
+</resources>

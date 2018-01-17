@@ -1,10 +1,11 @@
 package com.bamboolmc.zhiqu.base;
 
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import com.bamboolmc.library.base.BaseContract;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.util.ActivityStack;
 
@@ -35,8 +36,9 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         ButterKnife.bind(this);
         initToolbar();
         initData();
-        //对各种控件进行设置适配填充数据
         initViews(savedInstanceState);
+
+
     }
 
     @Override

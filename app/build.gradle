@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'android-apt'
+//apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 25
@@ -23,51 +25,46 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-
-    //依赖注入
-    apt 'com.jakewharton:butterknife-compiler:8.5.1'
-    apt 'com.google.dagger:dagger-compiler:2.5'
-    provided 'javax.annotation:jsr250-api:1.0'
+    compile project(':Library')
 
     //leakcanary 使用
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-
-    //底部Tab组件
-    
-
-    //加载中圆圈……
-    
-    //Net RxJava+Retrofit
-    
-    
-    //Okhttp日志打印拦截器
-    
-    
-    //Adapter
     
     //jCPlayer
     compile 'fm.jiecao:jiecaovideoplayer:5.4'
     //RxBus
     compile 'com.hwangjr.rxbus:rxbus:1.0.5'
 
+    apt 'com.google.dagger:dagger-compiler:2.5'
+    compile 'com.google.dagger:dagger:2.5'
+
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.jakewharton:butterknife:8.5.1'
+
+    provided 'javax.annotation:jsr250-api:1.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+
     compile'com.android.support:appcompat-v7:25.2.0'
     compile'com.android.support:support-v4:25.2.0'
     compile'com.android.support:recyclerview-v7:25.2.0'
     compile'com.google.code.gson:gson:2.6.1'
-    compile 'com.jakewharton:butterknife:8.5.1'
-    compile 'com.google.dagger:dagger:2.5'
+
     compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
-    compile 'com.github.castorflex.smoothprogressbar:library-circular:1.2.0'
+
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+
     compile 'io.reactivex:rxjava:1.2.4'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.google.guava:guava:18.0'
+
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
     compile 'cn.bingoogolapple:bga-badgeview:1.0.2@aar'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.15'

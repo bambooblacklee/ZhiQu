@@ -2,10 +2,10 @@ package com.bamboolmc.zhiqu.ui.adapter;
 
 import android.widget.ImageView;
 
+import com.bamboolmc.library.utils.TimeUtils;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseItemType;
 import com.bamboolmc.zhiqu.model.bean.MtMovieTopicBean;
-import com.bamboolmc.zhiqu.util.TimeUtils;
 import com.bamboolmc.zhiqu.util.UserUtils;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;

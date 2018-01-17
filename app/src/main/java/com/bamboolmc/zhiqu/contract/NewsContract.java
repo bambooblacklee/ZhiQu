@@ -1,6 +1,7 @@
 package com.bamboolmc.zhiqu.contract;
 
-import com.bamboolmc.zhiqu.base.BaseContract;
+
+import com.bamboolmc.library.base.BaseContract;
 
 /**
  * Created by limc on 17/4/11.

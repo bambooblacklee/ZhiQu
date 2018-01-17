@@ -8,14 +8,14 @@
 
     <include layout="@layout/movdet_title" />
 
-    <com.bamboolmc.zhiqu.widget.MultiStateView
+    <com.bamboolmc.library.widget.MultiStateView
         android:id="@+id/mv_movie_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
-        <com.bamboolmc.zhiqu.widget.refresh.RefreshLayout
+        <com.bamboolmc.library.widget.refresh.RefreshLayout
             android:id="@+id/rl_movie_det"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -70,8 +70,8 @@
             </android.support.v4.widget.NestedScrollView>
 
 
-        </com.bamboolmc.zhiqu.widget.refresh.RefreshLayout>
-    </com.bamboolmc.zhiqu.widget.MultiStateView>
+        </com.bamboolmc.library.widget.refresh.RefreshLayout>
+    </com.bamboolmc.library.widget.MultiStateView>
 
 
 </FrameLayout>

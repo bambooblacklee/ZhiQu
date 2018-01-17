@@ -20,7 +20,6 @@ public class MovieTopFragment extends BaseRvFragment<MovieTopPresenter, Movie> i
     @Override
     public void initData() {
         mPresenter.getMovieTopLists();
-
     }
 
     @Override

@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.model.bean.MtMovieMusicBean;
 import com.bamboolmc.zhiqu.model.bean.MtVideoPostBean;
 import com.bamboolmc.zhiqu.ui.fragment.MtMovieVideoCommentFragment;
 import com.bamboolmc.zhiqu.ui.fragment.MtMovieVideoListFragment;
-import com.bamboolmc.zhiqu.widget.CustomViewPager;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
@@ -143,6 +143,12 @@ public class MtMovieVideoActivity extends BaseActivity {
     public void ExchangeVideo(MtVideoPostBean mtVideoPostBean) {
         mVideoPlayer.setUp(mtVideoPostBean.getVideoUrl(), JCVideoPlayer.SCREEN_LAYOUT_NORMAL, mtVideoPostBean.getVideoName());
         mVideoPlayer.startVideo();
+//        Picasso.with(this)
+//                .load("http://vimg3.ws.126.net/image/snapshot/2017/10/H/E/VK107COHE.jpg")
+//                .error(R.mipmap.ic_launcher)
+//                .placeholder(R.mipmap.ic_launcher)
+//                .into(mVideoPlayer.thumbImageView);
+
     }
 
     @Override

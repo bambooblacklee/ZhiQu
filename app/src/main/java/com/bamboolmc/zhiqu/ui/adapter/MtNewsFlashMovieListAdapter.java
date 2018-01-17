@@ -3,6 +3,7 @@ package com.bamboolmc.zhiqu.ui.adapter;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bamboolmc.library.utils.TimeUtils;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseItemType;
 import com.bamboolmc.zhiqu.base.BaseWebViewActivity;
@@ -10,7 +11,6 @@ import com.bamboolmc.zhiqu.model.bean.MtMovieNewsFlashListBean;
 import com.bamboolmc.zhiqu.ui.activity.MtMovieVideoActivity;
 import com.bamboolmc.zhiqu.util.ImgResetUtil;
 import com.bamboolmc.zhiqu.util.StringIntUtil;
-import com.bamboolmc.zhiqu.util.TimeUtils;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.squareup.picasso.Picasso;

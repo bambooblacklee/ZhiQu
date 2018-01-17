@@ -1,5 +1,6 @@
 package com.bamboolmc.zhiqu.network.api;
 
+import com.bamboolmc.library.network.HttpConfig;
 import com.bamboolmc.zhiqu.model.bean.MtHotMovieListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieAlbumBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieAwardsBean;
@@ -34,7 +35,6 @@ import com.bamboolmc.zhiqu.model.bean.MtMovieTrailerRecommendBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoCommentListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoInfoBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoListBean;
-import com.bamboolmc.zhiqu.network.HttpConfig;
 import com.bamboolmc.zhiqu.network.service.MtMovieApiService;
 
 import okhttp3.OkHttpClient;

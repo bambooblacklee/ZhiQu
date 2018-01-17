@@ -1,8 +1,6 @@
 package com.bamboolmc.zhiqu.presenter;
 
-import android.util.Log;
-
-import com.bamboolmc.zhiqu.base.RxPresenter;
+import com.bamboolmc.library.base.RxPresenter;
 import com.bamboolmc.zhiqu.contract.MtMovieVideoCommentContract;
 import com.bamboolmc.zhiqu.model.bean.MtMovieVideoCommentListBean;
 import com.bamboolmc.zhiqu.network.api.MtMovieApi;

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_micro"
+        android:text="@string/channel_mine"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_small"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_channel_mine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_mini"
+        android:layout_marginTop="@dimen/spacing_mini"
+        android:gravity="right"
+        android:padding="@dimen/spacing_micro"
+        android:text="@string/channel_explain"
+        android:textSize="@dimen/text_mini"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_micro"
+        android:text="@string/channel_others"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_small"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_channel_others"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"/>
+
+
+
+</LinearLayout>

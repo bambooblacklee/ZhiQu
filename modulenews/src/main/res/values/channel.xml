@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="news_channel_rec">
+        <!--reccommend的几个频道-->
+        <item>头条</item>
+        <item>视频</item>
+        <item>段子</item>
+        <item>网易号</item>
+        <item>热点</item>
+        <item>美女</item>
+        <item>萌宠</item>
+    </string-array>
+
+    <string-array name="news_channel_dlist">
+        <!--dlist的几个频道-->
+        <item>要闻</item>
+        <item>娱乐</item>
+        <item>体育</item>
+        <item>天津</item>
+        <item>财经</item>
+        <item>科技</item>
+        <item>社会</item>
+        <item>军事</item>
+        <item>时尚</item>
+        <item>NBA</item>
+        <item>股票</item>
+        <item>游戏</item>
+        <item>健康</item>
+        <item>读书</item>
+        <item>影视</item>
+        <item>中国足球</item>
+        <item>国际足球</item>
+        <item>手机</item>
+        <item>数码</item>
+        <item>旅游</item>
+        <item>教育</item>
+        <item>女人</item>
+        <item>亲子</item>
+        <item>艺术</item>
+        <item>双创</item>
+        <item>星座</item>
+    </string-array>
+
+    <string-array name="news_channel_nc">
+        <item>新时代</item>
+        <item>活力冬奥</item>
+        <item>骑车</item>
+        <item>跟帖</item>
+        <item>房产</item>
+        <item>轻松一刻</item>
+        <item>历史</item>
+        <item>家居</item>
+        <item>独家</item>
+        <item>航空</item>
+        <item>彩票</item>
+        <item>漫画</item>
+        <item>新闻学院</item>
+        <item>音乐</item>
+        <item>CBA</item>
+        <item>跑步</item>
+        <item>云课堂</item>
+        <item>态度公开课</item>
+        <item>京东</item>
+        <item>酒香</item>
+        <item>天猫</item>
+        <item>艺城live</item>
+        <item>二次元</item>
+        <item>态度营销</item>
+        <item>佛学</item>
+        <item>阳光法院</item>
+    </string-array>
+
+
+</resources>

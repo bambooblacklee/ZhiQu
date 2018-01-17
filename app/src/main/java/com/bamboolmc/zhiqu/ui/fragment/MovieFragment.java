@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseFragment;
-import com.bamboolmc.zhiqu.widget.CustomViewPager;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
@@ -48,11 +49,19 @@ public class MovieFragment extends BaseFragment {
         final LayoutInflater inflater = LayoutInflater.from(getContext());
         final int[] tabTitles = {R.string.tab_movie_top, R.string.tab_movie_wait, R.string.tab_movie_ongo};
 
-        FragmentPagerItems pages = FragmentPagerItems.with(getContext())
-                .add(R.string.tab_movie_top, MovieTopFragment.class)
-                .add(R.string.tab_movie_wait, MovieComeSoonFragment.class)
-                .add(R.string.tab_movie_ongo, MovieInTheatersFragment.class)
-                .create();
+//      如下两种添加方式均可
+//        FragmentPagerItems pages = FragmentPagerItems.with(getContext())
+//                .add(R.string.tab_movie_top, MovieTopFragment.class)
+//                .add(R.string.tab_movie_wait, MovieComeSoonFragment.class)
+//                .add(R.string.tab_movie_ongo, MovieInTheatersFragment.class)
+//                .create();
+
+        FragmentPagerItems pages = new FragmentPagerItems(getContext());
+        pages.add(FragmentPagerItem.of(getString(R.string.tab_movie_top), MovieTopFragment.class));
+        pages.add(FragmentPagerItem.of(getString(R.string.tab_movie_wait), MovieComeSoonFragment.class));
+        pages.add(FragmentPagerItem.of(getString(R.string.tab_movie_ongo), MovieInTheatersFragment.class));
+
+
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getChildFragmentManager(),
                 pages);

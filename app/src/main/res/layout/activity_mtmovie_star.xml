@@ -5,7 +5,7 @@
     android:clipToPadding="false"
     android:fitsSystemWindows="true">>
 
-    <com.bamboolmc.zhiqu.widget.MultiStateView
+    <com.bamboolmc.library.widget.MultiStateView
         android:id="@+id/mv_movie_star"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,6 +47,6 @@
 
         </android.support.v4.widget.NestedScrollView>
 
-    </com.bamboolmc.zhiqu.widget.MultiStateView>
+    </com.bamboolmc.library.widget.MultiStateView>
 
 </FrameLayout>

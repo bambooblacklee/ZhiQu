@@ -2,9 +2,9 @@ package com.bamboolmc.zhiqu.ui.adapter;
 
 import android.widget.ImageView;
 
+import com.bamboolmc.library.utils.TimeUtils;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.model.bean.MtMovieProCommentBean;
-import com.bamboolmc.zhiqu.util.TimeUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.squareup.picasso.Picasso;

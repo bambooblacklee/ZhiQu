@@ -31,9 +31,7 @@ public class MtMovieSoonMovieAdapter extends BaseQuickAdapter<MtMovieSoonListBea
         helper.setText(R.id.tv_wait_movie_name, item.getNm())
                 .setText(R.id.tv_wait_movie_desc, String.format("类型:%s", item.getCat()))
                 .setText(R.id.tv_wait_movie_wish, String.format("%s人想看", item.getWish()));
-//        if (!item.getStar().equals("")){
         helper.setText(R.id.tv_wait_movie_major, String.format("主演:%s", item.getStar()));
-//        }
 
         TextView tv_wish = helper.getView(R.id.tv_wait_movie_wish);
         Spannable spannable = new SpannableString(tv_wish.getText());
@@ -58,8 +56,8 @@ public class MtMovieSoonMovieAdapter extends BaseQuickAdapter<MtMovieSoonListBea
         helper.getView(R.id.fl_wait_movie_iv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MtMovieVideoActivity.startActivity(mContext,item.getId(),item.getVideoId(),item.getNm()+" "
-                        +item.getVideoName(),item.getVideourl());
+                MtMovieVideoActivity.startActivity(mContext, item.getId(), item.getVideoId(), item.getNm() + " "
+                        + item.getVideoName(), item.getVideourl());
             }
         });
 

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     >
 
-    <com.bamboolmc.zhiqu.widget.CustomViewPager
+    <com.bamboolmc.library.widget.CustomViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"

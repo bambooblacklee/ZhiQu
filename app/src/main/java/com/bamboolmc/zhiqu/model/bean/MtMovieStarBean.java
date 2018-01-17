@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class MtMovieStarBean {
     @SerializedName("data")
-    List<List<DataBean>>data;
+    List<List<DataBean>> data;
 
     public void setData(List<List<DataBean>> data) {
         this.data = data;
@@ -20,7 +20,7 @@ public class MtMovieStarBean {
         return data;
     }
 
-    public static class DataBean{
+    public static class DataBean {
         @SerializedName("avatar")
         String avatar;
         @SerializedName("cnm")

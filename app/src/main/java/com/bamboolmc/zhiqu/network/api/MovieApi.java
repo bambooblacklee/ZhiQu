@@ -1,9 +1,9 @@
 package com.bamboolmc.zhiqu.network.api;
 
+import com.bamboolmc.library.network.HttpConfig;
 import com.bamboolmc.zhiqu.model.bean.Movie;
 import com.bamboolmc.zhiqu.model.bean.MovieDetBean;
 import com.bamboolmc.zhiqu.model.bean.MovieSubjects;
-import com.bamboolmc.zhiqu.network.HttpConfig;
 import com.bamboolmc.zhiqu.network.service.MovieApiService;
 
 import okhttp3.OkHttpClient;

@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bamboolmc.library.base.BaseContract;
+
 /**
  * Created by limc on 17/9/6.
  * 懒加载,目前貌似没显示出来懒加载迹象

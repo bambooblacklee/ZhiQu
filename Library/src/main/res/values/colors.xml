@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_gray_bg">#F5F5F5</color>
+    <!--通用二级标题的颜色-->
+    <color name="common_h2">#727272</color>
+
+    <color name="colorAccent">#FF4081</color>
+
+</resources>

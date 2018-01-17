@@ -7,6 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.bamboolmc.library.utils.ToastUtil;
+import com.bamboolmc.library.widget.MultiStateView;
+import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
@@ -14,9 +17,6 @@ import com.bamboolmc.zhiqu.contract.MtMovieInformationContract;
 import com.bamboolmc.zhiqu.model.bean.MtMovieInformationBean;
 import com.bamboolmc.zhiqu.presenter.MtMovieInformationPresenter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieInformationAdapter;
-import com.bamboolmc.zhiqu.util.ToastUtil;
-import com.bamboolmc.zhiqu.widget.MultiStateView;
-import com.bamboolmc.zhiqu.widget.refresh.RefreshLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.List;
@@ -77,13 +77,6 @@ public class MtMovieInformationActivity extends BaseActivity<MtMovieInformationP
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    protected void initData() {
-//        mTitle = getIntent().getStringExtra(TITLE);
-        mMovieId = getIntent().getIntExtra(MOVIE_ID, 0);
         mMtmovieInformationAdapter = new MtMovieInformationAdapter();
         mRvBaseRecyclerView.setAdapter(mMtmovieInformationAdapter);
         mRvBaseRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
@@ -93,6 +86,13 @@ public class MtMovieInformationActivity extends BaseActivity<MtMovieInformationP
                 mPresenter.getMtMovieMoreInformation(mMovieId, offset);
             }
         });
+
+    }
+
+    @Override
+    protected void initData() {
+//        mTitle = getIntent().getStringExtra(TITLE);
+        mMovieId = getIntent().getIntExtra(MOVIE_ID, 0);
         mPresenter.getMtMovieInformation(mMovieId, offset);
 
     }

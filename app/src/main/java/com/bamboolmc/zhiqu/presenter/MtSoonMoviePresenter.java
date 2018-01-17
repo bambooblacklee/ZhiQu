@@ -1,7 +1,6 @@
 package com.bamboolmc.zhiqu.presenter;
 
-
-import com.bamboolmc.zhiqu.base.RxPresenter;
+import com.bamboolmc.library.base.RxPresenter;
 import com.bamboolmc.zhiqu.contract.MtSoonMovieContract;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRecentExpectBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieSoonListBean;

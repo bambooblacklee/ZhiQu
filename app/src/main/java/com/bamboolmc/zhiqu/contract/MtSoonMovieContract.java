@@ -1,6 +1,6 @@
 package com.bamboolmc.zhiqu.contract;
 
-import com.bamboolmc.zhiqu.base.BaseContract;
+import com.bamboolmc.library.base.BaseContract;
 import com.bamboolmc.zhiqu.model.bean.MtMovieRecentExpectBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieSoonListBean;
 import com.bamboolmc.zhiqu.model.bean.MtMovieTrailerRecommendBean;

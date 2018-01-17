@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.MtLazyBaseFragment;
-import com.bamboolmc.zhiqu.widget.CustomViewPager;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;

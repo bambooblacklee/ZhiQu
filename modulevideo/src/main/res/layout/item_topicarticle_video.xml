@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_14">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="106dp"
+            android:layout_height="80dp"
+            >
+
+            <ImageView
+                android:id="@+id/iv_tarticle_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@drawable/ic_launcher"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_video_play"/>
+
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/tv_tarticle_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_weight="1"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"
+            tools:text="标题--天津中国第13届全运会"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_tarticle_nickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_12"
+            tools:text="猫眼资讯"/>
+
+        <TextView
+            android:id="@+id/tv_tarticle_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_weight="1"
+            android:textSize="@dimen/sp_12"
+            tools:text="46分钟前"/>
+
+        <TextView
+            android:id="@+id/tv_tarticle_viewCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_view_count"
+            android:drawablePadding="@dimen/dp_6"
+            android:textSize="@dimen/sp_12"
+            tools:text="1308"/>
+
+        <TextView
+            android:id="@+id/tv_tarticle_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:drawableLeft="@drawable/ic_comment"
+            android:drawablePadding="@dimen/dp_6"
+            android:textSize="@dimen/sp_12"
+            tools:text="18"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/divider_normal"/>
+
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<resources>
+    <dimen name="text_micro">12sp</dimen>
+    <dimen name="text_ultraMini">13sp</dimen>
+    <dimen name="text_mini">14sp</dimen>
+    <dimen name="text_ultraSmall">15sp</dimen>
+    <dimen name="text_small">16sp</dimen>
+    <dimen name="text_moderate1">18sp</dimen>
+    <dimen name="text_moderate2">19sp</dimen>
+    <dimen name="text_moderate3">21sp</dimen>
+    <dimen name="text_big">25sp</dimen>
+    <dimen name="text_extraBig">31sp</dimen>
+
+    <dimen name="spacing_ultraMicro">4dp</dimen>
+    <dimen name="spacing_micro">6dp</dimen>
+    <dimen name="spacing_mini">10dp</dimen>
+    <dimen name="spacing_small">16dp</dimen>
+    <dimen name="spacing_common">30dp</dimen>
+    <dimen name="spacing_big">31dp</dimen>
+    <dimen name="spacing_extraBig">31dp</dimen>
+
+    <dimen name="width_common">100dp</dimen>
+    <dimen name="height_common">80dp</dimen>
+    <dimen name="width_mini">30dp</dimen>
+    <dimen name="height_mini">30dp</dimen>
+    <dimen name="height_extraBig">200dp</dimen>
+
+    <dimen name="divider_size">1px</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>

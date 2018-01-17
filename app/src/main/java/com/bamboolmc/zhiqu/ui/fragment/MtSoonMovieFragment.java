@@ -6,6 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bamboolmc.library.utils.ToastUtil;
+import com.bamboolmc.library.widget.MultiStateView;
+import com.bamboolmc.library.widget.refresh.OnRefreshListener;
+import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
 import com.bamboolmc.zhiqu.base.MtLazyBaseFragment;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
@@ -17,10 +21,6 @@ import com.bamboolmc.zhiqu.presenter.MtSoonMoviePresenter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieRecentExpectAdapter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieSoonMovieAdapter;
 import com.bamboolmc.zhiqu.ui.adapter.MtMovieTrailerRecommendAdapter;
-import com.bamboolmc.zhiqu.util.ToastUtil;
-import com.bamboolmc.zhiqu.widget.MultiStateView;
-import com.bamboolmc.zhiqu.widget.refresh.OnRefreshListener;
-import com.bamboolmc.zhiqu.widget.refresh.RefreshLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.ArrayList;

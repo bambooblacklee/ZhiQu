@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ModuleNews</string>
+    <string name="channel_mine">切换栏目</string>
+    <string name="channel_others">点击添加更多栏目</string>
+    <string name="channel_explain">点击可增删/长按并拖拽可排序</string>
+</resources>

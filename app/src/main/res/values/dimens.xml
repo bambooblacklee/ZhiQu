@@ -25,7 +25,7 @@
     <dimen name="corner_large">8.0px</dimen>
     <dimen name="corner_larger">12.0px</dimen>
 
-    <dimen name="common_loading_progress_size">45dp</dimen>
+
 
     <dimen name="list_normal">14sp</dimen>
     <dimen name="list_small">12sp</dimen>
