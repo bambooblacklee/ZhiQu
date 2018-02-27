@@ -3,6 +3,7 @@
 
     <color name="text_primary">#333333</color>
     <color name="text_white">#ffffff</color>
+    <color name="text_black">#000000</color>
     <color name="divider_normal">#f0f0f0</color>
     <color name="divider">#DCDCDC</color>
 
@@ -13,6 +14,9 @@
     <color name="tab_normal">#FF4000</color>
 
     <color name="alpha_05_black">#0D000000</color>
+    <color name="bg_black">#363636</color>
+
+    <color name="progress_bar_unfinished">#D4D4D4</color>
 
 
 

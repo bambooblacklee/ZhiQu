@@ -3,22 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_item_news_channel"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/news_channel_title"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/spacing_common"
-        android:layout_marginBottom="@dimen/spacing_micro"
-        android:layout_marginLeft="@dimen/spacing_mini"
-        android:layout_marginRight="@dimen/spacing_mini"
-        android:layout_marginTop="@dimen/spacing_micro"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/spacing_small"
+        android:background="@drawable/selector_add_resource"
+        android:padding="@dimen/spacing_micro"
+        android:text="@string/news_hot_more"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/text_micro"
-        android:text="@string/app_name"
         />
 
 </LinearLayout>

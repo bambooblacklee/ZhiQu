@@ -23,7 +23,7 @@ public class NewsRequestHeaderInterceptor implements Interceptor {
                 .addHeader("User-N", "mWkCVDYwcEG7gn0m23FuM1wqtxb9wOsQMgIhg/RXrEQ=")
                 .addHeader("httpDNSIP", "59.111.160.215")
                 .addHeader("User-C", "6KeG6aKROjrmkJ7nrJE=")
-                .addHeader("User-Agent", "NewsApp/30.1 Android/7.0 (HONOR/PRA-AL00)")
+                .addHeader("User-Agent", "NewsApp/33.2 Android/7.0 (HONOR/PRA-AL00)")
 //                .addHeader("User-L","T35JtfsBOaiqE6sfGH2iGezONymZof41E+I1cZ2Pp29eAnBTA00C3XU0wUlfHXNY")
                 .addHeader("X-NR-Trace-Id", "1513816869527_69233910_CQk3OTU3NzBhYjIzNmFlMWQJSE1LN04xNzMyNDAxNTY2Ng==")
 //                .addHeader("Host","c.m.163.com")

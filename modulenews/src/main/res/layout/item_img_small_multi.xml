@@ -10,10 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/spacing_mini"
-        android:paddingLeft="@dimen/spacing_small"
-        android:paddingRight="@dimen/spacing_small"
-        android:paddingTop="@dimen/spacing_mini">
+        android:padding="@dimen/spacing_mini">
 
         <TextView
             android:id="@+id/tv_news_title"
@@ -27,13 +24,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="108dp"
-            android:layout_marginTop="@dimen/spacing_mini">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_micro">
 
             <ImageView
                 android:id="@+id/img_news"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 android:layout_weight="1"/>
 
             <ImageView
@@ -42,6 +40,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/spacing_micro"
                 android:layout_marginRight="@dimen/spacing_micro"
+                android:scaleType="centerCrop"
                 android:layout_weight="1"/>
 
             <FrameLayout
@@ -52,7 +51,8 @@
                 <ImageView
                     android:id="@+id/img_news3"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
 
                 <TextView
                     android:id="@+id/img_count"
@@ -64,8 +64,7 @@
                     android:background="#48000000"
                     android:padding="2dp"
                     android:text="3张"
-                    android:textColor="@android:color/white"
-                    android:visibility="gone"/>
+                    android:textColor="@android:color/white"/>
             </FrameLayout>
 
         </LinearLayout>
@@ -73,14 +72,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_mini">
+            android:layout_marginTop="@dimen/spacing_micro">
 
             <TextView
                 android:id="@+id/tv_news_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:textSize="@dimen/text_mini"
+                android:textSize="@dimen/text_micro"
                 tools:text="体育"/>
 
             <TextView
@@ -88,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:textSize="@dimen/text_mini"
+                android:textSize="@dimen/text_micro"
                 tools:text="100跟帖"/>
             />
         </RelativeLayout>

@@ -6,7 +6,7 @@
     <dimen name="text_small">16sp</dimen>
     <dimen name="text_moderate1">18sp</dimen>
     <dimen name="text_moderate2">19sp</dimen>
-    <dimen name="text_moderate3">21sp</dimen>
+    <dimen name="text_moderate3">22sp</dimen>
     <dimen name="text_big">25sp</dimen>
     <dimen name="text_extraBig">31sp</dimen>
 
@@ -18,13 +18,15 @@
     <dimen name="spacing_big">31dp</dimen>
     <dimen name="spacing_extraBig">31dp</dimen>
 
-    <dimen name="width_common">100dp</dimen>
-    <dimen name="height_common">80dp</dimen>
+    <dimen name="width_common">110dp</dimen>
+    <dimen name="height_common">66dp</dimen>
+    <dimen name="height_layout">90dp</dimen>
     <dimen name="width_mini">30dp</dimen>
     <dimen name="height_mini">30dp</dimen>
     <dimen name="height_extraBig">200dp</dimen>
 
     <dimen name="divider_size">1px</dimen>
+    <dimen name="divider_big_size">10px</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

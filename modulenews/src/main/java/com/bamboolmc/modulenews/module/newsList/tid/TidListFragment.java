@@ -1,4 +1,4 @@
-package com.bamboolmc.modulenews.module.newsList.recommend;
+package com.bamboolmc.modulenews.module.newsList.tid;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +11,10 @@ import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.modulenews.R;
 import com.bamboolmc.modulenews.base.BaseFragment;
 import com.bamboolmc.modulenews.dagger.DaggerNewsComponent;
+import com.bamboolmc.modulenews.module.news.NewsChannelBean;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -20,35 +23,32 @@ import butterknife.BindView;
 /**
  * Created by limc on 18/1/1.
  */
-public class RecListFragment extends BaseFragment<RecListPresenter> implements RecListContract.View {
+public class TidListFragment extends BaseFragment<TidListPresenter> implements TidListContract.View {
 
-    @BindView(R.id.rec_list_multi)
+    @BindView(R.id.tid_list_multi)
     MultiStateView mMultiStateView;
 
-    @BindView(R.id.rec_list_rv)
+    @BindView(R.id.tid_list_rv)
     RecyclerView mRecyclerView;
 
-    @BindView(R.id.rec_list_refresh)
+    @BindView(R.id.tid_list_refresh)
     RefreshLayout mRefreshLayout;
 
     @Inject
-    RecListPresenter mPresenter;
+    TidListPresenter mPresenter;
 
-    public static final String TNAME = "tName";
-    public static final String ENAME = "eName";
-    public static final String TID = "tId";
-
-    protected String mTname;
-    protected String mEname;
-    protected String mTid;
+    public static final String NEWS_CHANNEL = "newsChannelBean";
+    protected NewsChannelBean newsChannelBean;
     private int offset = 0;
     private int fn = 0;
+    private int size = 0;
+    private int page = 0;
 
-    private RecListAdapter mRecListAdapter;
+    private TidListAdapter mTidListAdapter;
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment_rec_list;
+        return R.layout.fragment_tid_list;
     }
 
     @Override
@@ -68,13 +68,11 @@ public class RecListFragment extends BaseFragment<RecListPresenter> implements R
     @Override
     public void initView() {
         if (getArguments() != null) {
-            mTname = getArguments().getString(TNAME);
-            mEname = getArguments().getString(ENAME);
-            mTid = getArguments().getString(TID);
+            newsChannelBean = (NewsChannelBean) getArguments().getSerializable(NEWS_CHANNEL);
         }
-        mRecListAdapter = new RecListAdapter();
+        mTidListAdapter = new TidListAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter(mRecListAdapter);
+        mRecyclerView.setAdapter(mTidListAdapter);
 
         mRefreshLayout.setEnabled(getEnableRefresh());
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
@@ -84,11 +82,12 @@ public class RecListFragment extends BaseFragment<RecListPresenter> implements R
             }
         });
 
-        mRecListAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+        mTidListAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
-                offset += 10;
-                mPresenter.getMoreRecList(mEname, mTid, 10, offset, fn);
+                offset = mTidListAdapter.getItemCount() + size;
+                page += 1;
+                mPresenter.getMoreTidList(newsChannelBean, offset, size, fn, page);
             }
         });
     }
@@ -96,7 +95,10 @@ public class RecListFragment extends BaseFragment<RecListPresenter> implements R
     @Override
     protected void loadData() {
         fn += 1;
-        mPresenter.getRecList(mEname, mTid, 10, offset, fn);
+        offset = 0;
+        size = 10;
+        page = 0;
+        mPresenter.getTidList(newsChannelBean, offset, size, fn, page);
     }
 
     @Override
@@ -109,13 +111,13 @@ public class RecListFragment extends BaseFragment<RecListPresenter> implements R
     }
 
     @Override
-    public void showRecList(RecListBean recListBean) {
-        if (recListBean != null && !recListBean.getNewsBean().isEmpty()) {
-            if (mRecListAdapter.getData().size() > 0) {
-                mRecListAdapter.addData(0, recListBean.getNewsBean());
-                mRecListAdapter.notifyDataSetChanged();
+    public void showTidList(List<TidListBean> tidListBeanList) {
+        if (tidListBeanList != null && !tidListBeanList.isEmpty()) {
+            if (mTidListAdapter.getData().size() > 0) {
+                mTidListAdapter.addData(0, tidListBeanList);
+                mTidListAdapter.notifyDataSetChanged();
             } else {
-                mRecListAdapter.setNewData(recListBean.getNewsBean());
+                mTidListAdapter.setNewData(tidListBeanList);
             }
             mMultiStateView.setState(MultiStateView.STATE_CONTENT);
         } else {
@@ -126,12 +128,12 @@ public class RecListFragment extends BaseFragment<RecListPresenter> implements R
     }
 
     @Override
-    public void showMoreRecList(RecListBean recListBean) {
-        if (recListBean.getNewsBean().size() > 0) {
-            mRecListAdapter.addData(recListBean.getNewsBean());
-            mRecListAdapter.loadMoreComplete();
+    public void showMoreTidList(List<TidListBean> tidListBeanList) {
+        if (tidListBeanList.size() > 0) {
+            mTidListAdapter.addData(tidListBeanList);
+            mTidListAdapter.loadMoreComplete();
         } else {
-            mRecListAdapter.loadMoreEnd();
+            mTidListAdapter.loadMoreEnd();
         }
     }
 
@@ -165,7 +167,7 @@ public class RecListFragment extends BaseFragment<RecListPresenter> implements R
 
     @Override
     public void loadMoreError() {
-        mRecListAdapter.loadMoreFail();
+        mTidListAdapter.loadMoreFail();
     }
 
     protected boolean getEnableRefresh() {

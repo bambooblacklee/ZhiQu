@@ -21,6 +21,16 @@ public class NewsAppConstant {
     public static final String CHANNEL_MINE = "CHANNEL_MINE";
     public static final String CHANNEL_OTHERS = "CHANNEL_OTHERS";
 
+    public static final String TYPE_URL_TOUTIAO = "type_url_toutiao";
+    public static final String TYPE_URL_DLIST = "type_url_dlist";
+    public static final String TYPE_URL_NC = "type_url_nc";
+
+    //获取的结果以id开头
+    public static final String TYPE_BEAN_CHANNEL = "type_bean_channel";
+
+
+
+
     public static final String NEWS_ID = "NEWS_ID";
     public static final String NEWS_TYPE = "NEWS_TYPE";
     public static final String CHANNEL_POSITION = "CHANNEL_POSITION";
@@ -29,16 +39,28 @@ public class NewsAppConstant {
     public static final String CHANNEL_SWAP = "CHANNEL_SWAP";
     public static final String NEWS_CHANNEL_CHANGED = "NEWS_CHANNEL_CHANGED";
 
-    public static final int TYPE_NEWS_IMG_SMALL_ONE = 1;//正常的一小图一标题
-    public static final int TYPE_NEWS_VIDEO_SMALL = 2;//头条--小video
-    public static final int TYPE_NEWS_IMG_BIG = 3;//头条-大图
-    public static final int TYPE_NEWS_VIDEO_BIG = 4;//头条-大图video
-    public static final int TYPE_NEWS_IMG_SMALL_MULTI = 5;//头条三个图片的(有没有显示多个)
+    public static final int TYPE_NEWS_VIDEO_SMALL = 1;//头条--小video
+    public static final int TYPE_NEWS_VIDEO_BIG = 2;//头条-大图video
+    public static final int TYPE_NEWS_LIVE_SMALL = 3;//头条--小video
+    public static final int TYPE_NEWS_LIVE_BIG = 4;//头条-大图video
+    public static final int TYPE_NEWS_ZHUANTI_BIG = 5;//专题
+    public static final int TYPE_NEWS_ZHUANTI_SMALL = 6;//专题
+    public static final int TYPE_NEWS_IMG_HEAD = 7;//顶部-大图
+    public static final int TYPE_NEWS_IMG_SMALL_ONE = 8;//正常的一小图一标题
+    public static final int TYPE_NEWS_IMG_BIG = 9;//头条-大图
+    public static final int TYPE_NEWS_IMG_SMALL_MULTI = 10;//头条三个图片的(有没有显示多个)
+    public static final int TYPE_NEWS_IMG_SMALL_ONE_HEAD = 11;//小图带头顶的标题
+
+
+    public static final int TYPE_URL_IMG_REL = 1;//头条-大图
+    public static final int TYPE_URL_IMG_NOREL = 2;//头条三个图片的(有没有显示多个)
+
+
+
     public static final int TYPE_NEWS_IMG_DZ = 6;//段子-有无抬头有无图片(imgsrc
     public static final int TYPE_NEWS_VIDEO_DZ = 7;//段子-视频
     public static final int TYPE_NEWS_IMG_MV = 8;//美女萌宠图
     public static final int TYPE_NEWS_VIDEO_SP = 9;//视频
-    public static final int TYPE_NEWS_IMG_HEAD = 10;//顶部-大图
 
     public class HttpQurey {
         public static final String LAST_STD_TIME = "LastStdTime";
@@ -55,6 +77,9 @@ public class NewsAppConstant {
         public static final String MAC = "mac";
         public static final String OPEN = "open";
         public static final String OPEN_PATH = "openpath";
+
+        public static final String SPESTR = "spestr";
+        public static final String PROG = "prog";
     }
 
 

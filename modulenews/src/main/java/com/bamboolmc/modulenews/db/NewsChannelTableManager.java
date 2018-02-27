@@ -21,10 +21,16 @@ public class NewsChannelTableManager {
      * 转换所有的新闻类型
      */
     public static List<ListSpecialBean.TopicBean> exchangeAllTabList(ListSpecialBean mListSpecialBean) {
-
+        List<String> allChannel = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.news_channel_all));
         ArrayList<ListSpecialBean.TopicBean> allTabList = new ArrayList<>();
-        for (int i = 0; i < mListSpecialBean.gettList().size(); i++) {
-            allTabList.add(mListSpecialBean.gettList().get(i));
+
+        for (int i = 0; i <allChannel.size() ; i++) {
+            String channelName = allChannel.get(i);
+            for (int j = 0; j < mListSpecialBean.gettList().size(); j++) {
+                if (channelName.equals(mListSpecialBean.gettList().get(j).getTname())){
+                    allTabList.add(mListSpecialBean.gettList().get(j));
+                }
+            }
         }
         return allTabList;
     }
@@ -53,20 +59,20 @@ public class NewsChannelTableManager {
             }
         }
         //将所有字段组合为NewsChannelBean_List,以便后面存储到File中
-        List<String> ncChannel = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.news_channel_nc));
-        List<String> dListChannel = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.news_channel_dlist));
-        List<String> recChannel = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.news_channel_rec));
+        List<String> urlTouTiao = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_toutiao));
+        List<String> urlDlist = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_dlist));
+        List<String> urlNc = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_nc));
 
         List<NewsChannelBean> newsChannelBeanMine = new ArrayList<>();
         for (int i = 0; i < channelEName.size(); i++) {
-            if (ncChannel.contains(channelTName.get(i))) {
-                NewsChannelBean entity = new NewsChannelBean(channelTName.get(i), channelEName.get(i), channelTId.get(i), NewsAppConstant.TYPE_FRAGMENT_NC, true, 0, false);
+            if (urlTouTiao.contains(channelTName.get(i))) {
+                NewsChannelBean entity = new NewsChannelBean(channelTName.get(i), channelEName.get(i), channelTId.get(i), NewsAppConstant.TYPE_URL_TOUTIAO, NewsAppConstant.TYPE_BEAN_CHANNEL,true, 0, false);
                 newsChannelBeanMine.add(entity);
-            } else if (dListChannel.contains(channelTName.get(i))) {
-                NewsChannelBean entity = new NewsChannelBean(channelTName.get(i), channelEName.get(i), channelTId.get(i), NewsAppConstant.TYPE_FRAGMENT_DLIST, true, 0, false);
+            } else if (urlDlist.contains(channelTName.get(i))) {
+                NewsChannelBean entity = new NewsChannelBean(channelTName.get(i), channelEName.get(i), channelTId.get(i), NewsAppConstant.TYPE_URL_DLIST, NewsAppConstant.TYPE_BEAN_CHANNEL,true, 0, false);
                 newsChannelBeanMine.add(entity);
-            } else if (recChannel.contains(channelTName.get(i))) {
-                NewsChannelBean entity = new NewsChannelBean(channelTName.get(i), channelEName.get(i), channelTId.get(i), NewsAppConstant.TYPE_FRAGMENT_REC, true, 0, false);
+            } else if (urlNc.contains(channelTName.get(i))) {
+                NewsChannelBean entity = new NewsChannelBean(channelTName.get(i), channelEName.get(i), channelTId.get(i), NewsAppConstant.TYPE_URL_NC, NewsAppConstant.TYPE_BEAN_CHANNEL,true, 0, false);
                 newsChannelBeanMine.add(entity);
             }
         }
@@ -99,20 +105,20 @@ public class NewsChannelTableManager {
         }
         //将所有字段组合为NewsChannelBean_List,以便后面存储到File中
 
-        List<String> ncChannel = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.news_channel_nc));
-        List<String> dListChannel = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.news_channel_dlist));
-        List<String> recChannel = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.news_channel_rec));
+        List<String> urlTouTiao = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_toutiao));
+        List<String> urlDlist = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_dlist));
+        List<String> urlNc = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_nc));
 
         List<NewsChannelBean> newsChannelBeanOthers = new ArrayList<>();
         for (int i = 0; i < channelENameOthers.size(); i++) {
-            if (ncChannel.contains(channelTNameOthers.get(i))) {
-                NewsChannelBean entity = new NewsChannelBean(channelTNameOthers.get(i), channelENameOthers.get(i), channelTIdOthers.get(i), NewsAppConstant.TYPE_FRAGMENT_NC, true, 0, true);
+            if (urlTouTiao.contains(channelTNameOthers.get(i))) {
+                NewsChannelBean entity = new NewsChannelBean(channelTNameOthers.get(i), channelTNameOthers.get(i), channelTNameOthers.get(i), NewsAppConstant.TYPE_URL_TOUTIAO, NewsAppConstant.TYPE_BEAN_CHANNEL,true, 0, false);
                 newsChannelBeanOthers.add(entity);
-            } else if (dListChannel.contains(channelTNameOthers.get(i))) {
-                NewsChannelBean entity = new NewsChannelBean(channelTNameOthers.get(i), channelENameOthers.get(i), channelTIdOthers.get(i), NewsAppConstant.TYPE_FRAGMENT_DLIST, true, 0, true);
+            } else if (urlDlist.contains(channelTNameOthers.get(i))) {
+                NewsChannelBean entity = new NewsChannelBean(channelTNameOthers.get(i), channelTNameOthers.get(i), channelTNameOthers.get(i), NewsAppConstant.TYPE_URL_DLIST, NewsAppConstant.TYPE_BEAN_CHANNEL,true, 0, false);
                 newsChannelBeanOthers.add(entity);
-            } else if (recChannel.contains(channelTNameOthers.get(i))) {
-                NewsChannelBean entity = new NewsChannelBean(channelTNameOthers.get(i), channelENameOthers.get(i), channelTIdOthers.get(i), NewsAppConstant.TYPE_FRAGMENT_REC, true, 0, true);
+            } else if (urlNc.contains(channelTNameOthers.get(i))) {
+                NewsChannelBean entity = new NewsChannelBean(channelTNameOthers.get(i), channelTNameOthers.get(i), channelTNameOthers.get(i), NewsAppConstant.TYPE_URL_NC, NewsAppConstant.TYPE_BEAN_CHANNEL,true, 0, false);
                 newsChannelBeanOthers.add(entity);
             }
         }

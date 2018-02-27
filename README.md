@@ -71,6 +71,10 @@ https://github.com/leon2017/HappyReader   集成百度定位
 https://github.com/jaydenxiao2016/AndroidFire
 https://juejin.im/post/59f429906fb9a0452b487d19
 
+https://github.com/yewei02538/TodayNews //news详情页显示
+
+http://www.w3school.com.cn/html5/index.asp //html5
+
 
 
          

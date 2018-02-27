@@ -3,4 +3,13 @@
     <string name="channel_mine">切换栏目</string>
     <string name="channel_others">点击添加更多栏目</string>
     <string name="channel_explain">点击可增删/长按并拖拽可排序</string>
+
+    <string name="news_det_title">苹果继"降速门"后陷"玻璃门":员工撞玻璃受伤</string>
+    <string name="news_det_statement">特别声明：本文为网易自媒体平台“网易号”作者上传并发布，仅代表该作者观点。网易仅提供信息发布平台。</string>
+    <string name="news_det_ec">责任编辑: BambooLMC </string>
+
+    <string name="news_hot_module">热门评论</string>
+    <string name="news_hot_more">更多评论</string>
+
+    <string name="news_hot_relative">相关推荐</string>
 </resources>

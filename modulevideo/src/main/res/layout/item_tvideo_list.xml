@@ -9,9 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:paddingLeft="@dimen/dp_16"
-        android:paddingRight="@dimen/dp_10"
-        android:paddingTop="@dimen/dp_10">
+        android:padding="@dimen/spacing_mini">
 
         <FrameLayout
             android:id="@+id/fl_topic_movie"

@@ -36,9 +36,7 @@ public class NewsPresenter extends RxPresenter<NewsContract.View>
         Log.d("xxxx","allList begin");
         ArrayList<ListSpecialBean.TopicBean> allTabList = (ArrayList<ListSpecialBean.TopicBean>) FileCacheUtil
                 .get(NewsApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_ALL);
-//        ArrayList<ListSpecialBean.TopicBean> allTabList = (ArrayList<ListSpecialBean.TopicBean>) FileCacheUtil
-//                .get(get).getAsObject(NewsAppConstant.CHANNEL_ALL);
-//
+
         if (null == allTabList) {
             Log.d("xxxx","allList begin http");
             Subscription mSubscription = mNewsApi.getListSpecial()

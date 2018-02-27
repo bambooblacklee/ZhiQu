@@ -27,6 +27,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 
 public class TopicActivity extends BaseActivity<TopicPresenter> implements TopicContract.View {
@@ -50,6 +52,9 @@ public class TopicActivity extends BaseActivity<TopicPresenter> implements Topic
 
 
     private String tId;
+
+    @Inject
+    TopicPresenter mPresenter;
 
     public static void startActivity(Context context, String topicId) {
         Intent starter = new Intent(context, TopicActivity.class);

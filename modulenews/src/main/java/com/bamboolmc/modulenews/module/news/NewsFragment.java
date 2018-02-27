@@ -12,7 +12,7 @@ import com.bamboolmc.modulenews.R;
 import com.bamboolmc.modulenews.app.NewsAppConstant;
 import com.bamboolmc.modulenews.base.LazyFragment;
 import com.bamboolmc.modulenews.dagger.DaggerNewsComponent;
-import com.bamboolmc.modulenews.module.newsList.recommend.RecListFragment;
+import com.bamboolmc.modulenews.module.newsList.tid.TidListFragment;
 import com.hwangjr.rxbus.RxBus;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.Bundler;
@@ -92,19 +92,13 @@ public class NewsFragment extends LazyFragment<NewsPresenter> implements NewsCon
         FragmentPagerItems pages = new FragmentPagerItems(getContext());
         final List<String> title = new ArrayList<>();
         for (NewsChannelBean newsChannelBean : newsChannelBeanList) {
-            switch (newsChannelBean.getNewsChannelType()) {
-                case NewsAppConstant.TYPE_FRAGMENT_REC:
-                    pages.add(FragmentPagerItem.of(newsChannelBean.getNewsChannelTName(), RecListFragment.class,
-                            new Bundler().putString(RecListFragment.TNAME, newsChannelBean.getNewsChannelTName())
-                                    .putString(RecListFragment.ENAME, newsChannelBean.getNewsChannelEName())
-                                    .putString(RecListFragment.TID, newsChannelBean.getNewsChannelId())
+            switch (newsChannelBean.getBeanType()) {
+                case NewsAppConstant.TYPE_BEAN_CHANNEL:
+                    pages.add(FragmentPagerItem.of(newsChannelBean.getNewsChannelTName(), TidListFragment.class,
+                            new Bundler().putSerializable(TidListFragment.NEWS_CHANNEL,newsChannelBean)
                                     .get()));
                     title.add(newsChannelBean.getNewsChannelTName());
 //                    pages.add(FragmentPagerItem.of(newsChannelBean.getNewsChannelTName(), RecListFragment.class));
-                    break;
-                case NewsAppConstant.TYPE_FRAGMENT_DLIST:
-                    break;
-                case NewsAppConstant.TYPE_FRAGMENT_NC:
                     break;
                 default:
                     break;

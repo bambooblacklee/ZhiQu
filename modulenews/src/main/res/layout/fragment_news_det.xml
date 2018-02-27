@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/spacing_ultraMicro"
+        android:layout_marginRight="@dimen/spacing_ultraMicro"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/news_det_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@null"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:progressDrawable="@drawable/progress_bar_horizontal"/>
+
+        <TextView
+            android:id="@+id/news_det_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingLeft="@dimen/spacing_small"
+            android:paddingRight="@dimen/spacing_small"
+            android:text="@string/news_det_title"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_moderate3"
+            android:textStyle="bold"/>
+
+        <RelativeLayout
+            android:id="@+id/rel_news_det"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_mini"
+            android:paddingLeft="@dimen/spacing_small"
+            android:paddingRight="@dimen/spacing_small">
+
+            <ImageView
+                android:id="@+id/news_source_img"
+                android:layout_width="@dimen/width_mini"
+                android:layout_height="@dimen/height_mini"/>
+
+            <TextView
+                android:id="@+id/news_source_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_micro"
+                android:layout_toRightOf="@id/news_source_img"
+                android:text="漫威漫画"
+                android:textSize="@dimen/text_mini"/>
+
+            <TextView
+                android:id="@+id/news_source_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/news_source_name"
+                android:layout_marginLeft="@dimen/spacing_micro"
+                android:layout_toRightOf="@id/news_source_img"
+                android:text="100"
+                android:textSize="@dimen/text_mini"/>
+            />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_news_det2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_mini"
+            android:paddingLeft="@dimen/spacing_small"
+            android:paddingRight="@dimen/spacing_small">
+
+            <TextView
+                android:id="@+id/news_source_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="漫威漫画"
+                android:textSize="@dimen/text_mini"/>
+
+            <TextView
+                android:id="@+id/news_source_time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_micro"
+                android:layout_toRightOf="@id/news_source_name2"
+                android:text="100"
+                android:textSize="@dimen/text_mini"/>
+            />
+        </RelativeLayout>
+
+        <WebView
+            android:id="@+id/news_det_webView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rel_news_det"
+            android:layout_marginTop="@dimen/spacing_mini">
+        </WebView>
+
+        <TextView
+            android:id="@+id/news_det_statement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:paddingLeft="@dimen/spacing_small"
+            android:paddingRight="@dimen/spacing_small"
+            android:text="@string/news_det_statement"
+            android:textSize="@dimen/text_mini"/>
+
+        <TextView
+            android:id="@+id/news_det_ec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:paddingLeft="@dimen/spacing_small"
+            android:paddingRight="@dimen/spacing_small"
+            android:text="@string/news_det_ec"
+            android:textSize="@dimen/text_mini"/>
+
+        <include layout="@layout/news_hot_module"/>
+
+        <include layout="@layout/news_hot_relative"/>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
+

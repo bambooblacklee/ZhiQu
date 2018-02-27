@@ -10,10 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/spacing_mini"
-        android:paddingLeft="@dimen/spacing_small"
-        android:paddingRight="@dimen/spacing_small"
-        android:paddingTop="@dimen/spacing_mini">
+        android:padding="@dimen/spacing_mini">
 
         <TextView
             android:id="@+id/tv_news_title"
@@ -28,7 +25,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_mini">
+            android:layout_marginTop="@dimen/spacing_micro">
             <ImageView
                 android:id="@+id/img_news"
                 android:layout_width="match_parent"
@@ -41,18 +38,24 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_video_play_big"/>
+            <TextView
+                android:id="@+id/video_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:text="10:00"/>
         </FrameLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_mini">
+            android:layout_marginTop="@dimen/spacing_micro">
 
             <TextView
                 android:id="@+id/tv_news_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_mini"
+                android:textSize="@dimen/text_micro"
                 android:layout_alignParentLeft="true"
                 tools:text="体育"/>
 
@@ -60,7 +63,7 @@
                 android:id="@+id/tv_news_follow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_mini"
+                android:textSize="@dimen/text_micro"
                 android:layout_alignParentRight="true"
                 tools:text="100跟帖"/>
             />

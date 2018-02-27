@@ -8,11 +8,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:paddingBottom="@dimen/spacing_mini"
-        android:paddingLeft="@dimen/spacing_small"
-        android:paddingRight="@dimen/spacing_small"
-        android:paddingTop="@dimen/spacing_mini">
+        android:layout_height="@dimen/height_layout"
+        android:padding="@dimen/spacing_mini">
 
         <FrameLayout
             android:id="@+id/fl_img_news"
@@ -24,6 +21,7 @@
                 android:id="@+id/img_news"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 tools:src="@drawable/ic_launcher"/>
         </FrameLayout>
 
@@ -49,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:textSize="@dimen/text_mini"
+                android:textSize="@dimen/text_micro"
                 tools:text="体育"/>
 
             <TextView
@@ -58,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:textSize="@dimen/text_mini"
+                android:textSize="@dimen/text_micro"
                 tools:text="100跟帖"/>
             />
         </RelativeLayout>

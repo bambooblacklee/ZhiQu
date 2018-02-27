@@ -52,4 +52,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     compile 'com.hwangjr.rxbus:rxbus:1.0.5'
+
+    compile 'com.github.chrisbanes:PhotoView:1.2.6'
 }

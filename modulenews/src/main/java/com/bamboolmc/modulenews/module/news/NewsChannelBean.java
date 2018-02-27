@@ -8,10 +8,11 @@ public class NewsChannelBean implements Serializable {
     private String newsChannelTName;
     private String newsChannelEName;
     private String newsChannelId;
-    private int newsChannelType;//rec dlist nc
+    private String urlType;//url的路径type
+    private String beanType;//获取得到结果的map key
     private boolean newsChannelSelect;
     private int newsChannelIndex;
-    private Boolean newsChannelFixed;
+    private boolean newsChannelFixed;
 
     public NewsChannelBean() {
     }
@@ -20,11 +21,13 @@ public class NewsChannelBean implements Serializable {
         this.newsChannelTName = newsChannelTName;
     }
 
-    public NewsChannelBean(String newsChannelTName,String newsChannelEName, String newsChannelId, int newsChannelType, boolean newsChannelSelect, int newsChannelIndex, Boolean newsChannelFixed) {
+    public NewsChannelBean(String newsChannelTName, String newsChannelEName, String newsChannelId, String urlType,
+                           String beanType, boolean newsChannelSelect, int newsChannelIndex, boolean newsChannelFixed) {
         this.newsChannelTName = newsChannelTName;
         this.newsChannelEName = newsChannelEName;
         this.newsChannelId = newsChannelId;
-        this.newsChannelType = newsChannelType;
+        this.urlType = urlType;
+        this.beanType = beanType;
         this.newsChannelSelect = newsChannelSelect;
         this.newsChannelIndex = newsChannelIndex;
         this.newsChannelFixed = newsChannelFixed;
@@ -54,12 +57,20 @@ public class NewsChannelBean implements Serializable {
         this.newsChannelId = newsChannelId;
     }
 
-    public int getNewsChannelType() {
-        return newsChannelType;
+    public String getUrlType() {
+        return urlType;
     }
 
-    public void setNewsChannelType(int newsChannelType) {
-        this.newsChannelType = newsChannelType;
+    public void setUrlType(String urlType) {
+        this.urlType = urlType;
+    }
+
+    public String getBeanType() {
+        return beanType;
+    }
+
+    public void setBeanType(String beanType) {
+        this.beanType = beanType;
     }
 
     public boolean isNewsChannelSelect() {

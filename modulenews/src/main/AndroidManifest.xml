@@ -26,6 +26,12 @@
         </activity>
         <activity android:name=".module.newsChannel.NewsChannelActivity">
         </activity>
+        <activity android:name=".module.picture.PictureActivity">
+        </activity>
+        <activity android:name=".module.newsDetail.NewsDetailActivity">
+        </activity>
+        <activity android:name=".module.newsSpecial.NewsSpecialActivity">
+        </activity>
     </application>
 
 </manifest>
