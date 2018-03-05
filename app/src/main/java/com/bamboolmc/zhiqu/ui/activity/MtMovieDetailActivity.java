@@ -19,6 +19,7 @@ import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.base.BaseWebViewActivity;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
@@ -66,141 +67,141 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
     private static final String MOVIE_ID = "movie_id";
     private int movieId;
 
-    @BindView(R.id.mv_movie_detail)
+    @BindView(R2.id.mv_movie_detail)
     MultiStateView mMultiStateView;
-    @BindView(R.id.rl_movie_det)
+    @BindView(R2.id.rl_movie_det)
     RefreshLayout mRefreshLayout;
 
     //电影Basic
-    @BindView(R.id.ImageView)
+    @BindView(R2.id.ImageView)
     ImageView mImageView;
-    @BindView(R.id.iv_blur_bg)
+    @BindView(R2.id.iv_blur_bg)
     ImageView mIvBlurBg;
-    @BindView(R.id.fl_movie_img)
+    @BindView(R2.id.fl_movie_img)
     FrameLayout mFlMovieImg;
-    @BindView(R.id.tv_movie_name)
+    @BindView(R2.id.tv_movie_name)
     TextView mTvMovieName;//电影名
-    @BindView(R.id.iv_win_awards)
+    @BindView(R2.id.iv_win_awards)
     ImageView mIvWinAwards;//是否获奖
-    @BindView(R.id.tv_movie_english_name)
+    @BindView(R2.id.tv_movie_english_name)
     TextView mTvMovieEnglishName;//英文名
-    @BindView(R.id.tv_movie_score)
+    @BindView(R2.id.tv_movie_score)
     TextView mTvMovieScore;//评分
-    @BindView(R.id.tv_snum)
+    @BindView(R2.id.tv_snum)
     TextView mTvSnum;//总评价数
-    @BindView(R.id.tv_people_judge)
+    @BindView(R2.id.tv_people_judge)
     TextView mTvPeopleJudge;
-    @BindView(R.id.tv_movie_type)
+    @BindView(R2.id.tv_movie_type)
     TextView mTvMovieType;
-    @BindView(R.id.tv_src_dur)
+    @BindView(R2.id.tv_src_dur)
     TextView mTvSrcDur;
-    @BindView(R.id.tv_pubDesc)
+    @BindView(R2.id.tv_pubDesc)
     TextView mTvPubDesc;
-    @BindView(R.id.ll_score)
+    @BindView(R2.id.ll_score)
     LinearLayout mLl_score;
 
     //影片描述
-    @BindView(R.id.expandText_movie_det)
+    @BindView(R2.id.expandText_movie_det)
     ExpandTextView mExpandTextView;
 
     //相关电影
-    @BindView(R.id.ll_related_movie)
+    @BindView(R2.id.ll_related_movie)
     LinearLayout mLlRelatedMovie;
-    @BindView(R.id.rv_related_movie)
+    @BindView(R2.id.rv_related_movie)
     RecyclerView mRvRelatedMovie;
 
     //相关话题
-    @BindView(R.id.ll_related_topic)
+    @BindView(R2.id.ll_related_topic)
     LinearLayout mLlRelatedTopic;
-    @BindView(R.id.ll_all_related_topic)
+    @BindView(R2.id.ll_all_related_topic)
     LinearLayout mLlALlRelatedTopic;
-    @BindView(R.id.iv_related_topic)
+    @BindView(R2.id.iv_related_topic)
     ImageView mIvRelatedTopic;
-    @BindView(R.id.tv_related_topic_title)
+    @BindView(R2.id.tv_related_topic_title)
     TextView mTvRelatedTopicTitle;
-    @BindView(R.id.tv_related_topic_author)
+    @BindView(R2.id.tv_related_topic_author)
     TextView mTvRelatedTopicAuthor;
-    @BindView(R.id.tv_related_topic_view_count)
+    @BindView(R2.id.tv_related_topic_view_count)
     TextView mTvRelatedTopicViewCount;
-    @BindView(R.id.tv_related_topic_comment_count)
+    @BindView(R2.id.tv_related_topic_comment_count)
     TextView mTvRelatedTopicCommentCount;
 
     //相关资讯
-    @BindView(R.id.ll_related_information)
+    @BindView(R2.id.ll_related_information)
     LinearLayout mLlRelatedInformation;
-    @BindView(R.id.ll_related_information_content)
+    @BindView(R2.id.ll_related_information_content)
     LinearLayout mLlRelatedInformationContent;
-    @BindView(R.id.ll_all_related_information)
+    @BindView(R2.id.ll_all_related_information)
     LinearLayout mLlAllRelatedInformation;
-    @BindView(R.id.iv_related_information)
+    @BindView(R2.id.iv_related_information)
     ImageView mIvRelatedInformation;
-    @BindView(R.id.tv_related_information_title)
+    @BindView(R2.id.tv_related_information_title)
     TextView mTvRelatedInformationTitle;
-    @BindView(R.id.tv_related_information_author)
+    @BindView(R2.id.tv_related_information_author)
     TextView mTvRelatedInformationAuthor;
-    @BindView(R.id.tv_related_information_view_count)
+    @BindView(R2.id.tv_related_information_view_count)
     TextView mTvRelatedInformationViewCount;
-    @BindView(R.id.tv_related_information_comment_count)
+    @BindView(R2.id.tv_related_information_comment_count)
     TextView mTvRelatedInformationCommentCount;
 
     //长评论
-    @BindView(R.id.rv_long_comment)
+    @BindView(R2.id.rv_long_comment)
     RecyclerView mRvLongComment;
-    @BindView(R.id.tv_no_long_comment)
+    @BindView(R2.id.tv_no_long_comment)
     TextView mTvNoLongComment;
-    @BindView(R.id.tv_long_comment)
+    @BindView(R2.id.tv_long_comment)
     TextView mTvLongComment;
 
     //专业影评
-    @BindView(R.id.ll_pro_comment)
+    @BindView(R2.id.ll_pro_comment)
     LinearLayout mLlProComment;
-    @BindView(R.id.rv_movie_pro_comment)
+    @BindView(R2.id.rv_movie_pro_comment)
     RecyclerView mRvMovieProComment;
 
     //电影资料
-    @BindView(R.id.rv_movie_resource)
+    @BindView(R2.id.rv_movie_resource)
     RecyclerView mRvMovieResource;
 
     //奖项
-    @BindView(R.id.rv_movie_awards)
+    @BindView(R2.id.rv_movie_awards)
     RecyclerView mRvMovieAwards;
 
     //票房
-    @BindView(R.id.rl_money_box)
+    @BindView(R2.id.rl_money_box)
     RelativeLayout mRlMoneyBox;
-    @BindView(R.id.ll_money_box)
+    @BindView(R2.id.ll_money_box)
     LinearLayout mLlMoneyBox;
-    @BindView(R.id.tv_lastDayRank)
+    @BindView(R2.id.tv_lastDayRank)
     TextView mTvLastDayRank;
-    @BindView(R.id.tv_firstWeekBox)
+    @BindView(R2.id.tv_firstWeekBox)
     TextView mTvFirstWeekBox;
-    @BindView(R.id.tv_sumBox)
+    @BindView(R2.id.tv_sumBox)
     TextView mTvSumBox;
-    @BindView(R.id.tv_sum_box_content)
+    @BindView(R2.id.tv_sum_box_content)
     TextView mTvSumBoxContent;
 
     //电影明星
-    @BindView(R.id.rv_movie_star)
+    @BindView(R2.id.rv_movie_star)
     RecyclerView mRvMovieStar;
 
     //观影贴士
-    @BindView(R.id.ll_tip)
+    @BindView(R2.id.ll_tip)
     LinearLayout mLlTips;
-    @BindView(R.id.rv_movie_tips)
+    @BindView(R2.id.rv_movie_tips)
     RecyclerView mRvMovieTips;
 
     //音乐
-    @BindView(R.id.ll_music)
+    @BindView(R2.id.ll_music)
     LinearLayout mLlMovieMusic;
-    @BindView(R.id.iv_movie_music)
+    @BindView(R2.id.iv_movie_music)
     ImageView mIvMovieMusic;
-    @BindView(R.id.tv_music_name)
+    @BindView(R2.id.tv_music_name)
     TextView mTvMusicName;
-    @BindView(R.id.tv_music_num)
+    @BindView(R2.id.tv_music_num)
     TextView mTvMusicNum;
 
     //图片
-    @BindView(R.id.rv_movie_photos)
+    @BindView(R2.id.rv_movie_photos)
     RecyclerView mRvMoviePhotos;
 
     @Inject

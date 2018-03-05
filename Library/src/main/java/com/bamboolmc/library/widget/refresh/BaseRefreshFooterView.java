@@ -1,5 +1,4 @@
 package com.bamboolmc.library.widget.refresh;
-
 import android.content.Context;
 import android.widget.FrameLayout;
 

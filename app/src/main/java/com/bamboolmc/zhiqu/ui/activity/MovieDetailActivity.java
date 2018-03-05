@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.component.DaggerMovieComponent;
 import com.bamboolmc.zhiqu.contract.MovieDetailContract;
@@ -29,19 +30,19 @@ public class MovieDetailActivity extends BaseActivity<MovieDetailPresenter> impl
     MultiStateView mMultiStateView;
 
     //基础信息
-    @BindView(R.id.tv_movie_name)
+    @BindView(R2.id.tv_movie_name)
     TextView mMovieName;
-    @BindView(R.id.tv_movie_english_name)
+    @BindView(R2.id.tv_movie_english_name)
     TextView mMovieEngName;
-    @BindView(R.id.tv_movie_score)
+    @BindView(R2.id.tv_movie_score)
     TextView mMovieRating;
-    @BindView(R.id.tv_snum)
+    @BindView(R2.id.tv_snum)
     TextView mRatingCount;
-    @BindView(R.id.tv_movie_type)
+    @BindView(R2.id.tv_movie_type)
     TextView mGenres;
-    @BindView(R.id.tv_src_dur)
+    @BindView(R2.id.tv_src_dur)
     TextView mCountry;
-    @BindView(R.id.tv_pubDesc)
+    @BindView(R2.id.tv_pubDesc)
     TextView mYear;
 //    @BindView(R.id.iv_movie_img)
 //    PicassoImageView mMovieImg;

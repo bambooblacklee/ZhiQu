@@ -21,13 +21,13 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 public class VideoListAdapter extends BaseQuickAdapter<VideoListBean.VideoBean, BaseViewHolder> {
 
     public VideoListAdapter() {
-        super(R.layout.item_video_list);
+        super(R.layout.item_mvideo_list);
     }
 
     @Override
     protected void convert(BaseViewHolder helper, final VideoListBean.VideoBean item) {
 
-        JCVideoPlayerStandard mVideoPlayer = helper.getView(R.id.video_list_player);
+        JCVideoPlayerStandard mVideoPlayer = helper.getView(R.id.vp_video_list);
         if (mVideoPlayer != null) {
             mVideoPlayer.release();
         }

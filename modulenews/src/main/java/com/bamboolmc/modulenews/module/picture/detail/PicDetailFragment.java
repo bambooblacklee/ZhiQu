@@ -2,8 +2,9 @@ package com.bamboolmc.modulenews.module.picture.detail;
 
 import android.widget.TextView;
 
+import com.bamboolmc.library.base.BaseFragment;
 import com.bamboolmc.modulenews.R;
-import com.bamboolmc.modulenews.base.BaseFragment;
+import com.bamboolmc.modulenews.R2;
 import com.hwangjr.rxbus.RxBus;
 import com.squareup.picasso.Picasso;
 
@@ -16,9 +17,9 @@ import uk.co.senab.photoview.PhotoView;
  */
 public class PicDetailFragment extends BaseFragment {
 
-    @BindView(R.id.img_pic_det)
+    @BindView(R2.id.img_pic_det)
     PhotoView mPhotoView;
-    @BindView(R.id.serial_img)
+    @BindView(R2.id.serial_img)
     TextView mTextView;
 
     public static final String POST_BEAN = "post_bean";

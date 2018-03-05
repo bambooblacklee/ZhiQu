@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bamboolmc.library.base.BaseActivity;
 import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.modulevideo.R;
+import com.bamboolmc.modulevideo.R2;
 import com.bamboolmc.modulevideo.dagger.DaggerVideoComponent;
 import com.bamboolmc.modulevideo.module.topicAbstract.TopicAbstractFragment;
 import com.bamboolmc.modulevideo.module.topicArticle.TopicArticleFragment;
@@ -35,19 +36,19 @@ public class TopicActivity extends BaseActivity<TopicPresenter> implements Topic
 
     private static final String TOPIC_ID = "topic_id";
 
-    @BindView(R.id.topic_img_bg)
+    @BindView(R2.id.topic_img_bg)
     ImageView bgTopic;
-    @BindView(R.id.topic_img)
+    @BindView(R2.id.topic_img)
     ImageView imgTopic;
-    @BindView(R.id.topic_name)
+    @BindView(R2.id.topic_name)
     TextView nameTopic;
-    @BindView(R.id.topic_subnum)
+    @BindView(R2.id.topic_subnum)
     TextView subNumTopic;
-    @BindView(R.id.topic_summary)
+    @BindView(R2.id.topic_summary)
     TextView summaryTopic;
-    @BindView(R.id.topic_viewpager)
+    @BindView(R2.id.topic_viewpager)
     CustomViewPager mTopicViewpager;
-    @BindView(R.id.topic_viewpager_tab)
+    @BindView(R2.id.topic_viewpager_tab)
     SmartTabLayout mTopicViewpagerTab;
 
 

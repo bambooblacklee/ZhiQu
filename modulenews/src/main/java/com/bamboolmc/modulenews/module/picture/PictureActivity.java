@@ -8,10 +8,11 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.widget.TextView;
 
+import com.bamboolmc.library.base.BaseActivity;
 import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.modulenews.R;
+import com.bamboolmc.modulenews.R2;
 import com.bamboolmc.modulenews.app.NewsAppConstant;
-import com.bamboolmc.modulenews.base.BaseActivity;
 import com.bamboolmc.modulenews.module.picture.detail.PicDetailFragment;
 import com.bamboolmc.modulenews.module.picture.detail.PicPostBean;
 import com.bamboolmc.modulenews.module.picture.recList.PicRecListFragment;
@@ -31,9 +32,10 @@ import butterknife.BindView;
 
 public class PictureActivity extends BaseActivity<PicturePresenter> implements PictureContract.View {
 
-    @BindView(R.id.pic_viewpager)
+    @BindView(R2.id.pic_viewpager)
     CustomViewPager mPicViewpager;
-    @BindView(R.id.pic_page_desc)
+    @BindView(R2.id.pic_page_desc)
+
     TextView mPicPageDesc;
 
     private static final String PIC_ID = "pic_id";

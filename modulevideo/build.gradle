@@ -1,16 +1,26 @@
-apply plugin: 'com.android.application'
+if (!IsDebugModuleVideo.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'android-apt'
+//apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "23.0.3"
+    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    buildToolsVersion BUILDTOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
     }
     buildTypes {
         release {
@@ -25,8 +35,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':Library')
 
-    apt 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor "com.alibaba:arouter-compiler:${arouter_compiler_version}"
+
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_compiler_version}"
 
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
@@ -42,7 +53,7 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
 
-    apt 'com.google.dagger:dagger-compiler:2.5'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.5'
     compile 'com.google.dagger:dagger:2.5'
 
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.15'

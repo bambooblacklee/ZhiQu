@@ -9,6 +9,7 @@ import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.OnRefreshListener;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.modulevideo.R;
+import com.bamboolmc.modulevideo.R2;
 import com.bamboolmc.modulevideo.base.LazyFragment;
 import com.bamboolmc.modulevideo.dagger.DaggerVideoComponent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -26,11 +27,11 @@ public class TopicArticleFragment extends LazyFragment<TopicArticlePresenter>
         implements TopicArticleContract.View {
     private static final String TOPIC_ID = "topic_id";
 
-    @BindView(R.id.multi_topic_article)
+    @BindView(R2.id.multi_topic_article)
     MultiStateView mMultiStateView;
-    @BindView(R.id.rv_topic_article)
+    @BindView(R2.id.rv_topic_article)
     RecyclerView mRecyclerView;
-    @BindView(R.id.refresh_topic_article)
+    @BindView(R2.id.refresh_topic_article)
     RefreshLayout mRefreshLayout;
 
     private TopicArticleAdapter mTopicArticleAdapter;

@@ -17,9 +17,9 @@
     <string name="toast_error_have_no_more">没有更多了</string>
 
     <!--Activity 或 Fragment-->
-    <string name="tab_movie">电影</string>
     <string name="tab_news">新闻</string>
-    <string name="tab_drive">骑行</string>
+    <string name="tab_drive">视频</string>
+    <string name="tab_movie">电影</string>
     <string name="tab_me">我的</string>
 
     <!--豆瓣电影分类Fragment-->

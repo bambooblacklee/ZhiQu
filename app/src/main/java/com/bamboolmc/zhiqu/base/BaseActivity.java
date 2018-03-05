@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.bamboolmc.library.base.BaseContract;
-import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.util.ActivityStack;
 
 import javax.inject.Inject;
@@ -23,7 +23,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     protected T mPresenter;
 
     @Nullable
-    @BindView(R.id.toolbar)
+    @BindView(R2.id.toolbar)
     Toolbar mToolbar;
 
     @Override

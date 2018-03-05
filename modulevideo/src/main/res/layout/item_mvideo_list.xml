@@ -14,7 +14,7 @@
         android:paddingTop="@dimen/spacing_mini">
 
         <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
-            android:id="@+id/video_list_player"
+            android:id="@+id/vp_video_list"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
 

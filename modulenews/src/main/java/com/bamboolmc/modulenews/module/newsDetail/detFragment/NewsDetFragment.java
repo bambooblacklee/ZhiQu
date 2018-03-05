@@ -16,9 +16,10 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bamboolmc.library.base.BaseFragment;
 import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.modulenews.R;
-import com.bamboolmc.modulenews.base.BaseFragment;
+import com.bamboolmc.modulenews.R2;
 import com.bamboolmc.modulenews.dagger.DaggerNewsComponent;
 import com.bamboolmc.modulenews.utils.StringUtil;
 import com.squareup.picasso.Picasso;
@@ -37,33 +38,33 @@ import butterknife.BindView;
  */
 public class NewsDetFragment extends BaseFragment<NewsDetPresenter> implements NewsDetContract.View {
 
-    @BindView(R.id.news_det_webView)
+    @BindView(R2.id.news_det_webView)
     WebView mWebView;
-    @BindView(R.id.news_det_progress)
+    @BindView(R2.id.news_det_progress)
     ProgressBar mProgressBar;
-    @BindView(R.id.news_det_title)
+    @BindView(R2.id.news_det_title)
     TextView mTitle;
-    @BindView(R.id.news_source_img)
+    @BindView(R2.id.news_source_img)
     ImageView mSourceImg;
-    @BindView(R.id.news_source_name)
+    @BindView(R2.id.news_source_name)
     TextView mSourceName;
-    @BindView(R.id.news_source_time)
+    @BindView(R2.id.news_source_time)
     TextView mSourceTime;
-    @BindView(R.id.news_det_statement)
+    @BindView(R2.id.news_det_statement)
     TextView mStatement;
-    @BindView(R.id.news_det_ec)
+    @BindView(R2.id.news_det_ec)
     TextView mEc;
-    @BindView(R.id.rv_news_relative)
+    @BindView(R2.id.rv_news_relative)
     RecyclerView mRecyclerView;
-    @BindView(R.id.ll_news_hot_relative)
+    @BindView(R2.id.ll_news_hot_relative)
     LinearLayout mLinearLayout;
-    @BindView(R.id.rel_news_det)
+    @BindView(R2.id.rel_news_det)
     RelativeLayout mRelativeLayout;
-    @BindView(R.id.rel_news_det2)
+    @BindView(R2.id.rel_news_det2)
     RelativeLayout mRelativeLayout2;
-    @BindView(R.id.news_source_name2)
+    @BindView(R2.id.news_source_name2)
     TextView mSourceName2;
-    @BindView(R.id.news_source_time2)
+    @BindView(R2.id.news_source_time2)
     TextView mSourceTime2;
 
 

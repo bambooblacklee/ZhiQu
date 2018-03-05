@@ -11,6 +11,7 @@ import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtMovieResourceContract;
@@ -44,11 +45,11 @@ import rx.functions.Action1;
 public class MtMovieResourceActivity extends BaseActivity<MtMovieResourcePresenter>
         implements MtMovieResourceContract.View {
 
-    @BindView(R.id.rv_mt_movie_resource)
+    @BindView(R2.id.rv_mt_movie_resource)
     RecyclerView mRvMtMovieResource;
-    @BindView(R.id.rl_mt_movie_resource)
+    @BindView(R2.id.rl_mt_movie_resource)
     RefreshLayout mRlMtMovieResource;
-    @BindView(R.id.multi_state_view)
+    @BindView(R2.id.multi_state_view)
     MultiStateView mMultiStateView;
 
     private String mTitle;

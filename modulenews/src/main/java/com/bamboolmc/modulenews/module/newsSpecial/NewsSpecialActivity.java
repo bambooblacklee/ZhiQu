@@ -12,10 +12,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bamboolmc.library.base.BaseActivity;
+import com.bamboolmc.library.utils.RouteUtils;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.modulenews.R;
+import com.bamboolmc.modulenews.R2;
 import com.bamboolmc.modulenews.app.NewsAppConstant;
-import com.bamboolmc.modulenews.base.BaseActivity;
 import com.bamboolmc.modulenews.dagger.DaggerNewsComponent;
 import com.squareup.picasso.Picasso;
 
@@ -26,23 +29,24 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 
+@Route(path = RouteUtils.News_Activity_Special)
 public class NewsSpecialActivity extends BaseActivity<NewsSpecialPresenter> implements NewsSpecialContract.View {
 
-    @BindView(R.id.special_list_multi)
+    @BindView(R2.id.special_list_multi)
     MultiStateView mMultiStateView;
     //    @BindView(R.id.special_list_refresh)
 //    RefreshLayout mRefreshLayout;
-    @BindView(R.id.special_banner)
+    @BindView(R2.id.special_banner)
     ImageView mSpecialBanner;
-    @BindView(R.id.special_ll)
+    @BindView(R2.id.special_ll)
     LinearLayout mSpecialLinear;
-    @BindView(R.id.special_digest)
+    @BindView(R2.id.special_digest)
     TextView mSpecialDigest;
-    @BindView(R.id.special_list_index)
+    @BindView(R2.id.special_list_index)
     RecyclerView mSpecialIndex;
-    @BindView(R.id.special_list_rv)
+    @BindView(R2.id.special_list_rv)
     RecyclerView mSpecialDoc;
-    @BindView(R.id.special_ec)
+    @BindView(R2.id.special_ec)
     TextView mSpecialEc;
 
     @Inject

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.model.bean.MtMovieMusicBean;
 import com.bamboolmc.zhiqu.model.bean.MtVideoPostBean;
@@ -39,11 +40,11 @@ public class MtMovieVideoActivity extends BaseActivity {
     private static final String VIDEO_ID = "video_id";
     private static final String IS_MV = "is_mv";
     private static final String MV_DATA = "mv_data";
-    @BindView(R.id.video_player)
+    @BindView(R2.id.video_player)
     JCVideoPlayerStandard mVideoPlayer;
-    @BindView(R.id.vp_video_comment)
+    @BindView(R2.id.vp_video_comment)
     CustomViewPager mVpVideoComment;
-    @BindView(R.id.video_viewpager_tab)
+    @BindView(R2.id.video_viewpager_tab)
     SmartTabLayout mVideoViewpagerTab;
     private MtMovieMusicBean.DataBean.ItemsBean.VideoTagVOBean videoBean;
     private int videoId;

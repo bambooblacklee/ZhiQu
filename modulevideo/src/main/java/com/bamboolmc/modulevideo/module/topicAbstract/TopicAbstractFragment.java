@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.bamboolmc.modulevideo.R;
+import com.bamboolmc.modulevideo.R2;
 import com.bamboolmc.modulevideo.base.LazyFragment;
 import com.bamboolmc.modulevideo.dagger.DaggerVideoComponent;
 
@@ -22,9 +23,9 @@ public class TopicAbstractFragment extends LazyFragment<TopicAbstractPresenter>
 
     private static final String TOPIC_ID = "topic_id";
 
-    @BindView(R.id.rv_topic_abstract)
+    @BindView(R2.id.rv_topic_abstract)
     RecyclerView mRecyclerView;
-    @BindView(R.id.tv_topic_abstract)
+    @BindView(R2.id.tv_topic_abstract)
     TextView mTextView;
 
     private String tId;

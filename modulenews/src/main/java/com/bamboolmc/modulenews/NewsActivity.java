@@ -1,13 +1,34 @@
 package com.bamboolmc.modulenews;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-public class NewsActivity extends AppCompatActivity {
+import com.bamboolmc.library.base.BaseActivity;
+
+public class NewsActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
+    protected int getLayoutId() {
+        return R.layout.activity_news;
     }
+
+    @Override
+    protected void setComponentInject() {
+
+    }
+
+    @Override
+    protected void attachView() {
+
+    }
+
+    @Override
+    protected void initViews(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
 }

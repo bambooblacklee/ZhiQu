@@ -1,6 +1,6 @@
 package com.bamboolmc.modulenews.module.newsDetail.comFragment;
 
-import com.bamboolmc.modulenews.base.BaseFragment;
+import com.bamboolmc.library.base.BaseFragment;
 
 /**
  * Created by limc on 18/2/7.

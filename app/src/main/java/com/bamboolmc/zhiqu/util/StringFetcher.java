@@ -1,15 +1,15 @@
 package com.bamboolmc.zhiqu.util;
 
-import com.bamboolmc.zhiqu.ZhiQuApplication;
+import com.bamboolmc.library.BaseApplication;
 
 public class StringFetcher {
 
     public static String getString(int id) {
-        return ZhiQuApplication.getContext().getString(id);
+        return BaseApplication.getAppContext().getString(id);
     }
 
     public static String getString(int id, Object... format) {
-        return ZhiQuApplication.getContext().getString(id, format);
+        return BaseApplication.getAppContext().getString(id, format);
     }
 
 }

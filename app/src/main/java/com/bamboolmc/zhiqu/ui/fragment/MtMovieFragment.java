@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bamboolmc.library.utils.RouteUtils;
 import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.MtLazyBaseFragment;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
@@ -21,12 +24,13 @@ import butterknife.BindView;
  * SmartTabLayout 三种设置属性方式:xml 两种setCustomTabView
  * 参考自:https://github.com/ogaclejapan/SmartTabLayout
  */
+@Route(path = RouteUtils.App_Fragment_MtMovie)
 public class MtMovieFragment extends MtLazyBaseFragment {
 
-    @BindView(R.id.drive_viewpager)
+    @BindView(R2.id.drive_viewpager)
     CustomViewPager mDriveViewPager;
 
-    @BindView(R.id.drive_viewpager_tab)
+    @BindView(R2.id.drive_viewpager_tab)
     SmartTabLayout mDriveViewPagerTab;
 
     @Override

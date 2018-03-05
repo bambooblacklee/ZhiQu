@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
  */
 public class SplashActivity extends AppCompatActivity {
 
-    @BindView(R.id.tv_skip)
+    @BindView(R2.id.tv_skip)
     TextView mTvSkip;
 
     private boolean flag = false;

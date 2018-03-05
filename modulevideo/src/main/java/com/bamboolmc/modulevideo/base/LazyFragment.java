@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bamboolmc.library.base.BaseContract;
+import com.bamboolmc.library.base.BaseFragment;
 
 /**
  * Created by BambooLmc on 17/10/29 上午11:18.

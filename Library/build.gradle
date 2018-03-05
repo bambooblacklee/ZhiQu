@@ -1,16 +1,21 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    buildToolsVersion BUILDTOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 25
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
     }
     buildTypes {
         release {
@@ -24,15 +29,23 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 
+    compile "com.alibaba:arouter-api:${arouter_api_version}"
+    annotationProcessor "com.alibaba:arouter-compiler:${arouter_compiler_version}"
+
     //依赖注入
-    apt 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile 'com.jakewharton:butterknife:8.5.1'
+    compile "com.jakewharton:butterknife:${butterknife_version}"
+
+
+    //leakcanary 使用
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
 
-    apt 'com.google.dagger:dagger-compiler:2.5'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.5'
     compile 'com.google.dagger:dagger:2.5'
 
     compile 'io.reactivex:rxjava:1.2.4'

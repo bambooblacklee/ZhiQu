@@ -10,10 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bamboolmc.library.base.BaseActivity;
 import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.modulevideo.R;
-import com.bamboolmc.modulevideo.base.BaseActivity;
+import com.bamboolmc.modulevideo.R2;
 import com.bamboolmc.modulevideo.dagger.DaggerVideoComponent;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
@@ -28,17 +29,17 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> implements VideoDetailContract.View {
     private static final String VIDEO_ID = "video_id";
 
-    @BindView(R.id.vp_video_detail)
+    @BindView(R2.id.vp_video_detail)
     JCVideoPlayerStandard mVideoPlayer;
-    @BindView(R.id.rv_video_detail)
+    @BindView(R2.id.rv_video_detail)
     RecyclerView mRecyclerView;
-    @BindView(R.id.multi_state_view)
+    @BindView(R2.id.multi_state_view)
     MultiStateView mMultiStateView;
-    @BindView(R.id.title_vdetail_topic)
+    @BindView(R2.id.title_vdetail_topic)
     TextView mTopicTitle;
-    @BindView(R.id.name_vdetail_topic)
+    @BindView(R2.id.name_vdetail_topic)
     TextView mTopicName;
-    @BindView(R.id.img_vdetail_topic)
+    @BindView(R2.id.img_vdetail_topic)
     ImageView mTopicImg;
 
     private String mVideoId;

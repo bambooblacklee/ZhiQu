@@ -6,15 +6,30 @@
     >
 
     <TextView
+        android:id="@+id/tv_module_news"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="hello fragment"/>
 
+    <!--<Button-->
+        <!--android:id="@+id/bt_module_news"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/tv_module_news"-->
+        <!--android:text="你好,我是button"/>-->
+    <!--<fragment-->
+    <!--android:id="@+id/fragment_news"-->
+    <!--android:name="com.bamboolmc.modulenews.module.news.NewsFragment"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--/>-->
     <fragment
-        android:id="@+id/fragment_video"
+        android:id="@+id/fragment_news"
         android:name="com.bamboolmc.modulenews.module.news.NewsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+
 
 </RelativeLayout>

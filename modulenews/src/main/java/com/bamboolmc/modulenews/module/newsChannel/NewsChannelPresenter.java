@@ -1,8 +1,8 @@
 package com.bamboolmc.modulenews.module.newsChannel;
 
+import com.bamboolmc.library.BaseApplication;
 import com.bamboolmc.library.base.RxPresenter;
 import com.bamboolmc.modulenews.app.NewsAppConstant;
-import com.bamboolmc.modulenews.app.NewsApplication;
 import com.bamboolmc.modulenews.module.news.NewsChannelBean;
 import com.bamboolmc.modulenews.network.NewsApi;
 import com.bamboolmc.modulenews.utils.FileCacheUtil;
@@ -29,20 +29,20 @@ public class NewsChannelPresenter extends RxPresenter<NewsChannelContract.View>
     @Override
     public void getMyChannel() {
         ArrayList<NewsChannelBean> myChannelBeanList = (ArrayList<NewsChannelBean>) FileCacheUtil
-                .get(NewsApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_MINE);
+                .get(BaseApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_MINE);
         mView.showMyChannel(myChannelBeanList);
     }
 
     @Override
     public void getOtherChannel() {
         ArrayList<NewsChannelBean> othersChannelBeanList = (ArrayList<NewsChannelBean>) FileCacheUtil
-                .get(NewsApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_OTHERS);
+                .get(BaseApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_OTHERS);
         mView.showOtherChannel(othersChannelBeanList);
     }
 
     @Override
     public void swapChannel(List<NewsChannelBean> myChannelBeanList) {
-        FileCacheUtil.get(NewsApplication.getAppContext()).put(NewsAppConstant.CHANNEL_MINE,
+        FileCacheUtil.get(BaseApplication.getAppContext()).put(NewsAppConstant.CHANNEL_MINE,
                 (ArrayList<NewsChannelBean>) myChannelBeanList);
         //需要发RxBus到NewsFragment
         RxBus.get().post(myChannelBeanList);
@@ -51,9 +51,9 @@ public class NewsChannelPresenter extends RxPresenter<NewsChannelContract.View>
     @Override
     public void addOrRemoveChannel(List<NewsChannelBean> myChannelBeanList, List<NewsChannelBean> othersChannelBeanList) {
 
-        FileCacheUtil.get(NewsApplication.getAppContext()).put(NewsAppConstant.CHANNEL_MINE,
+        FileCacheUtil.get(BaseApplication.getAppContext()).put(NewsAppConstant.CHANNEL_MINE,
                 (ArrayList<NewsChannelBean>) myChannelBeanList);
-        FileCacheUtil.get(NewsApplication.getAppContext()).put(NewsAppConstant.CHANNEL_OTHERS,
+        FileCacheUtil.get(BaseApplication.getAppContext()).put(NewsAppConstant.CHANNEL_OTHERS,
                 (ArrayList<NewsChannelBean>) othersChannelBeanList);
         //需要发RxBus到NewsFragment
         RxBus.get().post(myChannelBeanList);

@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bamboolmc.library.base.BaseFragment;
+import com.bamboolmc.library.utils.RouteUtils;
 import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.modulenews.R;
+import com.bamboolmc.modulenews.R2;
 import com.bamboolmc.modulenews.app.NewsAppConstant;
-import com.bamboolmc.modulenews.base.LazyFragment;
 import com.bamboolmc.modulenews.dagger.DaggerNewsComponent;
 import com.bamboolmc.modulenews.module.newsList.tid.TidListFragment;
 import com.hwangjr.rxbus.RxBus;
@@ -30,13 +33,14 @@ import butterknife.BindView;
 /**
  * Created by BambooLmc on 17/10/25 下午4:33.
  */
-public class NewsFragment extends LazyFragment<NewsPresenter> implements NewsContract.View {
+@Route(path = RouteUtils.News_Fragment_News)
+public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsContract.View {
 
-    @BindView(R.id.news_viewpager)
-    CustomViewPager mNewsViewPager;
-
-    @BindView(R.id.news_viewpager_tab)
+    @BindView(R2.id.news_viewpager_tab)
     SmartTabLayout mNewsViewPagerTab;
+
+    @BindView(R2.id.news_viewpager)
+    CustomViewPager mNewsViewPager;
 
     @Inject
     NewsPresenter mPresenter;

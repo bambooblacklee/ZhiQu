@@ -1,5 +1,6 @@
 package com.bamboolmc.modulenews.dagger;
 
+import com.bamboolmc.modulenews.TestFragment;
 import com.bamboolmc.modulenews.module.news.NewsFragment;
 import com.bamboolmc.modulenews.module.newsChannel.NewsChannelActivity;
 import com.bamboolmc.modulenews.module.newsDetail.detFragment.NewsDetFragment;
@@ -29,4 +30,6 @@ public interface NewsComponent {
     void inject(PictureActivity pictureActivity);
 
     void inject(NewsSpecialActivity newsSpecialActivity);
+
+    void inject(TestFragment testFragment);
 }

@@ -2,9 +2,9 @@ package com.bamboolmc.modulenews.module.news;
 
 import android.util.Log;
 
+import com.bamboolmc.library.BaseApplication;
 import com.bamboolmc.library.base.RxPresenter;
 import com.bamboolmc.modulenews.app.NewsAppConstant;
-import com.bamboolmc.modulenews.app.NewsApplication;
 import com.bamboolmc.modulenews.db.NewsChannelTableManager;
 import com.bamboolmc.modulenews.network.NewsApi;
 import com.bamboolmc.modulenews.utils.FileCacheUtil;
@@ -35,7 +35,7 @@ public class NewsPresenter extends RxPresenter<NewsContract.View>
     public void getAllTabList() {
         Log.d("xxxx","allList begin");
         ArrayList<ListSpecialBean.TopicBean> allTabList = (ArrayList<ListSpecialBean.TopicBean>) FileCacheUtil
-                .get(NewsApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_ALL);
+                .get(BaseApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_ALL);
 
         if (null == allTabList) {
             Log.d("xxxx","allList begin http");
@@ -56,7 +56,7 @@ public class NewsPresenter extends RxPresenter<NewsContract.View>
                         @Override
                         public void onNext(ListSpecialBean mListSpecialBean) {
                             Log.d("xxxx","allList onNext");
-                            FileCacheUtil.get(NewsApplication.getAppContext()).put(NewsAppConstant.CHANNEL_ALL,
+                            FileCacheUtil.get(BaseApplication.getAppContext()).put(NewsAppConstant.CHANNEL_ALL,
                                     (ArrayList<ListSpecialBean.TopicBean>) NewsChannelTableManager.exchangeAllTabList(mListSpecialBean));
                             mView.showAllTabList(NewsChannelTableManager.exchangeAllTabList(mListSpecialBean));
                         }
@@ -71,7 +71,7 @@ public class NewsPresenter extends RxPresenter<NewsContract.View>
     @Override
     public void getMyTabList() {
         ArrayList<NewsChannelBean> myChannelBeanList = (ArrayList<NewsChannelBean>) FileCacheUtil
-                .get(NewsApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_MINE);
+                .get(BaseApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_MINE);
         Log.d("xxxx","gettablist begin");
         if (null == myChannelBeanList) {
             Log.d("xxxx","gettablist is null");
@@ -92,10 +92,10 @@ public class NewsPresenter extends RxPresenter<NewsContract.View>
                         @Override
                         public void onNext(NewsTopicBean mNewsTopicBean) {
                             Log.d("xxxx","myList onNext");
-                            FileCacheUtil.get(NewsApplication.getAppContext()).put(NewsAppConstant.CHANNEL_MINE,
+                            FileCacheUtil.get(BaseApplication.getAppContext()).put(NewsAppConstant.CHANNEL_MINE,
                                     (ArrayList<NewsChannelBean>) NewsChannelTableManager.loadNewsChannelMine(mNewsTopicBean));
                             Log.d("xxxx","loadNewsChannelMine end2");
-                            FileCacheUtil.get(NewsApplication.getAppContext()).put(NewsAppConstant.CHANNEL_OTHERS,
+                            FileCacheUtil.get(BaseApplication.getAppContext()).put(NewsAppConstant.CHANNEL_OTHERS,
                                     (ArrayList<NewsChannelBean>) NewsChannelTableManager.loadNewsChannelOthers(mNewsTopicBean));
                             mView.showMyTabList(NewsChannelTableManager.loadNewsChannelMine(mNewsTopicBean));
                         }

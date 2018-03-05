@@ -6,8 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bamboolmc.library.utils.RouteUtils;
 import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.modulevideo.R;
+import com.bamboolmc.modulevideo.R2;
 import com.bamboolmc.modulevideo.base.LazyFragment;
 import com.bamboolmc.modulevideo.dagger.DaggerVideoComponent;
 import com.bamboolmc.modulevideo.module.videoList.VideoListFragment;
@@ -27,12 +30,13 @@ import butterknife.BindView;
 /**
  * Created by BambooLmc on 17/10/25 下午4:33.
  */
+@Route(path = RouteUtils.Video_Fragment_Video)
 public class VideoFragment extends LazyFragment<VideoPresenter> implements VideoContract.View {
 
-    @BindView(R.id.video_viewpager)
+    @BindView(R2.id.video_viewpager)
     CustomViewPager mVideoViewPager;
 
-    @BindView(R.id.video_viewpager_tab)
+    @BindView(R2.id.video_viewpager_tab)
     SmartTabLayout mVideoViewPagerTab;
 
     @Inject

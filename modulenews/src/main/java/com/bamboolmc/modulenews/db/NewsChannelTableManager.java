@@ -1,8 +1,8 @@
 package com.bamboolmc.modulenews.db;
 
+import com.bamboolmc.library.BaseApplication;
 import com.bamboolmc.modulenews.R;
 import com.bamboolmc.modulenews.app.NewsAppConstant;
-import com.bamboolmc.modulenews.app.NewsApplication;
 import com.bamboolmc.modulenews.module.news.ListSpecialBean;
 import com.bamboolmc.modulenews.module.news.NewsChannelBean;
 import com.bamboolmc.modulenews.module.news.NewsTopicBean;
@@ -21,7 +21,7 @@ public class NewsChannelTableManager {
      * 转换所有的新闻类型
      */
     public static List<ListSpecialBean.TopicBean> exchangeAllTabList(ListSpecialBean mListSpecialBean) {
-        List<String> allChannel = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.news_channel_all));
+        List<String> allChannel = Arrays.asList(BaseApplication.getAppContext().getResources().getStringArray(R.array.news_channel_all));
         ArrayList<ListSpecialBean.TopicBean> allTabList = new ArrayList<>();
 
         for (int i = 0; i <allChannel.size() ; i++) {
@@ -42,7 +42,7 @@ public class NewsChannelTableManager {
     public static List<NewsChannelBean> loadNewsChannelMine(NewsTopicBean mNewsTopicBean) {
         //根据存储的allChannel,来补充网络下载的myChannel内缺失的TName,TId等
         ArrayList<ListSpecialBean.TopicBean> allTabList = (ArrayList<ListSpecialBean.TopicBean>) FileCacheUtil
-                .get(NewsApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_ALL);
+                .get(BaseApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_ALL);
         List<String> eNameList = mNewsTopicBean.getData().getTopics();
 
         List<String> channelEName = new ArrayList<>();
@@ -59,9 +59,9 @@ public class NewsChannelTableManager {
             }
         }
         //将所有字段组合为NewsChannelBean_List,以便后面存储到File中
-        List<String> urlTouTiao = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_toutiao));
-        List<String> urlDlist = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_dlist));
-        List<String> urlNc = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_nc));
+        List<String> urlTouTiao = Arrays.asList(BaseApplication.getAppContext().getResources().getStringArray(R.array.url_type_toutiao));
+        List<String> urlDlist = Arrays.asList(BaseApplication.getAppContext().getResources().getStringArray(R.array.url_type_dlist));
+        List<String> urlNc = Arrays.asList(BaseApplication.getAppContext().getResources().getStringArray(R.array.url_type_nc));
 
         List<NewsChannelBean> newsChannelBeanMine = new ArrayList<>();
         for (int i = 0; i < channelEName.size(); i++) {
@@ -87,7 +87,7 @@ public class NewsChannelTableManager {
     public static List<NewsChannelBean> loadNewsChannelOthers(NewsTopicBean mNewsTopicBean) {
         //根据存储的allChannel,来补充网络下载的myChannel内缺失的TName,TId等
         ArrayList<ListSpecialBean.TopicBean> allTabList = (ArrayList<ListSpecialBean.TopicBean>) FileCacheUtil
-                .get(NewsApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_ALL);
+                .get(BaseApplication.getAppContext()).getAsObject(NewsAppConstant.CHANNEL_ALL);
         List<String> eNameList = mNewsTopicBean.getData().getTopics();
 
         List<String> channelENameOthers = new ArrayList<>();
@@ -105,9 +105,9 @@ public class NewsChannelTableManager {
         }
         //将所有字段组合为NewsChannelBean_List,以便后面存储到File中
 
-        List<String> urlTouTiao = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_toutiao));
-        List<String> urlDlist = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_dlist));
-        List<String> urlNc = Arrays.asList(NewsApplication.getAppContext().getResources().getStringArray(R.array.url_type_nc));
+        List<String> urlTouTiao = Arrays.asList(BaseApplication.getAppContext().getResources().getStringArray(R.array.url_type_toutiao));
+        List<String> urlDlist = Arrays.asList(BaseApplication.getAppContext().getResources().getStringArray(R.array.url_type_dlist));
+        List<String> urlNc = Arrays.asList(BaseApplication.getAppContext().getResources().getStringArray(R.array.url_type_nc));
 
         List<NewsChannelBean> newsChannelBeanOthers = new ArrayList<>();
         for (int i = 0; i < channelENameOthers.size(); i++) {

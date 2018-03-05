@@ -11,6 +11,7 @@ import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtMovieInformationContract;
@@ -28,13 +29,13 @@ import butterknife.BindView;
 public class MtMovieInformationActivity extends BaseActivity<MtMovieInformationPresenter>
         implements MtMovieInformationContract.View {
 
-    @BindView(R.id.rv_movie_mt_information)
+    @BindView(R2.id.rv_movie_mt_information)
     RecyclerView mRvBaseRecyclerView;
 
-    @BindView(R.id.multi_state_view)
+    @BindView(R2.id.multi_state_view)
     MultiStateView mMultiStateView;
 
-    @BindView(R.id.refresh_layout_mt_information)
+    @BindView(R2.id.refresh_layout_mt_information)
     RefreshLayout mRefreshLayout;
 
     private static final String TITLE = "title";

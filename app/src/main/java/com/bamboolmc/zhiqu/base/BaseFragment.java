@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bamboolmc.zhiqu.R;
-import com.bamboolmc.zhiqu.ZhiQuApplication;
+import com.bamboolmc.library.BaseApplication;
+import com.bamboolmc.zhiqu.R2;
 import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.BindView;
@@ -26,7 +26,7 @@ import butterknife.Unbinder;
 public abstract class  BaseFragment extends Fragment {
 
     @Nullable
-    @BindView(R.id.toolbar)
+    @BindView(R2.id.toolbar)
     Toolbar mToolbar;
 
     protected View mParentView;
@@ -104,7 +104,7 @@ public abstract class  BaseFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         Log.d("TAG","onDestroy() is begin");
-        RefWatcher refWatcher = ZhiQuApplication.getRefWatcher(getActivity());
+        RefWatcher refWatcher = BaseApplication.getRefWatcher(getActivity());
         refWatcher.watch(this);
     }
 

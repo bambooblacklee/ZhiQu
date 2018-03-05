@@ -12,9 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bamboolmc.library.BaseApplication;
 import com.bamboolmc.library.base.BaseContract;
-import com.bamboolmc.zhiqu.R;
-import com.bamboolmc.zhiqu.ZhiQuApplication;
+import com.bamboolmc.zhiqu.R2;
 import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.BindView;
@@ -28,10 +28,9 @@ import butterknife.Unbinder;
 public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> extends Fragment {
 
     @Nullable
-    @BindView(R.id.toolbar)
+    @BindView(R2.id.toolbar)
     Toolbar mToolbar;
 
-    protected View mParentView;
     protected Unbinder mUnbinder;
     protected T mPresenter;
     protected Activity mContext;
@@ -52,14 +51,15 @@ public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> exten
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mParentView = inflater.inflate(getLayoutResId(), container, false);
+        View mParentView = inflater.inflate(getLayoutResId(), container, false);
+        mUnbinder = ButterKnife.bind(this, mParentView);
         return mParentView;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mUnbinder = ButterKnife.bind(this, view);
+
         initToolbar();
         //Dagger inject
         setComponentInject();
@@ -79,7 +79,7 @@ public abstract class MtBaseFragment<T extends BaseContract.BasePresenter> exten
     @Override
     public void onDestroy() {
         super.onDestroy();
-        RefWatcher refWatcher = ZhiQuApplication.getRefWatcher(getActivity());
+        RefWatcher refWatcher = BaseApplication.getRefWatcher(getActivity());
         refWatcher.watch(this);
     }
 

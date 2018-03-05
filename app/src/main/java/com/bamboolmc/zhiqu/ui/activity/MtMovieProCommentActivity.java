@@ -11,6 +11,7 @@ import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtMovieProCommentContract;
@@ -28,11 +29,11 @@ import butterknife.BindView;
 public class MtMovieProCommentActivity extends BaseActivity<MtMovieProCommentPresenter>
         implements MtMovieProCommentContract.View {
 
-    @BindView(R.id.rv_mt_movie_pro_comment)
+    @BindView(R2.id.rv_mt_movie_pro_comment)
     RecyclerView mRvMtMovieProComment;
-    @BindView(R.id.rl_mt_movie_pro_comment)
+    @BindView(R2.id.rl_mt_movie_pro_comment)
     RefreshLayout mRlMtMovieProComment;
-    @BindView(R.id.multi_state_view)
+    @BindView(R2.id.multi_state_view)
     MultiStateView mMultiStateView;
 
     private static final String MOVIE_ID = "movie_id";

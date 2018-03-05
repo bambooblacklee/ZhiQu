@@ -11,6 +11,7 @@ import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.OnRefreshListener;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.MtLazyBaseFragment;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtSoonMovieContract;
@@ -36,13 +37,13 @@ import butterknife.BindView;
  */
 public class MtSoonMovieFragment extends MtLazyBaseFragment<MtSoonMoviePresenter> implements MtSoonMovieContract.View {
 
-    @BindView(R.id.multi_state_view)
+    @BindView(R2.id.multi_state_view)
     MultiStateView mMultiStateView;
 
-    @BindView(R.id.rv_movie_soon)
+    @BindView(R2.id.rv_movie_soon)
     RecyclerView mRecyclerView;
 
-    @BindView(R.id.refresh_layout_soon)
+    @BindView(R2.id.refresh_layout_soon)
     RefreshLayout mRefreshLayout;
 
     @Inject

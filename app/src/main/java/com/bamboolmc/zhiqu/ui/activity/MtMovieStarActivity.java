@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.BaseActivity;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtMovieStarContract;
@@ -50,83 +51,83 @@ public class MtMovieStarActivity extends BaseActivity<MtMovieStarPresenter> impl
     private static final String STAR_ID = "star_id";
     private int starId;
 
-    @BindView(R.id.mv_movie_star)
+    @BindView(R2.id.mv_movie_star)
     MultiStateView mMultiStateView;
 
     //明星资料
-    @BindView(R.id.ll_star_name)
+    @BindView(R2.id.ll_star_name)
     LinearLayout mLlStarName;
-    @BindView(R.id.tv_star_name)
+    @BindView(R2.id.tv_star_name)
     TextView mTvStarName;
-    @BindView(R.id.tv_star_english_name)
+    @BindView(R2.id.tv_star_english_name)
     TextView mTvStarEName;
-    @BindView(R.id.iv_star_bg)
+    @BindView(R2.id.iv_star_bg)
     CropImageView mIvStarBg;
-    @BindView(R.id.ll_star_name2)
+    @BindView(R2.id.ll_star_name2)
     LinearLayout mLlStarName2;
-    @BindView(R.id.tv_star_name2)
+    @BindView(R2.id.tv_star_name2)
     TextView mTvStarName2;
-    @BindView(R.id.tv_star_english_name2)
+    @BindView(R2.id.tv_star_english_name2)
     TextView mTvStarEName2;
-    @BindView(R.id.iv_star_avatar)
+    @BindView(R2.id.iv_star_avatar)
     ImageView mIvStarAvatar;
 
     //票房
-    @BindView(R.id.tv_star_rank)
+    @BindView(R2.id.tv_star_rank)
     TextView mTvStarRank;
-    @BindView(R.id.tv_star_fans_count)
+    @BindView(R2.id.tv_star_fans_count)
     TextView mTvFansCount;
-    @BindView(R.id.tv_star_major_movie_box)
+    @BindView(R2.id.tv_star_major_movie_box)
     TextView mTvStarMajorMovieBox;
 
     //个人资料
-    @BindView(R.id.tv_star_title)
+    @BindView(R2.id.tv_star_title)
     TextView mTvStarTitle;
-    @BindView(R.id.tv_star_birthday)
+    @BindView(R2.id.tv_star_birthday)
     TextView mTvStarBirthday;
-    @BindView(R.id.tv_star_info_desc)
+    @BindView(R2.id.tv_star_info_desc)
     TextView mTvStarInfoDesc;
 
     //个人图片
-    @BindView(R.id.ll_star_photos)
+    @BindView(R2.id.ll_star_photos)
     LinearLayout mLlStarPhotos;
-    @BindView(R.id.tv_star_photos_count)
+    @BindView(R2.id.tv_star_photos_count)
     TextView mTvStarPhotosCount;
-    @BindView(R.id.rv_star_photos)
+    @BindView(R2.id.rv_star_photos)
     RecyclerView mRvStarPhotos;
 
     //个人荣誉
-    @BindView(R.id.ll_honor)
+    @BindView(R2.id.ll_honor)
     LinearLayout mLlHonor;
-    @BindView(R.id.tv_win_award_times)
+    @BindView(R2.id.tv_win_award_times)
     TextView mTvWinAwardTimes;
-    @BindView(R.id.tv_nominate_times)
+    @BindView(R2.id.tv_nominate_times)
     TextView mTvNominateTimes;
-    @BindView(R.id.tv_award_title)
+    @BindView(R2.id.tv_award_title)
     TextView mTvAwardTitle;
-    @BindView(R.id.tv_award_content)
+    @BindView(R2.id.tv_award_content)
     TextView mTvAwardContent;
 
     //个人电影
-    @BindView(R.id.ll_star_movie)
+    @BindView(R2.id.ll_star_movie)
     LinearLayout mLlStarMovie;
-    @BindView(R.id.tv_star_movies_count)
+    @BindView(R2.id.tv_star_movies_count)
     TextView mTvStarMoviesCount;
-    @BindView(R.id.rv_star_movies)
+    @BindView(R2.id.rv_star_movies)
     RecyclerView mRvStarMovies;
 
     //相关资讯
-    @BindView(R.id.ll_related_information)
+    @BindView(R2.id.ll_related_information)
     LinearLayout mLlRelatedInformation;
-    @BindView(R.id.iv_related_information)
+    @BindView(R2.id.iv_related_information)
     ImageView mIvRelatedInformation;
-    @BindView(R.id.tv_related_information_content)
+    @BindView(R2.id.tv_related_information_content)
     TextView mTvRelatedInformationContent;
 
     //相关演员
-    @BindView(R.id.ll_related_stars)
+    @BindView(R2.id.ll_related_stars)
     LinearLayout mLlRelatedStars;
-    @BindView(R.id.rv_related_stars)
+    @BindView(R2.id.rv_related_stars)
     RecyclerView mRvRelatedStars;
 
 

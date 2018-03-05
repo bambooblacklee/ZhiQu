@@ -9,6 +9,7 @@ import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.OnRefreshListener;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.MtLazyBaseFragment;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtNewsFlashMovieListContract;
@@ -28,13 +29,13 @@ import butterknife.BindView;
  */
 public class MtNewsFlashMovieFragment extends MtLazyBaseFragment<MtNewsFlashMovieListPresenter>
         implements MtNewsFlashMovieListContract.View {
-    @BindView(R.id.multi_state_view)
+    @BindView(R2.id.multi_state_view)
     MultiStateView mMultiStateView;
 
-    @BindView(R.id.rv_movie_newsflash)
+    @BindView(R2.id.rv_movie_newsflash)
     RecyclerView mRecyclerView;
 
-    @BindView(R.id.refresh_layout_newsflash)
+    @BindView(R2.id.refresh_layout_newsflash)
     RefreshLayout mRefreshLayout;
 
     @Inject

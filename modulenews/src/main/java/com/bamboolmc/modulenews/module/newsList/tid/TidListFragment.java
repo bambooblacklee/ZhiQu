@@ -4,12 +4,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.bamboolmc.library.base.BaseFragment;
 import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.OnRefreshListener;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.modulenews.R;
-import com.bamboolmc.modulenews.base.BaseFragment;
+import com.bamboolmc.modulenews.R2;
 import com.bamboolmc.modulenews.dagger.DaggerNewsComponent;
 import com.bamboolmc.modulenews.module.news.NewsChannelBean;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -25,13 +26,13 @@ import butterknife.BindView;
  */
 public class TidListFragment extends BaseFragment<TidListPresenter> implements TidListContract.View {
 
-    @BindView(R.id.tid_list_multi)
+    @BindView(R2.id.tid_list_multi)
     MultiStateView mMultiStateView;
 
-    @BindView(R.id.tid_list_rv)
+    @BindView(R2.id.tid_list_rv)
     RecyclerView mRecyclerView;
 
-    @BindView(R.id.tid_list_refresh)
+    @BindView(R2.id.tid_list_refresh)
     RefreshLayout mRefreshLayout;
 
     @Inject

@@ -10,6 +10,7 @@ import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.OnRefreshListener;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.modulevideo.R;
+import com.bamboolmc.modulevideo.R2;
 import com.bamboolmc.modulevideo.base.LazyFragment;
 import com.bamboolmc.modulevideo.dagger.DaggerVideoComponent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -28,11 +29,11 @@ public class TopicVideoFragment extends LazyFragment<TopicVideoListPresenter>
 
     private static final String TOPIC_ID = "topic_id";
 
-    @BindView(R.id.multi_topic_video)
+    @BindView(R2.id.multi_topic_video)
     MultiStateView mMultiStateView;
-    @BindView(R.id.rv_topic_video)
+    @BindView(R2.id.rv_topic_video)
     RecyclerView mRecyclerView;
-    @BindView(R.id.refresh_topic_video)
+    @BindView(R2.id.refresh_topic_video)
     RefreshLayout mRefreshLayout;
 
     private TopicVideoListAdapter mTopicVideoListAdapter;

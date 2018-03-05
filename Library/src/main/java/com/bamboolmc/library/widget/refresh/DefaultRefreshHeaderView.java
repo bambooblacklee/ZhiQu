@@ -10,11 +10,6 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
 import com.bamboolmc.library.R;
-import com.bamboolmc.library.R2;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 
 /**
@@ -22,38 +17,38 @@ import butterknife.Unbinder;
  */
 public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
 
-    @BindView(R2.id.pull_sun)
-    ImageView sunImg;
-
-    @BindView(R2.id.pull_rider)
-    ImageView riderImg;
-
-    @BindView(R2.id.pull_wheel_left)
-    ImageView leftWheelImg;
-
-    @BindView(R2.id.pull_wheel_right)
-    ImageView rightWheelImg;
-
-    @BindView(R2.id.pull_backImg_left)
-    ImageView leftBackImg;
-
-    @BindView(R2.id.pull_backImg_right)
-    ImageView rightBackImg;
-
     private Animation sunRotation;
     private Animation riderShake;
     private Animation wheelRotation;
     private Animation leftBackTranslate;
     private Animation rightBackTranslate;
-    private Unbinder unbinder;
+
+    ImageView sunImg;
+    ImageView riderImg;
+    ImageView leftWheelImg;
+    ImageView rightWheelImg;
+    ImageView leftBackImg;
+    ImageView rightBackImg;
+
 
     public DefaultRefreshHeaderView(Context context) {
         super(context);
         LayoutInflater.from(context).inflate(R.layout.layout_refresh_header, this);
+        initView();
         initAnimations();
     }
 
+    private void initView() {
+        sunImg = (ImageView) findViewById(R.id.pull_sun);
+        riderImg = (ImageView) findViewById(R.id.pull_rider);
+        leftWheelImg = (ImageView) findViewById(R.id.pull_wheel_left);
+        rightWheelImg = (ImageView) findViewById(R.id.pull_wheel_right);
+        leftBackImg = (ImageView) findViewById(R.id.pull_backImg_left);
+        rightBackImg = (ImageView) findViewById(R.id.pull_backImg_right);
+    }
+
     private void initAnimations() {
+
         sunRotation = new RotateAnimation(0, 179,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
@@ -96,18 +91,16 @@ public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        unbinder = ButterKnife.bind(this);
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        unbinder.unbind();
     }
 
     @Override
-    public HeaderConfig getConfig() {
-        HeaderConfig config = new HeaderConfig();
+    public com.bamboolmc.library.widget.refresh.HeaderConfig getConfig() {
+        com.bamboolmc.library.widget.refresh.HeaderConfig config = new com.bamboolmc.library.widget.refresh.HeaderConfig();
         config.isOverlay = false;
         config.maxOffset = 300;
         return config;

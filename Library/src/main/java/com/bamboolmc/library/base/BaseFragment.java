@@ -4,11 +4,11 @@ package com.bamboolmc.library.base;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +21,7 @@ import butterknife.Unbinder;
  */
 public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends Fragment {
 
-    protected View mParentView;
-    protected Unbinder mUnbinder;
+    public Unbinder mUnbinder;
     protected T mPresenter;
     protected Activity mContext;
 
@@ -37,17 +36,20 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         super.onCreate(savedInstanceState);
     }
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mParentView = inflater.inflate(getLayoutResId(), container, false);
+        View mParentView = inflater.inflate(getLayoutResId(), container, false);
+        mUnbinder = ButterKnife.bind(this, mParentView);
+        Log.d("TAG","onCreateView() is begin");
         return mParentView;
+
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mUnbinder = ButterKnife.bind(this, view);
         initToolbar();
         //Dagger inject
         setComponentInject();
@@ -112,7 +114,6 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
 
     }
 
-    @LayoutRes
     public abstract int getLayoutResId();
 
     public abstract void setComponentInject();

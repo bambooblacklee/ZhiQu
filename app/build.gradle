@@ -1,18 +1,22 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'android-apt'
-//apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "23.0.3"
+    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    buildToolsVersion BUILDTOOLS_VERSION
 
     defaultConfig {
         applicationId "com.bamboolmc.zhiqu"
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
     }
     buildTypes {
         release {
@@ -26,22 +30,24 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile project(':Library')
+    if (!IsDebugModuleNews.toBoolean()) {
+        compile project(':modulenews')
+    }
+    if (!IsDebugModuleVideo.toBoolean()) {
+        compile project(':modulevideo')
+    }
 
-    //leakcanary 使用
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    
+    annotationProcessor "com.alibaba:arouter-compiler:${arouter_compiler_version}"
+
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_compiler_version}"
+
     //jCPlayer
     compile 'fm.jiecao:jiecaovideoplayer:5.4'
     //RxBus
     compile 'com.hwangjr.rxbus:rxbus:1.0.5'
 
-    apt 'com.google.dagger:dagger-compiler:2.5'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.5'
     compile 'com.google.dagger:dagger:2.5'
-
-    apt 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile 'com.jakewharton:butterknife:8.5.1'
 
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'com.android.support:appcompat-v7:25.3.1'

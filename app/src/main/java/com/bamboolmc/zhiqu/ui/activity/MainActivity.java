@@ -9,13 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bamboolmc.library.utils.RouteUtils;
 import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.BaseActivity;
-import com.bamboolmc.zhiqu.ui.fragment.MovieFragment;
-import com.bamboolmc.zhiqu.ui.fragment.MtMovieFragment;
-import com.bamboolmc.zhiqu.ui.fragment.NewsFragment;
-import com.bamboolmc.zhiqu.ui.fragment.UserFragment;
 import com.bamboolmc.zhiqu.util.ActivityStack;
 import com.bamboolmc.zhiqu.util.DoubleExitUtil;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
@@ -32,10 +30,10 @@ public class MainActivity extends BaseActivity {
 
     private DoubleExitUtil mDoubleClickExit;
 
-    @BindView(R.id.viewpager)
+    @BindView(R2.id.viewpager)
     CustomViewPager mCustomViewPager;
 
-    @BindView(R.id.viewpager_tab)
+    @BindView(R2.id.viewpager_tab)
     SmartTabLayout mViewpagerTab;
 
     @Override
@@ -66,15 +64,14 @@ public class MainActivity extends BaseActivity {
         mDoubleClickExit = new DoubleExitUtil(this);
 
         final LayoutInflater inflater = LayoutInflater.from(this);
-        final int[] tabIcons = {R.drawable.tab_ic_movie, R.drawable.tab_ic_news, R.drawable.tab_ic_drive, R.drawable.tab_ic_me};
-        final int[] tabTitles = {R.string.tab_movie, R.string.tab_news, R.string.tab_drive, R.string.tab_me};
+        final int[] tabIcons = {R.drawable.tab_ic_news,R.drawable.tab_ic_drive,R.drawable.tab_ic_movie,R.drawable.tab_ic_me};
+        final int[] tabTitles = {R.string.tab_news,R.string.tab_drive,R.string.tab_movie,R.string.tab_me};
 
         FragmentPagerItems pages = FragmentPagerItems.with(this)
-                .add(R.string.tab_movie, MovieFragment.class)
-                .add(R.string.tab_news, NewsFragment.class)
-                .add(R.string.tab_drive, MtMovieFragment.class)
-//                .add(R.string.tab_drive, MtMovieFragment.class)
-                .add(R.string.tab_me, UserFragment.class)
+                .add(R.string.tab_news, RouteUtils.getNewsFragment().getClass())
+                .add(R.string.tab_drive, RouteUtils.getVideoFragment().getClass())
+                .add(R.string.tab_movie, RouteUtils.getAppMtVideoFragment().getClass())
+                .add(R.string.tab_me, RouteUtils.getNewsFragment().getClass())
                 .create();
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),

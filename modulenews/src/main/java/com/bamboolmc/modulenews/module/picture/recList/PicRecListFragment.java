@@ -4,6 +4,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.bamboolmc.modulenews.R2;
 import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.modulenews.R;
@@ -21,9 +22,9 @@ import butterknife.BindView;
  */
 public class PicRecListFragment extends LazyFragment<PicRecListPresenter> implements PicRecListContract.View {
 
-    @BindView(R.id.multi_pic_rec)
+    @BindView(R2.id.multi_pic_rec)
     MultiStateView mMultiStateView;
-    @BindView(R.id.rv_pic_rec)
+    @BindView(R2.id.rv_pic_rec)
     RecyclerView mRecyclerView;
 
     private PicRecListAdapter mPicRecListAdapter;

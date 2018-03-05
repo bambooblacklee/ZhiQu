@@ -4,9 +4,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.bamboolmc.library.utils.RouteUtils;
 import com.bamboolmc.modulenews.R;
 import com.bamboolmc.modulenews.app.NewsAppConstant;
-import com.bamboolmc.modulenews.module.newsDetail.NewsDetailActivity;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.squareup.picasso.Picasso;
@@ -41,7 +42,8 @@ public class SpecialDocAdapter extends BaseMultiItemQuickAdapter<SpecialDocBean,
                 helper.convertView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        NewsDetailActivity.startActivity(mContext,item.getDocid());
+                        ARouter.getInstance().build(RouteUtils.News_Activity_Detail)
+                                .withString("news_id",item.getDocid()).navigation();
                     }
                 });
                 break;
@@ -61,7 +63,8 @@ public class SpecialDocAdapter extends BaseMultiItemQuickAdapter<SpecialDocBean,
                 helper.convertView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        NewsDetailActivity.startActivity(mContext,item.getDocid());
+                        ARouter.getInstance().build(RouteUtils.News_Activity_Detail)
+                                .withString("news_id",item.getDocid()).navigation();
                     }
                 });
                 break;

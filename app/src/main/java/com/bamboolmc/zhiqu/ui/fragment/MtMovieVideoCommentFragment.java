@@ -9,6 +9,7 @@ import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.OnRefreshListener;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.MtBaseFragment;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtMovieVideoCommentContract;
@@ -34,11 +35,11 @@ public class MtMovieVideoCommentFragment extends MtBaseFragment<MtMovieVideoComm
 
     private static final String VIDEO_ID = "video_id";
 
-    @BindView(R.id.rv_movie_video_comment)
+    @BindView(R2.id.rv_movie_video_comment)
     RecyclerView mRvMovieVideoComment;
-    @BindView(R.id.refresh_layout_video_comment)
+    @BindView(R2.id.refresh_layout_video_comment)
     RefreshLayout mRefreshLayoutVideoComment;
-    @BindView(R.id.multi_state_view)
+    @BindView(R2.id.multi_state_view)
     MultiStateView mMultiStateView;
 
     private MtMovieVideoCommentAdapter mMtMovieVideoCommentAdapter;

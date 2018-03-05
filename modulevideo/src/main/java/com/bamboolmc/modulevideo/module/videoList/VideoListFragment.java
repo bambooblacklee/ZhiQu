@@ -4,12 +4,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.bamboolmc.library.base.BaseFragment;
 import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.OnRefreshListener;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.modulevideo.R;
-import com.bamboolmc.modulevideo.base.BaseFragment;
+import com.bamboolmc.modulevideo.R2;
 import com.bamboolmc.modulevideo.dagger.DaggerVideoComponent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
@@ -22,13 +23,13 @@ import butterknife.BindView;
  */
 public class VideoListFragment extends BaseFragment<VideoListPresenter> implements VideoListContract.View {
 
-    @BindView(R.id.video_list_multi)
+    @BindView(R2.id.video_list_multi)
     MultiStateView mMultiStateView;
 
-    @BindView(R.id.video_list_rv)
+    @BindView(R2.id.video_list_rv)
     RecyclerView mRecyclerView;
 
-    @BindView(R.id.video_list_refresh)
+    @BindView(R2.id.video_list_refresh)
     RefreshLayout mRefreshLayout;
 
     @Inject

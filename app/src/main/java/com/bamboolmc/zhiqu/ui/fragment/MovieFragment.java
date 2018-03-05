@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.BaseFragment;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
@@ -23,10 +24,10 @@ import butterknife.BindView;
  * 参考自:https://github.com/ogaclejapan/SmartTabLayout
  */
 public class MovieFragment extends BaseFragment {
-    @BindView(R.id.movie_viewpager)
+    @BindView(R2.id.movie_viewpager)
     CustomViewPager mDriveViewPager;
 
-    @BindView(R.id.movie_viewpager_tab)
+    @BindView(R2.id.movie_viewpager_tab)
     SmartTabLayout mDriveViewPagerTab;
 
     @Override

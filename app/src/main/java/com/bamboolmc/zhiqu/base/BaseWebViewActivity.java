@@ -9,14 +9,15 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 
 import butterknife.BindView;
 
 public class BaseWebViewActivity extends BaseActivity {
 
-    @BindView(R.id.tv_title)
+    @BindView(R2.id.tv_title)
     TextView mTvTitle;
-    @BindView(R.id.webView)
+    @BindView(R2.id.webView)
     WebView mWebView;
 
     private static final String TARGET_ID = "id";

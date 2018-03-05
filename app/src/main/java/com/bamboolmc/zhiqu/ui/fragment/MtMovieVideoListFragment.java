@@ -10,6 +10,7 @@ import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.library.widget.refresh.OnRefreshListener;
 import com.bamboolmc.library.widget.refresh.RefreshLayout;
 import com.bamboolmc.zhiqu.R;
+import com.bamboolmc.zhiqu.R2;
 import com.bamboolmc.zhiqu.base.MtBaseFragment;
 import com.bamboolmc.zhiqu.component.DaggerMtMovieComponent;
 import com.bamboolmc.zhiqu.contract.MtMovieVideoListContract;
@@ -39,11 +40,11 @@ public class MtMovieVideoListFragment extends MtBaseFragment<MtMovieVIdeoListPre
     private static final String IS_MV = "is_mv";
     private static final String MV_DATA = "mv_data";
 
-    @BindView(R.id.rv_movie_video)
+    @BindView(R2.id.rv_movie_video)
     RecyclerView mRvMovieVideo;
-    @BindView(R.id.refresh_layout_video)
+    @BindView(R2.id.refresh_layout_video)
     RefreshLayout mRefreshLayoutVideo;
-    @BindView(R.id.multi_state_view)
+    @BindView(R2.id.multi_state_view)
     MultiStateView mMultiStateView;
 
     private boolean mIsMv = false;

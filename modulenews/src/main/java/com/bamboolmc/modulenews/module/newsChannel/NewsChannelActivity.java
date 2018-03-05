@@ -9,8 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
+import com.bamboolmc.library.base.BaseActivity;
 import com.bamboolmc.modulenews.R;
-import com.bamboolmc.modulenews.base.BaseActivity;
+import com.bamboolmc.modulenews.R2;
 import com.bamboolmc.modulenews.dagger.DaggerNewsComponent;
 import com.bamboolmc.modulenews.module.news.NewsChannelBean;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -27,9 +28,9 @@ import butterknife.BindView;
 
 public class NewsChannelActivity extends BaseActivity<NewsChannelPresenter> implements NewsChannelContract.View {
 
-    @BindView(R.id.rv_channel_mine)
+    @BindView(R2.id.rv_channel_mine)
     RecyclerView myRecyclerView;
-    @BindView(R.id.rv_channel_others)
+    @BindView(R2.id.rv_channel_others)
     RecyclerView otherRecyclerView;
 
     private NewsChannelAdapter myNewsChannelAdapter;
