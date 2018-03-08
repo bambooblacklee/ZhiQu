@@ -27,19 +27,44 @@
         </activity>
         <activity
             android:name=".ui.activity.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.MovieDetailActivity" />
-        <activity android:name=".ui.activity.TestActivity" />
-        <activity android:name=".ui.activity.MtMovieDetailActivity" />
-        <activity android:name=".ui.activity.MtMovieStarActivity" />
-        <activity android:name=".ui.activity.MtMovieInformationActivity" />
-        <activity android:name=".ui.activity.MtMovieTopicActivity" />
-        <activity android:name=".ui.activity.MtMovieLongCommentActivity" />
-        <activity android:name=".ui.activity.MtMovieProCommentActivity" />
-        <activity android:name=".ui.activity.MtMovieResourceActivity" />
-        <activity android:name=".base.BaseWebViewActivity" />
-        <activity android:name=".ui.activity.MtMovieSoundActivity" />
-        <activity android:name=".ui.activity.MtMovieVideoActivity"></activity>
+        <activity android:name=".ui.activity.MovieDetailActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.TestActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.MtMovieDetailActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.MtMovieStarActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.MtMovieInformationActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.MtMovieTopicActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.MtMovieLongCommentActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.MtMovieProCommentActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.MtMovieResourceActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".base.BaseWebViewActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.MtMovieSoundActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.MtMovieVideoActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

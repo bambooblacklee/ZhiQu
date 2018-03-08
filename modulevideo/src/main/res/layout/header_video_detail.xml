@@ -9,8 +9,9 @@
         android:id="@+id/title_vdetail_topic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_20"
-        android:text="周星驰有多爱国,从这单就可以看出,星爷被卷毛法官弄毛了"/>
+        android:layout_margin="@dimen/spacing_mini"
+        android:text="周星驰有多爱国,从这单就可以看出,星爷被卷毛法官弄毛了"
+        android:textSize="@dimen/text_small"/>
 
     <View
         android:layout_width="match_parent"
@@ -20,6 +21,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_mini"
         android:orientation="horizontal">
 
         <ImageView
@@ -31,6 +33,7 @@
             android:id="@+id/name_vdetail_topic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_small"
             android:text="你好"/>
     </LinearLayout>
 

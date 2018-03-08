@@ -41,8 +41,6 @@ dependencies {
 
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_compiler_version}"
 
-    //jCPlayer
-    compile 'fm.jiecao:jiecaovideoplayer:5.4'
     //RxBus
     compile 'com.hwangjr.rxbus:rxbus:1.0.5'
 

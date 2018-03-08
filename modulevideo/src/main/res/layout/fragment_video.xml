@@ -9,17 +9,13 @@
     <com.ogaclejapan.smarttablayout.SmartTabLayout
         android:id="@+id/video_viewpager_tab"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/dark_gray_bg"
-        app:stl_defaultTabTextColor="#FC000000"
-        app:stl_defaultTabTextMinWidth="0dp"
-        app:stl_distributeEvenly="true"
-        app:stl_dividerColor="@color/transparent"
+        android:layout_height="@dimen/tab_height"
+        app:stl_indicatorColor="@color/tab_normal"
+        app:stl_indicatorInterpolation="smart"
+        app:stl_indicatorThickness="3dp"
+        app:stl_titleOffset="auto_center"
         app:stl_dividerThickness="0dp"
-        app:stl_indicatorColor="@color/transparent"
-        app:stl_indicatorThickness="0dp"
-        app:stl_underlineColor="@color/transparent"
-        app:stl_underlineThickness="0dp"
+        app:stl_underlineThickness="1dp"
         />
 
     <View

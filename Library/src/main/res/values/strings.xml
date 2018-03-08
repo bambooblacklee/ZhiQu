@@ -9,5 +9,6 @@
     <string name="btn_reload">重新加载</string>
     <string name="label_error_network">网络出现错误，请稍后重试!</string>
     <string name="label_error_network_is_bad">当前网络环境较差</string>
+    <string name="playing">播放中</string>
 
 </resources>

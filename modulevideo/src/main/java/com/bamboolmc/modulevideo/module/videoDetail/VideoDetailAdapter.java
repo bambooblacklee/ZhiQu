@@ -5,7 +5,6 @@ import android.widget.ImageView;
 
 import com.bamboolmc.library.utils.TimeUtils;
 import com.bamboolmc.modulevideo.R;
-import com.bamboolmc.modulevideo.utils.UrlResetUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.hwangjr.rxbus.RxBus;
@@ -15,7 +14,7 @@ import com.squareup.picasso.Picasso;
  * Created by limc on 17/11/24.
  */
 public class VideoDetailAdapter extends BaseQuickAdapter<VideoDetailBean.RecommendBean, BaseViewHolder> {
-    private int selectedPos;
+    private int selectedPos = -1;
 
     public VideoDetailAdapter() {
         super(R.layout.item_tvideo_list);
@@ -27,11 +26,13 @@ public class VideoDetailAdapter extends BaseQuickAdapter<VideoDetailBean.Recomme
         helper.setText(R.id.tv_tvideo_name, String.format("%s", item.getTitle()));
         helper.setText(R.id.tv_tvideo_time, TimeUtils.dateToStanderDate(item.getPtime()));
 
-        //helper.getAdapterPosition position包含headerview 从0开始
+        //被选择时,状态修改
         if (mData.get(helper.getAdapterPosition()).isSelect) {
             helper.setTextColor(R.id.tv_tvideo_name, mContext.getResources().getColor(R.color.text_red));
+            helper.setVisible(R.id.video_playing,true).setVisible(R.id.video_will_play, false);
         } else {
             helper.setTextColor(R.id.tv_tvideo_name, mContext.getResources().getColor(R.color.text_primary));
+            helper.setVisible(R.id.video_playing,false).setVisible(R.id.video_will_play, true);
         }
 
         String img = item.getCover();
@@ -44,20 +45,18 @@ public class VideoDetailAdapter extends BaseQuickAdapter<VideoDetailBean.Recomme
         helper.convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //无需再次跳转,只需刷新当前视频播放,及正在播放中即可
                 if (selectedPos != helper.getAdapterPosition()) {
-                    if (selectedPos != 0) {
+                    if (selectedPos != -1) {//对第1个进行处理
                         mData.get(selectedPos).isSelect = false;
                         notifyItemChanged(selectedPos);
                     }
                     selectedPos = helper.getAdapterPosition();
                     mData.get(selectedPos).isSelect = true;
                     notifyItemChanged(selectedPos);
-                    RxBus.get().post(new VideoPostBean(item.getTitle(), UrlResetUtil.getUrl(item.getTopicSid(),
-                            item.getVid()), item.getCover(), item.getTopicName(), item.getVideoTopic().getTopic_icons()));
+                    RxBus.get().post(new VideoPostBean(item.getTitle(), item.getMp4_url(),
+                            item.getCover(), item.getTopicName(), item.getVideoTopic().getTopic_icons()));
                 }
             }
         });
-
     }
 }

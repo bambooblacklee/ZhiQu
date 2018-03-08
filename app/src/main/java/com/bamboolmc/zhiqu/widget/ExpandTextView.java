@@ -78,7 +78,6 @@ public class ExpandTextView extends LinearLayout {
         textSize = array.getDimensionPixelSize(R.styleable.ExpandTextView_textSize, defaultTextSize);
         maxLine = array.getInt(R.styleable.ExpandTextView_maxLine, defaultLine);
         text = array.getString(R.styleable.ExpandTextView_text);
-
         bindTextView(textColor, textSize, maxLine, text);
         array.recycle();
     }

@@ -2,6 +2,7 @@ package com.bamboolmc.zhiqu.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
@@ -25,8 +26,8 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import butterknife.BindView;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.JZVideoPlayerStandard;
 
 /**
  * Created by BambooLmc on 17/7/7 下午2:49.
@@ -41,7 +42,7 @@ public class MtMovieVideoActivity extends BaseActivity {
     private static final String IS_MV = "is_mv";
     private static final String MV_DATA = "mv_data";
     @BindView(R2.id.video_player)
-    JCVideoPlayerStandard mVideoPlayer;
+    JZVideoPlayerStandard mVideoPlayer;
     @BindView(R2.id.vp_video_comment)
     CustomViewPager mVpVideoComment;
     @BindView(R2.id.video_viewpager_tab)
@@ -142,19 +143,17 @@ public class MtMovieVideoActivity extends BaseActivity {
 
     @Subscribe
     public void ExchangeVideo(MtVideoPostBean mtVideoPostBean) {
-        mVideoPlayer.setUp(mtVideoPostBean.getVideoUrl(), JCVideoPlayer.SCREEN_LAYOUT_NORMAL, mtVideoPostBean.getVideoName());
+        mVideoPlayer.setUp(mtVideoPostBean.getVideoUrl(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, mtVideoPostBean.getVideoName());
         mVideoPlayer.startVideo();
-//        Picasso.with(this)
-//                .load("http://vimg3.ws.126.net/image/snapshot/2017/10/H/E/VK107COHE.jpg")
-//                .error(R.mipmap.ic_launcher)
-//                .placeholder(R.mipmap.ic_launcher)
-//                .into(mVideoPlayer.thumbImageView);
+
+        JZVideoPlayer.FULLSCREEN_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+        JZVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
     }
 
     @Override
     public void onBackPressed() {
-        if (JCVideoPlayer.backPress()) {
+        if (JZVideoPlayer.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -163,7 +162,9 @@ public class MtMovieVideoActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        JCVideoPlayer.releaseAllVideos();
+        JZVideoPlayer.releaseAllVideos();
+        JZVideoPlayer.FULLSCREEN_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_SENSOR;
+        JZVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
     }
 
     @Override

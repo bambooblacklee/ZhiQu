@@ -1,5 +1,6 @@
 package com.bamboolmc.modulevideo.module.videoList;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -17,6 +18,11 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import cn.jzvd.JZMediaManager;
+import cn.jzvd.JZUtils;
+import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.JZVideoPlayerManager;
+import cn.jzvd.JZVideoPlayerStandard;
 
 /**
  * Created by limc on 17/11/6.
@@ -73,6 +79,22 @@ public class VideoListFragment extends BaseFragment<VideoListPresenter> implemen
         mVideoListAdapter = new VideoListAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(mVideoListAdapter);
+        mRecyclerView.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
+            @Override
+            public void onChildViewAttachedToWindow(View view) {
+
+            }
+
+            @Override
+            public void onChildViewDetachedFromWindow(View view) {
+                JZVideoPlayerStandard jzvd = (JZVideoPlayerStandard)view.findViewById(R.id.vp_video_list);
+                if (jzvd != null && JZUtils.dataSourceObjectsContainsUri(jzvd.dataSourceObjects, JZMediaManager.getCurrentDataSource())) {
+                    if(JZVideoPlayerManager.getCurrentJzvd().currentScreen != JZVideoPlayer.SCREEN_WINDOW_FULLSCREEN){
+                        JZVideoPlayer.releaseAllVideos();
+                    }
+                }
+            }
+        });
 
         mRefreshLayout.setEnabled(getEnableRefresh());
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
@@ -169,5 +191,13 @@ public class VideoListFragment extends BaseFragment<VideoListPresenter> implemen
     protected boolean getEnableRefresh() {
         return mMultiStateView.getState() == MultiStateView.STATE_CONTENT
                 || mMultiStateView.getState() == MultiStateView.STATE_EMPTY;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        JZVideoPlayer.releaseAllVideos();
+        JZVideoPlayer.FULLSCREEN_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_SENSOR;
+        JZVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
     }
 }

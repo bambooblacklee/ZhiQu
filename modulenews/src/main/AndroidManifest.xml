@@ -18,23 +18,30 @@
         <!--android:theme="@style/AppTheme.NoActionBar"-->
         <activity
             android:name=".NewsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN"/>-->
                 <!--<category android:name="android.intent.category.LAUNCHER"/>-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".module.newsChannel.NewsChannelActivity">
-        </activity>
-        <activity android:name=".module.picture.PictureActivity">
-        </activity>
-        <activity android:name=".module.newsDetail.NewsDetailActivity">
-        </activity>
-        <activity android:name=".module.newsSpecial.NewsSpecialActivity">
-        </activity>
-        <activity android:name=".LoginActivity">
-        </activity>
+        <activity android:name=".module.newsChannel.NewsChannelActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".module.picture.PictureActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".module.newsDetail.NewsDetailActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".module.newsSpecial.NewsSpecialActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

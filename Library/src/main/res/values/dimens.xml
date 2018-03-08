@@ -3,9 +3,42 @@
     <dimen name="spacing_minor">3dp</dimen>
     <dimen name="cell_small">30dp</dimen>
     <dimen name="spacing_major">9dp</dimen>
-
     <dimen name="font_normal">15sp</dimen>
     <dimen name="font_smaller">12sp</dimen>
-
     <dimen name="common_loading_progress_size">45dp</dimen>
+
+    <dimen name="tab_height">40dp</dimen>
+
+
+    <dimen name="text_micro">12sp</dimen>
+    <dimen name="text_ultraMini">13sp</dimen>
+    <dimen name="text_mini">14sp</dimen>
+    <dimen name="text_ultraSmall">15sp</dimen>
+    <dimen name="text_small">16sp</dimen>
+    <dimen name="text_moderate1">18sp</dimen>
+    <dimen name="text_moderate2">19sp</dimen>
+    <dimen name="text_moderate3">22sp</dimen>
+    <dimen name="text_big">25sp</dimen>
+    <dimen name="text_extraBig">31sp</dimen>
+
+    <dimen name="spacing_ultraMicro">4dp</dimen>
+    <dimen name="spacing_micro">6dp</dimen>
+    <dimen name="spacing_mini">10dp</dimen>
+    <dimen name="spacing_small">16dp</dimen>
+    <dimen name="spacing_common">30dp</dimen>
+    <dimen name="spacing_big">31dp</dimen>
+    <dimen name="spacing_extraBig">31dp</dimen>
+
+    <dimen name="width_common">110dp</dimen>
+    <dimen name="height_common">66dp</dimen>
+    <dimen name="height_layout">90dp</dimen>
+    <dimen name="width_mini">30dp</dimen>
+    <dimen name="height_mini">30dp</dimen>
+    <dimen name="height_extraBig">200dp</dimen>
+
+    <dimen name="divider_size">1px</dimen>
+    <dimen name="divider_big_size">10px</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>

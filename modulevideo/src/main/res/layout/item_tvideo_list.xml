@@ -8,42 +8,56 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:padding="@dimen/spacing_mini">
+        android:layout_height="@dimen/height_layout"
+        android:paddingBottom="@dimen/spacing_mini"
+        android:paddingLeft="@dimen/spacing_mini"
+        android:paddingRight="@dimen/spacing_small"
+        android:paddingTop="@dimen/spacing_mini">
 
         <FrameLayout
             android:id="@+id/fl_topic_movie"
-            android:layout_width="140dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_marginRight="@dimen/dp_6">
+            android:layout_width="@dimen/width_common"
+            android:layout_height="@dimen/height_common"
+            android:layout_alignParentLeft="true">
 
             <ImageView
                 android:id="@+id/img_tvideo_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 tools:src="@drawable/ic_launcher"/>
 
             <ImageView
+                android:id="@+id/video_will_play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_video_play"/>
+            <TextView
+                android:id="@+id/video_playing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/playing"
+                android:textColor="@color/text_red"
+                android:visibility="gone"/>
 
         </FrameLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/spacing_mini"
             android:layout_toRightOf="@id/fl_topic_movie">
 
             <TextView
                 android:id="@+id/tv_tvideo_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:textColor="@color/text_primary"
-                android:textSize="@dimen/sp_16"
+                android:textSize="@dimen/text_small"
                 tools:text="太空旅客"/>
 
             <TextView
@@ -51,8 +65,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/dp_10"
-                tools:text="11小时前"/>
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/text_micro"
+                tools:text="体育"
+                android:layout_alignParentTop="false"/>
             />
         </RelativeLayout>
 

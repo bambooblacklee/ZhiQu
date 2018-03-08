@@ -35,6 +35,7 @@ dependencies {
     //依赖注入
     compile "com.jakewharton:butterknife:${butterknife_version}"
 
+    compile 'cn.jzvd:jiaozivideoplayer:6.2.7'
 
     //leakcanary 使用
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'

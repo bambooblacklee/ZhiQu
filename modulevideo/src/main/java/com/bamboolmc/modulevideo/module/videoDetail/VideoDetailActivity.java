@@ -3,6 +3,7 @@ package com.bamboolmc.modulevideo.module.videoDetail;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,14 +24,14 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import butterknife.BindView;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.JZVideoPlayerStandard;
 
 public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> implements VideoDetailContract.View {
     private static final String VIDEO_ID = "video_id";
 
     @BindView(R2.id.vp_video_detail)
-    JCVideoPlayerStandard mVideoPlayer;
+    JZVideoPlayerStandard mVideoPlayer;
     @BindView(R2.id.rv_video_detail)
     RecyclerView mRecyclerView;
     @BindView(R2.id.multi_state_view)
@@ -87,7 +88,7 @@ public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> impl
 
     @Override
     public void showVideo(VideoDetailBean videoDetailBean) {
-        RxBus.get().post(new VideoPostBean(videoDetailBean.getTitle(), videoDetailBean.getVurl(),
+        RxBus.get().post(new VideoPostBean(videoDetailBean.getTitle(), videoDetailBean.getMp4_url(),
                 videoDetailBean.getCover(), videoDetailBean.getTopicName(), videoDetailBean.getTopicImg()));
     }
 
@@ -100,8 +101,13 @@ public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> impl
                 .error(R.drawable.ic_launcher)
                 .placeholder(R.drawable.ic_launcher)
                 .into(mTopicImg);
-        mVideoPlayer.setUp(mVideoPostBean.getVideoUrl(), JCVideoPlayer.SCREEN_LAYOUT_NORMAL, mVideoPostBean.getVideoName());
+
+        mVideoPlayer.setUp(mVideoPostBean.getVideoUrl(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, mVideoPostBean.getVideoName());
         mVideoPlayer.startVideo();
+
+        JZVideoPlayer.FULLSCREEN_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+        JZVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+
         Picasso.with(this)
                 .load(mVideoPostBean.getCoverUrl())
                 .error(R.drawable.ic_launcher)
@@ -142,6 +148,15 @@ public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> impl
         } else {
             ToastUtil.showToast(R.string.label_error_network_is_bad);
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JZVideoPlayer.releaseAllVideos();
+
+        JZVideoPlayer.FULLSCREEN_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_SENSOR;
+        JZVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
     }
 
     protected void onDestroy() {

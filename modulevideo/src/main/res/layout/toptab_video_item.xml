@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txt_toptab_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_micro"
-        android:layout_marginLeft="@dimen/spacing_major"
-        android:layout_marginRight="@dimen/spacing_major"
-        android:layout_marginTop="@dimen/spacing_micro"
-        android:textColor="@color/tab_normal"
-        android:textSize="@dimen/font_smaller" />
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txt_toptab_title"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:textColor="@color/custom_tab"
+    android:textSize="@dimen/text_small">/>
 
-</LinearLayout>
+</TextView>

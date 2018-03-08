@@ -35,6 +35,7 @@ public class NewsRelativeAdapter extends BaseMultiItemQuickAdapter<NewsRelativeB
                         .error(R.drawable.ic_launcher)
                         .placeholder(R.drawable.ic_launcher)
                         .into((ImageView) helper.getView(R.id.img_news));
+
                 break;
             case NewsAppConstant.TYPE_NEWS_IMG_SMALL_ONE:
                 helper.setText(R.id.tv_news_title, item.getTitle())

@@ -11,7 +11,6 @@
     <color name="common_bg">@color/white</color>
 
     <color name="transparent">#00000000</color>
-    <color name="tab_normal">#FF4000</color>
 
     <color name="alpha_05_black">#0D000000</color>
     <color name="bg_black">#363636</color>

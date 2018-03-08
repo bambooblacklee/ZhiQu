@@ -47,12 +47,21 @@ public class TidListAdapter extends BaseMultiItemQuickAdapter<TidListBean, BaseV
                             .placeholder(R.drawable.ic_launcher)
                             .into((ImageView) helper.getView(R.id.img_news));
                 }
+                helper.convertView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ARouter.getInstance().build(RouteUtils.Video_Activity_Detail)
+                                .withString("video_id",item.getVideoID()).navigation();
+//                        NewsSpecialActivity.startActivity(mContext, item.getSpecialID());
+                    }
+                });
                 break;
             case NewsAppConstant.TYPE_NEWS_VIDEO_BIG:
                 helper.setText(R.id.tv_news_title, item.getTitle())
                         .setText(R.id.tv_news_source, item.getSource())
-                        .setText(R.id.tv_news_follow, item.getReplyCount() + "跟帖")
-                        .setText(R.id.video_length, item.getVideoInfo().getLength());
+                        .setText(R.id.tv_news_follow, item.getReplyCount() + "跟帖");
+
+//                        .setText(R.id.video_length, item.getVideoInfo().getLength()
 
                 if (!TextUtils.isEmpty(item.getImgSrc())) {
                     Picasso.with(mContext)
@@ -61,6 +70,15 @@ public class TidListAdapter extends BaseMultiItemQuickAdapter<TidListBean, BaseV
                             .placeholder(R.drawable.ic_launcher)
                             .into((ImageView) helper.getView(R.id.img_news));
                 }
+                helper.convertView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ARouter.getInstance().build(RouteUtils.Video_Activity_Detail)
+                                .withString("video_id",item.getVideoID()).navigation();
+//                        NewsSpecialActivity.startActivity(mContext, item.getSpecialID());
+                    }
+                });
+
                 break;
             case NewsAppConstant.TYPE_NEWS_LIVE_BIG:
                 helper.setText(R.id.tv_news_title, item.getTitle())
