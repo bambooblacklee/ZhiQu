@@ -111,6 +111,10 @@ public class VideoListFragment extends BaseFragment<VideoListPresenter> implemen
                 mPresenter.getMoreVideoList("T1457068979049", mEname, 10, offset, fn);
             }
         });
+
+//        if (!getUserVisibleHint()){
+//
+//        }
     }
 
     @Override
@@ -191,6 +195,16 @@ public class VideoListFragment extends BaseFragment<VideoListPresenter> implemen
     protected boolean getEnableRefresh() {
         return mMultiStateView.getState() == MultiStateView.STATE_CONTENT
                 || mMultiStateView.getState() == MultiStateView.STATE_EMPTY;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (!getUserVisibleHint()){
+            JZVideoPlayer.releaseAllVideos();
+            JZVideoPlayer.FULLSCREEN_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_SENSOR;
+            JZVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+        }
     }
 
     @Override

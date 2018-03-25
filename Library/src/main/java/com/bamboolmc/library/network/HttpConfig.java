@@ -30,4 +30,9 @@ public class HttpConfig {
      */
     public static final String VIDEO_SERVER_URL = "http://c.m.163.com/";
 
+    /**
+     * Weather服务器地址
+     */
+    public static final String WEATHER_SERVER_URL= "http://res.aider.meizu.com/";
+
 }

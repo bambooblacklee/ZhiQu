@@ -20,7 +20,7 @@
     <string name="tab_news">新闻</string>
     <string name="tab_drive">视频</string>
     <string name="tab_movie">电影</string>
-    <string name="tab_me">我的</string>
+    <string name="tab_me">天气</string>
 
     <!--豆瓣电影分类Fragment-->
     <string name="tab_movie_top">Top250</string>

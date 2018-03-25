@@ -12,5 +12,6 @@
     <color name="text_enabled">#FFFF4000</color>
     <color name="text_disabled">#88000000</color>
     <color name="tab_normal">#FFFF4000</color>
+    <color name="text_white">#FFFFFFFF</color>
 
 </resources>

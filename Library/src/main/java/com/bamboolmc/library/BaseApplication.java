@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bamboolmc.library.utils.AssetsCopyUtil;
 import com.bamboolmc.library.utils.ToastUtil;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
@@ -15,12 +16,14 @@ import com.squareup.leakcanary.RefWatcher;
 public class BaseApplication extends Application {
 
     private static Context context;
-    private RefWatcher mRefWatcher;
+    //    private RefWatcher mRefWatcher;
+    public RefWatcher refWatcher;
 
     public static RefWatcher getRefWatcher(Context context) {
         BaseApplication application = (BaseApplication) context.getApplicationContext();
-        return application.mRefWatcher;
+        return application.refWatcher;
     }
+
 
     @Override
     public void onCreate() {
@@ -33,9 +36,10 @@ public class BaseApplication extends Application {
 
         // 本地存储工具类初始化
 //        PreferenceUtil.init(this, GsonHelper.builderGson());
+        refWatcher = LeakCanary.install(this);
 
-//         LeakCanary初始化
-        mRefWatcher = LeakCanary.install(this);
+        AssetsCopyUtil.copyEmbassy2Databases(this, "data/data/" + this.getPackageName() + "/databases/",
+                "weather.db");
 
     }
 

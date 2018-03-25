@@ -1,5 +1,6 @@
 package com.bamboolmc.modulevideo.module.video;
 
+import android.content.pm.ActivityInfo;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bamboolmc.library.base.BaseFragment;
 import com.bamboolmc.library.utils.RouteUtils;
 import com.bamboolmc.library.widget.CustomViewPager;
 import com.bamboolmc.modulevideo.R;
 import com.bamboolmc.modulevideo.R2;
-import com.bamboolmc.modulevideo.base.LazyFragment;
 import com.bamboolmc.modulevideo.dagger.DaggerVideoComponent;
 import com.bamboolmc.modulevideo.module.videoList.VideoListFragment;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
@@ -26,12 +27,13 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import cn.jzvd.JZVideoPlayer;
 
 /**
  * Created by BambooLmc on 17/10/25 下午4:33.
  */
 @Route(path = RouteUtils.Video_Fragment_Video)
-public class VideoFragment extends LazyFragment<VideoPresenter> implements VideoContract.View {
+public class VideoFragment extends BaseFragment<VideoPresenter> implements VideoContract.View {
 
     @BindView(R2.id.video_viewpager)
     CustomViewPager mVideoViewPager;
@@ -113,5 +115,14 @@ public class VideoFragment extends LazyFragment<VideoPresenter> implements Video
     @Override
     public void showError() {
 
+    }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (!getUserVisibleHint()){
+            JZVideoPlayer.releaseAllVideos();
+            JZVideoPlayer.FULLSCREEN_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_SENSOR;
+            JZVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+        }
     }
 }

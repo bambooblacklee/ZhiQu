@@ -25,6 +25,17 @@ public class RouteUtils {
     //测试Login模块
     public static final String News_Activity_Login ="/news/loginActivity";
 
+    //Weather模块
+    public static final String Weather_Fragment ="/weather/forecastFragment";
+    public static final String Weather_Activity ="/weather/weatherActivity";
+
+
+    public static Fragment getWeatherFragment (){
+        Fragment weatherFragment =(Fragment) ARouter.getInstance().build(Weather_Fragment).navigation();
+        return weatherFragment;
+    }
+
+
     public static Fragment getNewsFragment (){
         Fragment newsFragment =(Fragment) ARouter.getInstance().build(News_Fragment_News).navigation();
         return newsFragment;

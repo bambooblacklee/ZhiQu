@@ -1,0 +1,68 @@
+if (!IsDebugModuleWeather.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    buildToolsVersion BUILDTOOLS_VERSION
+
+    defaultConfig {
+
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile project(':Library')
+
+    annotationProcessor "com.alibaba:arouter-compiler:${arouter_compiler_version}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_compiler_version}"
+
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.5'
+    compile 'com.google.dagger:dagger:2.5'
+    compile 'com.google.code.gson:gson:2.6.1'
+
+    //百度map
+    compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/httpmime-4.1.2.jar')
+    compile files('libs/IndoorscapeAlbumPlugin.jar')
+
+    //权限
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    compile 'com.google.dagger:dagger:2.5'
+    compile 'com.mylhyl:acp:1.1.7'
+    compile 'com.hwangjr.rxbus:rxbus:1.0.5'
+    compile 'com.android.support:design:25.3.1'
+    
+}

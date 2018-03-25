@@ -145,6 +145,8 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
     TextView mTvRelatedInformationCommentCount;
 
     //长评论
+    @BindView(R2.id.ll_long_comment)
+    LinearLayout mLlLongComment;
     @BindView(R2.id.rv_long_comment)
     RecyclerView mRvLongComment;
     @BindView(R2.id.tv_no_long_comment)
@@ -514,7 +516,10 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
 
     @Override
     public void showMovieRelInformation(List<MtMovieRelInformationBean.DataBean.NewsListBean> movieRelInformation) {
-
+        if (movieRelInformation.size() == 0) {
+//            mLlProComment.setVisibility(View.GONE);
+            return;
+        }
         Observable.just(movieRelInformation)
                 .flatMap(new Func1<List<MtMovieRelInformationBean.DataBean.NewsListBean>, Observable<MtMovieRelInformationBean.DataBean.NewsListBean>>() {
                     @Override
@@ -578,6 +583,9 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
 
     @Override
     public void showMovieRelTopic(MtMovieRelTopicBean.DataBean movieRelTopicBean) {
+        if (movieRelTopicBean.getTopics().size() == 0) {
+            mLlRelatedTopic.setVisibility(View.GONE);
+        }
         Observable.just(movieRelTopicBean)
                 .flatMap(new Func1<MtMovieRelTopicBean.DataBean, Observable<MtMovieRelTopicBean.DataBean.TopicsBean>>() {
                     @Override
@@ -663,7 +671,7 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
 
     }
 
-    private void setMovieBasic(MtMovieBasicBean.DataBean.MovieBean movieBasic) {
+    private void setMovieBasic(final MtMovieBasicBean.DataBean.MovieBean movieBasic) {
         mTvMovieName.setText(movieBasic.getNm());//电影名
         mTvMovieEnglishName.setText(movieBasic.getEnm());//电影英文名
         mTvMovieScore.setText(String.format("%s", movieBasic.getSc()));//评分
@@ -693,7 +701,9 @@ public class MtMovieDetailActivity extends BaseActivity<MtMovieDetailPresenter> 
         mFlMovieImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                MovieVideoActivity.start(mContext, movie.getId(), 0, movie.getNm() + " " + movie.getVideoName(), movie.getVideourl());
+//                MtMovieDetailActivity.startActivity(getBaseContext(), movieBasic.getId());
+                MtMovieVideoActivity.startActivity(getBaseContext(),movieBasic.getId(),0,movieBasic.getNm()+" "
+                        +movieBasic.getVideoName(),movieBasic.getVideourl());
             }
         });
     }

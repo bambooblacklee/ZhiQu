@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/weather_ll_aqi"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_common"
+        android:text="空气质量指数"
+        android:textColor="@color/home_text_color_dark"
+        android:textSize="@dimen/text_mini"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/spacing_common"
+            android:layout_weight="2.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <com.bamboolmc.moduleweather.widget.AqiView
+                    android:id="@+id/weather_view_aqi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:id="@+id/weather_tv_aqiquality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/spacing_mini"
+                    android:textColor="@color/home_text_color"
+                    android:textSize="@dimen/text_micro"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_common"
+            android:layout_weight="3.0"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    style="@style/home_aqi_item_left_text_style"
+                    android:text="@string/activity_home_str_pm25"/>
+
+                <TextView
+                    android:id="@+id/weather_tv_pm25"
+                    style="@style/home_aqi_item_right_text_style"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@color/home_inside_divider_color"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    style="@style/home_aqi_item_left_text_style"
+                    android:text="@string/activity_home_str_pm10"/>
+
+                <TextView
+                    android:id="@+id/weather_tv_pm10"
+                    style="@style/home_aqi_item_right_text_style"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@color/home_inside_divider_color"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    style="@style/home_aqi_item_left_text_style"
+                    android:text="@string/activity_home_str_so2"/>
+
+                <TextView
+                    android:id="@+id/weather_tv_so2"
+                    style="@style/home_aqi_item_right_text_style"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@color/home_inside_divider_color"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    style="@style/home_aqi_item_left_text_style"
+                    android:text="@string/activity_home_str_no2"/>
+
+                <TextView
+                    android:id="@+id/weather_tv_no2"
+                    style="@style/home_aqi_item_right_text_style"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@color/home_inside_divider_color"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/home_item_divider_color"/>
+
+</LinearLayout>

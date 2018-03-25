@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    tools:ignore="RtlHardcoded">
+
+    <TextView
+        style="@style/LetterIndexTextViewStyle"
+        android:text="@string/hot_city"/>
+
+    <com.bamboolmc.moduleweather.widget.WrapHeightGridView
+        android:id="@+id/gridview_hot_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@android:color/transparent"
+        android:horizontalSpacing="12dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:paddingLeft="16dp"
+        android:paddingRight="@dimen/side_letter_bar_width"
+        android:scrollbars="none"
+        android:verticalSpacing="12dp"/>
+
+</LinearLayout>

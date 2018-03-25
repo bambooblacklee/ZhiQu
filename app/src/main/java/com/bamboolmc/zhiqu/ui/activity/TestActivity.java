@@ -24,7 +24,7 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_weather_test);
 
         movieId = getIntent().getIntExtra(MOVIE_ID, 0);
         TextView text = (TextView)findViewById(R.id.test_tv);

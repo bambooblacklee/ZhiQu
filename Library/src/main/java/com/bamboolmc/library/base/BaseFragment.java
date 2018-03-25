@@ -13,6 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bamboolmc.library.BaseApplication;
+import com.squareup.leakcanary.RefWatcher;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -69,8 +72,8 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        RefWatcher refWatcher = ZhiQuApplication.getRefWatcher(getActivity());
-//        refWatcher.watch(this);
+        RefWatcher refWatcher = BaseApplication.getRefWatcher(getActivity());
+        refWatcher.watch(this);
     }
 
     @Override

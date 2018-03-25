@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.bamboolmc.moduleweather.widget.SkyView
+        android:id="@+id/weather_sky"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.bamboolmc.library.widget.MultiStateView
+        android:id="@+id/weather_multi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.bamboolmc.library.widget.refresh.RefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:id="@+id/content_mains"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="none"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/weather_city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_moderate2"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <RelativeLayout
+                                android:id="@+id/first_show_rl"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/weather_tv_chengeCity"
+                                    style="@style/HomeCustomButtonStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="@dimen/spacing_common"
+                                    android:layout_marginTop="@dimen/spacing_small"
+                                    android:gravity="right"
+                                    android:text="@string/city_change"
+                                    android:textColor="@color/home_text_color_dark"
+                                    android:textSize="@dimen/text_micro"/>
+
+                                <TextView
+                                    android:id="@+id/weather_tv_temp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/weather_tv_chengeCity"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="sans-serif-thin"
+                                    android:gravity="center"
+                                    android:textColor="@color/home_text_color"
+                                    android:textSize="90.0sp"
+                                    android:textStyle="normal"/>
+
+                                <TextView
+                                    android:id="@+id/tv_degree"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignTop="@id/weather_tv_temp"
+                                    android:layout_toRightOf="@id/weather_tv_temp"
+                                    android:fontFamily="sans-serif-thin"
+                                    android:text="°"
+                                    android:textColor="@color/home_text_color"
+                                    android:textSize="60.0sp"
+                                    android:textStyle="normal"/>
+
+                                <TextView
+                                    android:id="@+id/weather_tv_realfeel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/weather_tv_temp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/spacing_ultraMicro"
+                                    android:text="晴 | 体感 21°"
+                                    android:textColor="@color/home_text_color_dark"
+                                    android:textSize="@dimen/text_mini"/>
+
+                                <TextView
+                                    android:id="@+id/weather_tv_aqi"
+                                    style="@style/HomeCustomButtonStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/weather_tv_realfeel"
+                                    android:layout_marginTop="@dimen/spacing_small"
+                                    android:clickable="true"
+                                    android:gravity="center"
+                                    android:text="空气良 59"
+                                    android:textColor="@color/home_text_color_dark"
+                                    android:textSize="@dimen/text_micro"/>
+
+                                <TextView
+                                    android:id="@+id/weather_tv_updateTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/weather_tv_aqi"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/spacing_mini"
+                                    android:text="20:01 刷新"
+                                    android:textColor="@color/home_text_color_dark"
+                                    android:textSize="@dimen/text_ultraMini"/>
+                            </RelativeLayout>
+
+                            <com.bamboolmc.moduleweather.widget.WeekForecastView
+                                android:id="@+id/weather_week_forecast"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/first_show_rl"/>
+
+                        </RelativeLayout>
+
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1.0px"
+                            android:layout_marginBottom="8.0dip"
+                            android:background="@color/home_item_divider_color"/>
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:paddingBottom="@dimen/spacing_small"
+                            android:paddingTop="@dimen/spacing_small"
+                            android:text="@string/weather_hour_forecast"
+                            android:textColor="@color/home_text_color_dark"
+                            android:textSize="@dimen/text_ultraMini"/>
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fadingEdge="none"
+                            android:overScrollMode="never"
+                            android:scrollbars="none">
+
+                            <com.bamboolmc.moduleweather.widget.HourForeCastView
+                                android:id="@+id/weather_hourforecast"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </HorizontalScrollView>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1.0px"
+                            android:layout_marginBottom="8.0dip"
+                            android:background="@color/home_item_divider_color"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/spacing_common"
+                            android:text="@string/wind_and_humidity"
+                            android:textColor="@color/home_text_color_dark"
+                            android:textSize="@dimen/text_mini"/>
+
+                        <include layout="@layout/view_wind"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1.0px"
+                            android:layout_marginBottom="8.0dip"
+                            android:background="@color/home_item_divider_color"/>
+
+                        <include layout="@layout/view_aqi"/>
+
+                        <include layout="@layout/view_sunrise"/>
+
+                        <include layout="@layout/view_zhishu"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:paddingBottom="@dimen/spacing_small"
+                            android:paddingTop="@dimen/spacing_small"
+                            android:text="数据来源 中国天气"
+                            android:textColor="@color/home_text_color_dark"
+                            android:textSize="@dimen/text_ultraMini"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+        </com.bamboolmc.library.widget.refresh.RefreshLayout>
+    </com.bamboolmc.library.widget.MultiStateView>
+</RelativeLayout>

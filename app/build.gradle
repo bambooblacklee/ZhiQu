@@ -37,6 +37,10 @@ dependencies {
         compile project(':modulevideo')
     }
 
+    if (!IsDebugModuleWeather.toBoolean()) {
+        compile project(':moduleweather')
+    }
+
     annotationProcessor "com.alibaba:arouter-compiler:${arouter_compiler_version}"
 
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_compiler_version}"
@@ -74,6 +78,11 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.15'
 
     compile 'com.cesards.android:cropimageview:1.0.2.1'
+
+    //leakcanary 使用
+//    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+//    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
 
 }

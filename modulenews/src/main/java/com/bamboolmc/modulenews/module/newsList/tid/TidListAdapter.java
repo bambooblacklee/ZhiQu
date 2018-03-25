@@ -179,6 +179,8 @@ public class TidListAdapter extends BaseMultiItemQuickAdapter<TidListBean, BaseV
                         ARouter.getInstance().build(RouteUtils.News_Activity_Detail)
                                 .withString("news_id",item.getDocId())
                                 .navigation();
+//                        ARouter.getInstance().build(RouteUtils.Weather_Activity)
+//                                .navigation();
                     }
                 });
 

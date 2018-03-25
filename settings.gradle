@@ -1,1 +1,1 @@
-include ':app', ':modulenews', ':modulevideo', ':Library', ':Library'
+include ':app', ':modulenews', ':modulevideo', ':Library', ':moduleweather'

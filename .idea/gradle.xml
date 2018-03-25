@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/modulenews" />
             <option value="$PROJECT_DIR$/modulevideo" />
+            <option value="$PROJECT_DIR$/moduleweather" />
           </set>
         </option>
         <option name="myModules">
@@ -22,6 +23,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/modulenews" />
             <option value="$PROJECT_DIR$/modulevideo" />
+            <option value="$PROJECT_DIR$/moduleweather" />
           </set>
         </option>
       </GradleProjectSettings>

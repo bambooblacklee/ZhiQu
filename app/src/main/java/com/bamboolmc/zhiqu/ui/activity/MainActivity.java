@@ -71,14 +71,14 @@ public class MainActivity extends BaseActivity {
                 .add(R.string.tab_news, RouteUtils.getNewsFragment().getClass())
                 .add(R.string.tab_drive, RouteUtils.getVideoFragment().getClass())
                 .add(R.string.tab_movie, RouteUtils.getAppMtVideoFragment().getClass())
-                .add(R.string.tab_me, RouteUtils.getNewsFragment().getClass())
+                .add(R.string.tab_me, RouteUtils.getWeatherFragment().getClass())
                 .create();
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
                 pages);
 
         mCustomViewPager.setNoScroll(true);
-        mCustomViewPager.setOffscreenPageLimit(pages.size());
+        mCustomViewPager.setOffscreenPageLimit(1);
         mCustomViewPager.setAdapter(adapter);
         mViewpagerTab.setCustomTabView(new SmartTabLayout.TabProvider() {
             @Override
