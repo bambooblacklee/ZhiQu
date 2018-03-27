@@ -24,7 +24,7 @@ public class GpsUtil {
             mLocationClient = new LocationClient(mContext.getApplicationContext());
             mLocationClient.registerLocationListener(locationListener);
             initLocation();
-            mLocationClient.start();
+//            mLocationClient.start();
         }catch (Exception e){
             Log.e("GpsUtil error : ", e.getMessage(), e);
         }

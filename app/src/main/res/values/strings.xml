@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">知趣</string>
+    <string name="app_desc">知    趣</string>
 
     <!-- TextView的文本 -->
-    <string name="splash_skip">跳过</string>
+    <string name="app_adv">实现自己的兴趣</string>
     <string name="label_empty_data">当前还没有数据</string>
     <string name="label_click_button_to_retry">点击按钮重试</string>
     <string name="label_error_network">网络出现错误，请稍后重试!</string>

@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
+import com.bamboolmc.library.BaseApplication;
 import com.bamboolmc.library.base.BaseFragment;
 import com.bamboolmc.library.utils.RouteUtils;
 import com.bamboolmc.library.utils.ToastUtil;
@@ -125,6 +126,7 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
     private List<WeatherMZEntity.IndexesBean> zhishuList;
     private City mCity;
     private WeatherMZEntity mWeatherMZEntity;
+    private GpsUtil gpsUtil;
 
     @Inject
     ForecastPresenter mPresenter;
@@ -158,7 +160,7 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
     @Override
     public void initView() {
         RxBus.get().register(this);
-        cityDao = new CityDao(getActivity().getApplicationContext());
+        cityDao = new CityDao(BaseApplication.getAppContext());
         mWeatherMZEntity = new WeatherMZEntity();
         //初始化风车
         mSunRiseView.setSunRiseDowmTime("05:00", "18:46");
@@ -195,7 +197,9 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
+                Log.d("xxxxRefresh", " is on");
                 initBaiduMap();
+//                gpsUtil.start();
             }
         });
     }
@@ -203,13 +207,13 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
 
     @Override
     protected void loadData() {
-        if (!isInit){
+        if (!isInit) {
             return;
         }
-        if (getUserVisibleHint()){
+        if (getUserVisibleHint()) {
             getWeatherData();
             isVisible = true;
-        }else {
+        } else {
             if (isVisible) {
                 refreshStop();
                 isVisible = false;
@@ -237,8 +241,10 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
     //获取定位信息
     @Override
     public void onReceiveLocation(BDLocation bdLocation) {
+
+
         if (null != bdLocation && bdLocation.getLocType() != BDLocation.TypeServerError) {
-            Log.d("aaa", bdLocation.getCity() + bdLocation.getDistrict());
+            Log.d("xxxx-aaa", bdLocation.getCity() + bdLocation.getDistrict());
             if (bdLocation.getCity() == "" ||
                     bdLocation.getCity() == null ||
                     bdLocation.getDistrict() == "" ||
@@ -250,22 +256,24 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
                 String cityName = TextUtil.getFormatArea(bdLocation.getCity());
                 Log.d("xxxx--add--", areaName + cityName);
                 mCity = cityDao.getCityByCityAndArea(cityName, areaName);
+
                 if (mCity == null) {
                     mCity = cityDao.getCityByCityAndArea(cityName, cityName);
                     if (mCity == null) {
                         //TODO 此处定位失败，跳转到页面选择页面
                         refreshStop();
                         startActivity(new Intent(getActivity(), CityLocationActivity.class));
+                        return;
                     }
-                } else {
-                    mPresenter.getWeatherForecast(mCity.getWeatherId());
                 }
+                mPresenter.getWeatherForecast(mCity.getWeatherId());
             }
         } else {
             refreshStop();
             startActivity(new Intent(getActivity(), CityLocationActivity.class));
+            return;
         }
-
+        gpsUtil.stop();
     }
 
     @Override
@@ -371,8 +379,8 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
     }
 
     private void initBaiduMap() {
-        Log.d("xxxx---->","baidumap  start ");
-        GpsUtil gpsUtil = new GpsUtil(getActivity().getApplicationContext(), this);
+        Log.d("xxxx---->", "baidumap  start ");
+        gpsUtil = new GpsUtil(BaseApplication.getAppContext(), this);
         gpsUtil.start();
     }
 

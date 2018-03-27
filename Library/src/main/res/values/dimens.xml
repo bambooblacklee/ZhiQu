@@ -19,7 +19,7 @@
     <dimen name="text_moderate2">20sp</dimen>
     <dimen name="text_moderate3">22sp</dimen>
     <dimen name="text_big">25sp</dimen>
-    <dimen name="text_extraBig">90sp</dimen>
+    <dimen name="text_extraBig">50sp</dimen>
 
     <dimen name="spacing_ultraMicro">4dp</dimen>
     <dimen name="spacing_micro">6dp</dimen>
