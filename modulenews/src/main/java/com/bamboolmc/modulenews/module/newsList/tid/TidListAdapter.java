@@ -52,9 +52,9 @@ public class TidListAdapter extends BaseMultiItemQuickAdapter<TidListBean, BaseV
                     public void onClick(View v) {
                         ARouter.getInstance().build(RouteUtils.Video_Activity_Detail)
                                 .withString("video_id",item.getVideoID()).navigation();
-//                        NewsSpecialActivity.startActivity(mContext, item.getSpecialID());
                     }
                 });
+
                 break;
             case NewsAppConstant.TYPE_NEWS_VIDEO_BIG:
                 helper.setText(R.id.tv_news_title, item.getTitle())
@@ -75,7 +75,6 @@ public class TidListAdapter extends BaseMultiItemQuickAdapter<TidListBean, BaseV
                     public void onClick(View v) {
                         ARouter.getInstance().build(RouteUtils.Video_Activity_Detail)
                                 .withString("video_id",item.getVideoID()).navigation();
-//                        NewsSpecialActivity.startActivity(mContext, item.getSpecialID());
                     }
                 });
 

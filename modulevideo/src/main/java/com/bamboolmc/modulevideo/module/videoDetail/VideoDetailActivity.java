@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bamboolmc.library.base.BaseActivity;
+import com.bamboolmc.library.utils.RouteUtils;
 import com.bamboolmc.library.utils.ToastUtil;
 import com.bamboolmc.library.widget.MultiStateView;
 import com.bamboolmc.modulevideo.R;
@@ -27,6 +29,7 @@ import butterknife.BindView;
 import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerStandard;
 
+@Route(path = RouteUtils.Video_Activity_Detail)
 public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> implements VideoDetailContract.View {
     private static final String VIDEO_ID = "video_id";
 

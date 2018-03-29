@@ -3,7 +3,6 @@ package com.bamboolmc.modulenews.module.newsDetail.detFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -157,7 +156,6 @@ public class NewsDetFragment extends BaseFragment<NewsDetPresenter> implements N
                 body = videoChange;
             }
         }*/
-        Log.d("xxxxafter---->",body);
         setWebView(body);
         setNewsOther(newsDetBean);
 
@@ -289,6 +287,7 @@ public class NewsDetFragment extends BaseFragment<NewsDetPresenter> implements N
     @Override
     public void onDestroy() {
         super.onDestroy();
+
 //        mWebView.removeAllViews();
 //        mWebView.destroy();
     }

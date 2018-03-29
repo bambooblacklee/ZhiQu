@@ -199,14 +199,26 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
             public void onRefresh() {
                 Log.d("xxxxRefresh", " is on");
                 initBaiduMap();
-//                gpsUtil.start();
             }
         });
     }
 
-
     @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser){
+            loadData();
+        }
+    }
+
+//    @Override
+//    protected void loadData() {
+//
+//    }
+
+    //    @Override
     protected void loadData() {
+//    protected void onVisibleToUser(){
         if (!isInit) {
             return;
         }
@@ -365,6 +377,7 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
                         @Override
                         public void onClick(View v) {
                             loadData();
+//                            onVisibleToUser();
                         }
                     });
         } else {
@@ -396,6 +409,7 @@ public class ForecastFragment extends BaseFragment<ForecastPresenter> implements
                     public void onGranted() {
                         //权限被允许
                         loadData();
+//                        onVisibleToUser();
                     }
 
                     @Override

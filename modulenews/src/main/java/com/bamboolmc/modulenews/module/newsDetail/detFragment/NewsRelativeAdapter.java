@@ -36,6 +36,16 @@ public class NewsRelativeAdapter extends BaseMultiItemQuickAdapter<NewsRelativeB
                         .placeholder(R.drawable.ic_launcher)
                         .into((ImageView) helper.getView(R.id.img_news));
 
+                helper.convertView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ARouter.getInstance().build(RouteUtils.Video_Activity_Detail)
+                                .withString("video_id",item.getId()).navigation();
+                    }
+                });
+
+
+
                 break;
             case NewsAppConstant.TYPE_NEWS_IMG_SMALL_ONE:
                 helper.setText(R.id.tv_news_title, item.getTitle())
